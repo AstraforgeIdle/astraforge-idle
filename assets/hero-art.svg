@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1100" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#091620"/><stop offset=".42" stop-color="#243743"/><stop offset=".78" stop-color="#353c3a"/><stop offset="1" stop-color="#171f1f"/></linearGradient>
+ <radialGradient id="moonGlow"><stop stop-color="#eecc85" stop-opacity=".5"/><stop offset=".3" stop-color="#d4c9af" stop-opacity=".20"/><stop offset="1" stop-color="#97bdbb" stop-opacity="0"/></radialGradient>
+ <linearGradient id="moon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8f0d8"/><stop offset="1" stop-color="#a8a8a2"/></linearGradient>
+ <linearGradient id="nearRock" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#26332c"/><stop offset="1" stop-color="#0c171b"/></linearGradient>
+ <linearGradient id="sword" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#65767b"/><stop offset=".25" stop-color="#d9ddce"/><stop offset=".51" stop-color="#a7b9bc"/><stop offset=".77" stop-color="#e2dfc6"/><stop offset="1" stop-color="#65757c"/></linearGradient>
+ <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff2bd"/><stop offset=".38" stop-color="#c58b3e"/><stop offset=".68" stop-color="#f0bd65"/><stop offset="1" stop-color="#654a29"/></linearGradient>
+ <radialGradient id="fire"><stop stop-color="#f2af59" stop-opacity=".92"/><stop offset=".5" stop-color="#b96933" stop-opacity=".25"/><stop offset="1" stop-color="#ab5c2a" stop-opacity="0"/></radialGradient>
+ <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#091119" stop-opacity=".1"/><stop offset=".45" stop-color="#06131a" stop-opacity="0"/><stop offset="1" stop-color="#050e14" stop-opacity=".86"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="19"/></filter>
+ <filter id="blur2"><feGaussianBlur stdDeviation="5"/></filter>
+ <filter id="swordGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect width="880" height="1100" fill="url(#sky)"/>
+<circle cx="476" cy="303" r="336" fill="url(#moonGlow)"/>
+<circle cx="476" cy="303" r="120" fill="url(#moon)" opacity=".88"/>
+<g fill="#7e847e" opacity=".18"><circle cx="435" cy="268" r="22"/><circle cx="522" cy="330" r="35"/><circle cx="483" cy="236" r="19"/><circle cx="428" cy="354" r="14"/></g>
+<path d="M0 540 95 432l70 58 121-177 126 160 101-113 90 134 81-77 196 135v200H0Z" fill="#849494" opacity=".2"/>
+<path d="M0 632 108 498l75 45 92-136 122 148 92-61 97 112 120-108 174 135v180H0Z" fill="#44585b" opacity=".7"/>
+<path d="m229 458 46-51 69 84-52-32-30 14Z" fill="#b0b7ae" opacity=".43"/><path d="m549 550 37-43 39 45-32-21-24 18Z" fill="#b6bcba" opacity=".21"/>
+<path d="M0 650c188-84 324-60 458-22s283-22 422-15v273H0Z" fill="#202f30" opacity=".8"/>
+<!-- Far castle silhouette -->
+<g fill="#18262c" stroke="#7c877b" stroke-width="1" stroke-opacity=".25">
+ <path d="M215 620V440l25-32 25 32v-69l18-31 18 31v85l36-22 22 18v193Z"/>
+ <path d="M259 440h83v199h-83z"/><path d="m280 370 29-68 29 68z"/><path d="M270 339v-42h19v42M328 340v-46h15v46"/>
+ <path d="M347 630V489l20-36 20 36v-49l15-24 16 24v186Z"/>
+ <path d="M135 654V524l17-27 17 27v-46l16-29 16 29v172Z"/>
+ <path d="M470 641V520h24v-42h15v42h40v-51h19v51h27v121Z"/>
+</g>
+<g fill="#cdaf6d" opacity=".6"><rect x="280" y="403" width="6" height="20" rx="2"/><rect x="317" y="386" width="6" height="20" rx="2"/><rect x="364" y="517" width="5" height="13" rx="2"/><rect x="175" y="531" width="5" height="15" rx="2"/><rect x="529" y="548" width="4" height="14" rx="2"/></g>
+<!-- Haze and far forest -->
+<ellipse cx="418" cy="684" rx="520" ry="65" fill="#c6b89c" opacity=".1" filter="url(#blur)"/>
+<g fill="#111e22"><path d="m16 635-45 110h86ZM82 602l-55 146h110ZM142 660l-44 116h90ZM730 605l-58 146h118ZM800 620l-54 147h120ZM862 588l-62 170h123Z"/><path d="m14 675-72 159H75Zm134-19L62 848h165Zm617-33-76 194h173Z"/></g>
+<!-- Stone bridge -->
+<path d="M-75 818Q184 687 436 791T978 737v250H-75Z" fill="url(#nearRock)"/>
+<path d="M0 827q213-92 407-35c101 27 263 62 473-8" stroke="#a8a191" stroke-opacity=".19" stroke-width="14" fill="none"/>
+<path d="M0 851q213-92 407-35c101 27 263 62 473-8" stroke="#10191c" stroke-width="13" fill="none"/>
+<!-- Stone columns -->
+<g fill="#18272a" stroke="#68756b" stroke-opacity=".28" stroke-width="2">
+ <path d="M40 738h91v277H40zM29 718h111v33H29zM32 691h102v26H32zM39 680h92v10H39z"/>
+ <path d="M742 739h88v277h-88zM732 714h110v33H732zM740 686h94v29h-94z"/>
+</g>
+<path d="M87 680V527m-14 40 14-42 15 42" stroke="#84958d" stroke-opacity=".28" stroke-width="4"/>
+<path d="M789 688V536m-16 43 16-43 17 43" stroke="#84958d" stroke-opacity=".28" stroke-width="4"/>
+<!-- ember fog -->
+<ellipse cx="423" cy="945" rx="315" ry="155" fill="url(#fire)" opacity=".55"/>
+<g fill="#d2a461"><circle cx="135" cy="671" r="2"/><circle cx="617" cy="730" r="2"/><circle cx="725" cy="866" r="3"/><circle cx="217" cy="870" r="2"/><circle cx="502" cy="744" r="2"/><circle cx="329" cy="908" r="2"/><circle cx="684" cy="576" r="1"/><circle cx="562" cy="607" r="2"/><circle cx="327" cy="664" r="1"/></g>
+<!-- Rune halo around sword -->
+<circle cx="439" cy="692" r="224" fill="none" stroke="#e8ba69" stroke-opacity=".18" stroke-width="2" stroke-dasharray="2 10"/>
+<circle cx="439" cy="692" r="207" fill="none" stroke="#e8ba69" stroke-opacity=".25" stroke-width="1"/>
+<circle cx="439" cy="692" r="187" fill="none" stroke="#dec080" stroke-opacity=".11" stroke-width="1" stroke-dasharray="16 9 1 9"/>
+<g fill="#e4c28b" opacity=".56" font-family="serif" font-size="26"><text x="414" y="476">✦</text><text x="220" y="705">✧</text><text x="651" y="703">✧</text><text x="431" y="924">✦</text></g>
+<!-- Sword light -->
+<path d="M440 230V921" stroke="#e4b77c" stroke-opacity=".5" stroke-width="36" filter="url(#swordGlow)"/>
+<!-- Vertical planted sword: handle, guard, long blade -->
+<g stroke-linejoin="round" stroke-linecap="round">
+ <path d="M435 401 421 349l18-25 18 25-14 52Z" fill="url(#gold)" stroke="#1f2626" stroke-width="4"/>
+ <path d="M436 394h8v91h-8z" fill="#84572b" stroke="#e5be73" stroke-width="2"/>
+ <g stroke="#cca15a" stroke-width="3"><path d="m433 409 14 11m-14 7 14 11m-14 6 14 11m-14 7 14 11"/></g>
+ <path d="M385 476q25 9 55 8 34 0 60-12l22 9q-14 13-28 16l-37-3-5 17h-23l-7-17-33 5q-24-3-34-18Z" fill="url(#gold)" stroke="#42301e" stroke-width="5"/>
+ <path d="M440 492 473 524l-9 324-24 102-24-102-9-324Z" fill="url(#sword)" stroke="#263a40" stroke-width="4"/>
+ <path d="M440 497v435" stroke="#eff0dd" stroke-opacity=".63" stroke-width="3"/>
+ <path d="M417 533 440 510l23 23" fill="none" stroke="#c79a58" stroke-width="3"/>
+ <path d="M423 620h34M423 661h34M425 701h30" stroke="#466066" stroke-width="2" opacity=".45"/>
+ <circle cx="440" cy="488" r="12" fill="#253e43" stroke="#f7d28d" stroke-width="5"/><circle cx="440" cy="488" r="4" fill="#f5ecba"/>
+</g>
+<!-- Moss and close rocks -->
+<path d="m0 905 145-32 69 61 103-43 99 65 114-38 105 46 118-53 127 40v148H0Z" fill="#142025"/>
+<path d="m0 960 115-19 35 14 64-12 58 27 51 23 75-12 103 29 119-33 79 22 92-18 89 18v101H0Z" fill="#0d191e"/>
+<path d="M74 914q21-13 52-11m165 39q38-5 63 4m330 4q39-11 63-6" stroke="#698479" stroke-width="4" opacity=".24" fill="none"/>
+<rect width="880" height="1100" fill="url(#fade)"/>
+</svg>
