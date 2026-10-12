@@ -3,15 +3,27 @@
   "locale": "pt-BR",
   "updates": [
     {
+      "version": "0.6.1-beta",
+      "slug": "v0.6.1",
+      "title": "Oficina, heróis e chefes",
+      "title_origin": "Notas do patch 0.6.1 fornecidas para publicação",
+      "summary": "Correções nos chefes, ajustes de Lyn e Mira, equipamentos, missões épicas e novos custos da Oficina.",
+      "status": "published_beta",
+      "status_label": "Hotfix publicado",
+      "release_confirmed": true,
+      "published_at": "2026-10-12T19:07:29Z",
+      "path": "updates/v0.6.1/index.html"
+    },
+    {
       "version": "0.6.0-beta",
       "slug": "v0.6.0",
       "title": "Picos Congelados",
       "title_origin": "Título editorial baseado no nome canônico do mundo",
       "summary": "Mundo 4, quinze espécies, três chefes fixos, Astarok, equipamento 70 e ajustes de Kharun.",
-      "status": "in_review_preparation",
-      "status_label": "Em preparação para revisão",
-      "release_confirmed": false,
-      "published_at": null,
+      "status": "published_beta",
+      "status_label": "Versão publicada",
+      "release_confirmed": true,
+      "published_at": "2026-10-12T13:52:23Z",
       "path": "updates/v0.6.0/index.html"
     },
     {

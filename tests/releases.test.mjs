@@ -104,7 +104,7 @@ test('skips a bad first asset and uses the next valid APK', () => {
   assert.equal(selected.assetName, 'Astraforge.APK');
 });
 
-test('older releases link their own public release notes instead of V0.6.0 notes', () => {
+test('older releases link their own public release notes instead of V0.6.1 notes', () => {
   const selected = exported('selectPublicApkRelease')([release()]);
   assert.equal(selected.notesUrl, `${repository}/releases/tag/v0.5.2`);
 });
@@ -115,17 +115,17 @@ test('untrusted older release notes URLs are omitted', () => {
   assert.equal(selected.releaseUrl, null);
 });
 
-test('V0.6.0 tags resolve notes against the module root, including Beta suffixes', () => {
+test('V0.6.1 tags resolve notes against the module root, including Beta suffixes', () => {
   const select = exported('selectPublicApkRelease');
-  for (const tag of ['v0.6.0', '0.6.0', 'v0.6.0-beta.1']) {
+  for (const tag of ['v0.6.1', '0.6.1', 'v0.6.1-beta.1']) {
     const selected = select([release({ tag_name: tag })]);
-    assert.equal(selected.notesUrl, new URL('../updates/v0.6.0/index.html', import.meta.url).href);
+    assert.equal(selected.notesUrl, new URL('../updates/v0.6.1/index.html', import.meta.url).href);
   }
   assert.equal(select([release({ tag_name: 'v0.6.01' })]).notesUrl, `${repository}/releases/tag/v0.5.2`);
 });
 
 test('a standalone notes package can configure the module-relative notes path', () => {
-  const selected = exported('selectPublicApkRelease')([release({ tag_name: 'v0.6.0' })], { notesPath: 'index.html' });
+  const selected = exported('selectPublicApkRelease')([release({ tag_name: 'v0.6.1' })], { notesPath: 'index.html' });
   assert.equal(selected.notesUrl, new URL('../index.html', import.meta.url).href);
 });
 
