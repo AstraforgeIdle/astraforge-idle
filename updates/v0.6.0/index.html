@@ -1,164 +1,331 @@
 <!doctype html>
+
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>V0.6.0 Beta — Picos Congelados | Astraforge Idle</title>
+
   <meta name="description" content="Conheça Picos Congelados: Mundo 4, quinze inimigos, chefes, equipamento 70 e ajustes de Kharun. V0.6.0 Beta em preparação para revisão.">
+
   <meta name="theme-color" content="#081321">
+
   <link rel="canonical" href="https://astraforgeidle.github.io/astraforge-idle/updates/v0.6.0/">
+
   <meta property="og:type" content="article">
+
   <meta property="og:locale" content="pt_BR">
+
   <meta property="og:site_name" content="Astraforge Idle">
+
   <meta property="og:title" content="V0.6.0 Beta — Picos Congelados">
+
   <meta property="og:description" content="O novo capítulo gelado de Astraforge. Material em preparação para revisão; lançamento ainda não aprovado.">
+
   <meta property="og:url" content="https://astraforgeidle.github.io/astraforge-idle/updates/v0.6.0/">
+
   <meta property="og:image" content="https://astraforgeidle.github.io/astraforge-idle/assets/screenshots/world4.webp">
+
   <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" href="../../assets/branding/emblem.webp" type="image/webp">
+
   <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="patch-v0.6.0.css">
+
   <script type="module" src="../../app.js"></script>
+
 </head>
+
 <body>
+
   <a class="skip-link" href="#conteudo">Pular para as notas</a>
+
   <header class="site-header">
+
     <div class="container header-inner">
+
       <a class="brand" href="../../index.html"><img src="../../assets/branding/emblem.webp" width="44" height="44" alt=""><span>Astraforge <small>Idle</small></span></a>
+
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
       <nav class="nav-links" id="site-nav" aria-label="Navegação principal">
+
         <a href="../../index.html#mundos">Mundos</a><a href="../../index.html#personagens">Personagens</a><a href="../../index.html#sistemas">Sistemas</a><a href="../index.html" aria-current="page">Atualizações</a><a href="../../index.html#download">Android</a>
+
       </nav>
+
     </div>
+
   </header>
+
   <main id="conteudo">
+
     <section class="section patch-hero" id="banner" aria-labelledby="patch-title">
+
       <div class="container">
+
         <a class="back-link" href="../index.html">← Todas as atualizações</a>
+
         <p class="eyebrow">Notas da atualização · V0.6.0 Beta</p>
+
         <h1 id="patch-title">Picos <em>Congelados</em></h1>
+
         <p class="lede">A chama da Forja abre caminho para o inverno. Explore a costa gelada, atravesse as ruínas de cristal e enfrente as ameaças de um novo capítulo da campanha.</p>
+
         <p class="badge">Em preparação para revisão</p>
+
         <div class="notice"><strong>Lançamento ainda não aprovado.</strong> Estas notas apresentam o conteúdo implementado e testado no projeto. A distribuição da V0.6.0 Beta e sua data de lançamento ainda dependem de revisão.</div>
+
         <figure class="patch-banner"><img src="../../assets/screenshots/world4.webp" width="540" height="960" fetchpriority="high" alt="Combate real do Godot no cenário nevado de Picos Congelados"><figcaption>Captura real do runtime Godot. O Mundo 4 ocupa as fases 701–1200.</figcaption></figure>
+
       </div>
+
     </section>
+
     <div class="container patch-layout">
+
       <aside class="toc" aria-label="Índice das notas">
+
         <p class="eyebrow">Nesta atualização</p>
+
         <ol>
+
           <li><a href="#banner">Apresentação</a></li><li><a href="#resumo">Destaques</a></li><li><a href="#mundo4">Mundo 4</a></li><li><a href="#inimigos">Novos inimigos</a></li><li><a href="#chefes">Chefes</a></li><li><a href="#personagens">Personagens</a></li><li><a href="#equipamentos">Equipamentos</a></li><li><a href="#balanceamento">Balanceamento</a></li><li><a href="#interface">Interface</a></li><li><a href="#desempenho">Desempenho</a></li><li><a href="#correcoes">Correções</a></li><li><a href="#limites">Limitações</a></li>
+
         </ol>
+
       </aside>
+
       <article class="patch-body">
+
         <section class="section" id="resumo" aria-labelledby="resumo-title">
+
           <div class="section-heading"><p class="eyebrow">02 · Destaques</p><h2 id="resumo-title">Um novo horizonte sob a neve</h2></div>
+
           <div class="grid three">
+
             <div class="card"><span class="delta">500 fases</span><h3>Picos Congelados</h3><p>Quinze espécies, ondas maiores e ameaças capazes de pressionar também a retaguarda.</p></div>
+
             <div class="card"><span class="delta">3 + 1 chefes</span><h3>Caça, cristal e coroa</h3><p>Fenrir, Sacerdotisa de Cristal, Rei do Inverno e o raro Astarok têm mecânicas próprias.</p></div>
+
             <div class="card"><span class="delta">Equipamento 70</span><h3>O legado da Forja</h3><p>Dezoito famílias vulcânicas e onze técnicas permanentes para preparar sua equipe.</p></div>
+
           </div>
+
           <p>Kharun passa a causar mais dano e ganha novas ferramentas de sobrevivência. Resistência a crítico amplia as opções de atributos e equipamentos. Inventário, ascensão e navegação pelos mundos recebem correções de uso diário.</p>
+
         </section>
+
         <section class="section" id="mundo4" aria-labelledby="mundo4-title">
+
           <div class="section-heading"><p class="eyebrow">03 · Mundo 4</p><h2 id="mundo4-title">Picos Congelados</h2></div>
+
           <p>Da costa ao trono, a campanha atravessa seis regiões com cenários próprios. Neve, terra, bosque e ruínas conduzem às áreas de catedral e cidadela. Cada chefe fixo tem sua arena; Astarok guarda um covil exclusivo.</p>
+
           <p>As fases comuns reúnem de <strong>5 a 8 inimigos</strong>, com tanques, curandeiros, atacantes e apoiadores. Espécies já encontradas continuam nas ondas enquanto novos papéis entram. A força dos inimigos cresce ao longo do mundo, sem cair ao atravessar as fronteiras das regiões.</p>
+
           <div class="card"><h3>Gélido: adapte o ritmo da sua equipe</h3><p>Em Picos Congelados, a <strong>duração das recargas é multiplicada por 0,85</strong>: uma recarga de 10 segundos passa a 8,5 segundos. A <strong>velocidade dos ataques básicos também é multiplicada por 0,85</strong>, tornando-os 15% mais lentos.</p><p>O efeito vale somente para heróis e seus servos. Inimigos e chefes não recebem esses modificadores; eles desaparecem ao sair do mundo.</p></div>
+
           <p>A trilha tem a música original <strong>Aurora sobre o Permafrost</strong>, com sinos, flauta, cordas e harpa. O loop usa o sistema de som já existente e respeita suas configurações de música.</p>
+
           <figure><img src="../../assets/screenshots/world-map.webp" width="540" height="960" loading="lazy" alt="Visão geral real dos mundos na navegação do jogo"><figcaption>A visão geral dá acesso à descrição de cada mundo e à sua trilha interna.</figcaption></figure>
+
         </section>
+
         <section class="section" id="inimigos" aria-labelledby="inimigos-title">
+
           <div class="section-heading"><p class="eyebrow">04 · Novos inimigos</p><h2 id="inimigos-title">Quinze ameaças do inverno</h2></div>
+
           <p>A distância já não basta para proteger a retaguarda. Flechas, plumas, teias e magia alcançam os heróis de trás, enquanto curas e guardas sustentam a linha inimiga.</p>
+
           <div class="table-wrap" tabindex="0" role="region" aria-label="Inimigos e primeira fase; tabela rolável">
+
             <table class="stat-table"><caption>Entrada das novas espécies nas fases comuns</caption><thead><tr><th scope="col">Primeira fase</th><th scope="col">Inimigo</th><th scope="col">Ameaça principal</th></tr></thead><tbody>
+
               <tr><td>701</td><th scope="row">Lobo do Permafrost</th><td>Mordida que reduz a cura recebida.</td></tr>
+
               <tr><td>701</td><th scope="row">Raposa da Aurora</th><td>Cura dois aliados feridos.</td></tr>
+
               <tr><td>701</td><th scope="row">Corvo Glacial</th><td>Plumas contra dois alvos da retaguarda.</td></tr>
+
               <tr><td>701</td><th scope="row">Aranha de Cristal</th><td>Teia que imobiliza um alvo de trás.</td></tr>
+
               <tr><td>701</td><th scope="row">Urso das Geadas</th><td>Guarda para resistir na linha de frente.</td></tr>
+
               <tr><td>731</td><th scope="row">Golem de Cristal</th><td>Impacto com atordoamento na frente.</td></tr>
+
               <tr><td>761</td><th scope="row">Revenante Gélido</th><td>Golpe que enfraquece a defesa.</td></tr>
+
               <tr><td>801</td><th scope="row">Arqueira da Nevasca</th><td>Disparo contra dois alvos de trás.</td></tr>
+
               <tr><td>821</td><th scope="row">Oráculo dos Cristais</th><td>Cura três aliados feridos.</td></tr>
+
               <tr><td>851</td><th scope="row">Sentinela do Inverno</th><td>Guarda para a frente aliada.</td></tr>
+
               <tr><td>871</td><th scope="row">Mago da Geada</th><td>Magia e lentidão dos básicos na retaguarda.</td></tr>
+
               <tr><td>901</td><th scope="row">Fagulha Glacial</th><td>Aumenta o ataque dos aliados.</td></tr>
+
               <tr><td>951</td><th scope="row">Dama da Neve</th><td>Cura e guarda para o grupo.</td></tr>
+
               <tr><td>1001</td><th scope="row">Caçador dos Picos</th><td>Investida contra a retaguarda.</td></tr>
+
               <tr><td>1051</td><th scope="row">Vórtice de Nevasca</th><td>Magia em área que reduz ataque.</td></tr>
+
             </tbody></table>
+
           </div>
+
         </section>
+
         <section class="section" id="chefes" aria-labelledby="chefes-title">
+
           <div class="section-heading"><p class="eyebrow">05 · Chefes</p><h2 id="chefes-title">Os guardiões de Picos Congelados</h2></div>
+
           <div class="grid two">
+
             <section class="card boss-card"><img src="../../assets/screenshots/fenrir.webp" width="540" height="960" loading="lazy" alt="Fenrir enfrentando a equipe no Godot"><p class="eyebrow">Fase 850</p><h3>Fenrir, Predador Glacial</h3><p>Marca e caça um alvo da retaguarda. O salto concentra pressão, as garras reduzem cura e o uivo atrapalha o deslocamento. Com metade do HP, a caça se intensifica e ele ganha aceleração temporária.</p><p><strong>Preparação atual:</strong> equipamento 70 com refino +5 venceu nas cinco simulações finais da build de teste.</p></section>
+
             <section class="card boss-card"><img src="../../assets/screenshots/priestess.webp" width="540" height="960" loading="lazy" alt="Sacerdotisa de Cristal e seus espelhos no combate real"><p class="eyebrow">Fase 1000</p><h3>Sacerdotisa de Cristal</h3><p>Alterna julgamentos prismáticos, controles e três espelhos visíveis. Resiste à magia; dano físico pode quebrar os espelhos e abrir uma breve janela de vulnerabilidade.</p><p><strong>Progressão futura:</strong> a build atual de teste perdeu as dez tentativas. Equipamento 80/90 e ascensão 2 ainda não existem nesta Beta.</p></section>
+
             <section class="card boss-card"><img src="../../assets/screenshots/winter-king.webp" width="540" height="960" loading="lazy" alt="Rei do Inverno em sua arena de trono no Godot"><p class="eyebrow">Fase 1200</p><h3>Rei do Inverno</h3><p>Decreto do Inverno atinge as duas linhas. Correntes da Coroa interrompem conjurações ou atrasam uma habilidade; Bastião do Trono reforça sua defesa. Resistência e proteção temporária contra controle impedem aprisioná-lo em uma sequência permanente.</p><p><strong>Progressão futura:</strong> a build atual de teste perdeu as dez tentativas. A calibração com os próximos tiers será feita quando esses sistemas existirem.</p></section>
+
             <section class="card boss-card"><img src="../../assets/screenshots/astarok.webp" width="540" height="960" loading="lazy" alt="Astarok em seu covil de gelo no combate real"><p class="eyebrow">Encontro raro · 2%</p><h3>Astarok, Dragão Ancestral da Nevasca</h3><p>Pode surgir nas fases comuns 701–849, 851–999 e 1001–1199. Sua força acompanha a fase; ele não ocupa um chefe fixo e não tem garantia acumulada de aparição.</p><p>Novos debuffs aplicados durante a carga do Cataclismo reduzem seu dano. Maldições de Nymeris participam dessa reação, e dano verdadeiro explora a vulnerabilidade do dragão.</p></section>
+
           </div>
+
         </section>
+
         <section class="section" id="personagens" aria-labelledby="personagens-title">
+
           <div class="section-heading"><p class="eyebrow">06 · Personagens e habilidades</p><h2 id="personagens-title">A equipe encontra novas respostas</h2></div>
+
           <p>Esta atualização trabalha com os heróis existentes. As mudanças abaixo são ajustes de habilidades ou de sua interação com o Mundo 4.</p>
+
           <section class="card hero-row" id="kharun"><img class="portrait" src="../../assets/characters/hero_kharun.webp" width="356" height="477" loading="lazy" alt="Arte oficial de Kharun, Monge Renegado"><div><p class="eyebrow">Monge Renegado · controle e sobrevivência</p><h3>Kharun</h3><p>O monge ganha ferramentas para sustentar a luta, inclusive diante de um único chefe.</p>
+
             <ul><li><strong>Quatro habilidades ativas:</strong> coeficientes de dano aumentados em <strong>20%</strong>, incluindo perfuração e colisão do Bastão do Céu Partido.</li><li><strong>Roda das Mil Sombras:</strong> rouba <strong>15–24%</strong> do HP efetivamente removido, conforme o nível, com cura limitada a <strong>12% do HP máximo por uso</strong>. Guarda de <strong>16%</strong> contra um ou dois alvos e <strong>24%</strong> contra três ou mais começa no primeiro acerto e dura até 5 segundos após a conclusão. AUTO passa a priorizar Roda.</li><li><strong>Disciplina do Renegado:</strong> Aparar reduz <strong>60%</strong> do dano dos básicos e agora <strong>35%</strong> de habilidades diretas físicas ou mágicas. A chance é de <strong>20–29%</strong>, além de bônus de postura, com recarga compartilhada de <strong>1,5 segundo</strong> após sucesso.</li><li><strong>Esquiva da Disciplina:</strong> contribuição própria de <strong>5–9,5 pontos percentuais</strong>, somada à base, atributos e equipamento. A precisão inimiga e o limite de 50% continuam valendo.</li><li><strong>Caminho Sem Mestre:</strong> posturas defensivas de <strong>15% / 25% / 35%</strong> no nível 1, preservando o crescimento por nível.</li></ul>
+
             <p>Aparar não reduz dano periódico, refletido, ambiental ou verdadeiro. Esquiva é resolvida antes da aparada; o mesmo ataque não usa as duas defesas. As reações agora mostram um passo de esquiva e uma defesa com bastão distintos.</p>
+
           </div></section>
+
           <figure><img src="../../assets/screenshots/kharun-skill.webp" width="540" height="960" loading="lazy" alt="Kharun utilizando sua habilidade no runtime Godot"><figcaption>A recuperação da Roda considera HP removido; escudos, esquivas e dano excedente não geram cura.</figcaption></figure>
+
           <div class="grid three">
+
             <section class="card"><img class="portrait" src="../../assets/characters/hero_lyn.webp" width="335" height="342" loading="lazy" alt="Arte oficial de Lyn"><h3>Lyn</h3><p>Seus pacotes passivos de dano verdadeiro passam a respeitar a vulnerabilidade de Astarok. A correção alinha esse dano à mecânica do novo chefe.</p></section>
+
             <section class="card"><img class="portrait" src="../../assets/characters/hero_mira.webp" width="198" height="218" loading="lazy" alt="Arte oficial de Mira"><h3>Mira</h3><p>O dano verdadeiro de suas passivas também explora corretamente a vulnerabilidade de Astarok. Não há aumento global dos coeficientes de Mira neste ajuste.</p></section>
+
             <section class="card"><img class="portrait" src="../../assets/characters/hero_nymeris.webp" width="303" height="290" loading="lazy" alt="Arte oficial de Nymeris"><h3>Nymeris</h3><p>Maldições nativas aplicadas ou reaplicadas durante o Cataclismo entram na reação de Astarok. Pilhas de uma mesma maldição contam como uma categoria. Seus servos recebem Gélido com os heróis.</p></section>
+
           </div>
+
           <div class="card"><h3>Todos os heróis: resistência a crítico</h3><p>Um novo atributo distribuível concede <strong>0,5 ponto percentual por ponto investido</strong>, com até <strong>25 pontos</strong> por atributo. A resistência subtrai a chance crítica do atacante: 30% de crítico contra 10% de resistência resulta em 20% de chance efetiva. O multiplicador do dano crítico permanece igual.</p><p>O atributo aparece na prévia, nos status, no inventário e nas opções defensivas da Oficina. Distribuições já salvas são preservadas; a nova opção começa em zero.</p></div>
+
         </section>
+
         <section class="section" id="equipamentos" aria-labelledby="equipamentos-title">
+
           <div class="section-heading"><p class="eyebrow">07 · Equipamentos e sistemas</p><h2 id="equipamentos-title">A Forja alcança o nível 70</h2></div>
+
           <p>Dezoito famílias de equipamento trazem lava, cinzas, ferro e obsidiana do Mundo 3: nove armas, quatro peças leves, quatro pesadas e um acessório universal. Compatibilidade, atributos finais, refino e extras continuam usando as mesmas regras da equipe.</p>
-          <div class="grid two"><div class="card"><h3>Armas vulcânicas</h3><p>Espada da Caldeira Eterna, Arco das Brasas Ancestrais, Martelo do Núcleo Ígneo, Gêmeas da Lava Negra, Cajado da Chama Vital, Cajado da Erupção Astral, Grimório da Obsidiana Ardente, Bastão do Sol Vulcânico e Harpa das Cinzas Luminosas.</p></div><div class="card"><h3>Proteções e acessório</h3><p>Elmo, armadura, luvas e botas das Cinzas Sagradas; conjunto pesado da Obsidiana Imperial; Talismã do Coração Vulcânico para o acessório universal.</p></div></div>
-          <p>As <strong>11 técnicas de nível 70</strong> são conhecimento permanente separado das peças. Começam a cair na fase <strong>650</strong>: chance de <strong>2% por abate comum</strong> e <strong>10% em chefe ou minichefe</strong>, escolhendo uma técnica elegível ainda desconhecida. A chance não é aplicada individualmente a cada técnica.</p>
-          <p>Cada receita pede 300 Essências, 32 Núcleos do Vigia, 28 Núcleos do Arauto, dois materiais de Malkor e três materiais de espécies do Mundo 4 em quantidades 40/32/24. Todas as origens estão entre 600 e 849, antes de Fenrir. As receitas 70 não exigem materiais dos três chefes fixos do Mundo 4.</p>
+
+          <div class="forge-catalog-group"><h3>Armas vulcânicas</h3><p class="forge-group-note">9 armas · uma família para cada herói</p><div class="forge-catalog"><article class="forge-item" data-equipment-id="craft_sword_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_sword_weapon_70.png" width="256" height="336" loading="lazy" decoding="async" alt="Ícone de Espada da Caldeira Eterna do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Espada da Caldeira Eterna</h4><p class="forge-item-type">Espada</p><p class="forge-item-compat">Kael<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_bow_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_bow_weapon_70.png" width="256" height="336" loading="lazy" decoding="async" alt="Ícone de Arco das Brasas Ancestrais do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Arco das Brasas Ancestrais</h4><p class="forge-item-type">Arco</p><p class="forge-item-compat">Lyn<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_hammer_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_hammer_weapon_70.png" width="268" height="336" loading="lazy" decoding="async" alt="Ícone de Martelo do Núcleo Ígneo do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Martelo do Núcleo Ígneo</h4><p class="forge-item-type">Martelo</p><p class="forge-item-compat">Dorrik<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_dual_blades_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_dual_blades_weapon_70.png" width="244" height="336" loading="lazy" decoding="async" alt="Ícone de Gêmeas da Lava Negra do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Gêmeas da Lava Negra</h4><p class="forge-item-type">Lâminas duplas</p><p class="forge-item-compat">Fae<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_holy_staff_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_holy_staff_weapon_70.png" width="256" height="343" loading="lazy" decoding="async" alt="Ícone de Cajado da Chama Vital do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Cajado da Chama Vital</h4><p class="forge-item-type">Cajado sagrado</p><p class="forge-item-compat">Aelia<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Pluma Glacial</span><strong>40</strong></li><li><span>Cauda da Aurora</span><strong>32</strong></li><li><span>Fio da Nevasca</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_staff_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_staff_weapon_70.png" width="256" height="343" loading="lazy" decoding="async" alt="Ícone de Cajado da Erupção Astral do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Cajado da Erupção Astral</h4><p class="forge-item-type">Cajado</p><p class="forge-item-compat">Mira<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Pluma Glacial</span><strong>40</strong></li><li><span>Cauda da Aurora</span><strong>32</strong></li><li><span>Fio da Nevasca</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_book_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_book_weapon_70.png" width="262" height="336" loading="lazy" decoding="async" alt="Ícone de Grimório da Obsidiana Ardente do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Grimório da Obsidiana Ardente</h4><p class="forge-item-type">Grimório</p><p class="forge-item-compat">Nymeris<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Pluma Glacial</span><strong>40</strong></li><li><span>Cauda da Aurora</span><strong>32</strong></li><li><span>Fio da Nevasca</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_celestial_staff_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_celestial_staff_weapon_70.png" width="267" height="345" loading="lazy" decoding="async" alt="Ícone de Bastão do Sol Vulcânico do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Bastão do Sol Vulcânico</h4><p class="forge-item-type">Bastão celestial</p><p class="forge-item-compat">Kharun<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_instrument_weapon_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_instrument_weapon_70.png" width="241" height="345" loading="lazy" decoding="async" alt="Ícone de Harpa das Cinzas Luminosas do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Harpa das Cinzas Luminosas</h4><p class="forge-item-type">Instrumento</p><p class="forge-item-compat">Nerissa<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Pluma Glacial</span><strong>40</strong></li><li><span>Cauda da Aurora</span><strong>32</strong></li><li><span>Fio da Nevasca</span><strong>24</strong></li></ul></details></div></article></div></div>
+<div class="forge-catalog-group"><h3>Proteções da Forja</h3><p class="forge-group-note">8 peças · quatro leves e quatro pesadas</p><div class="forge-catalog"><article class="forge-item" data-equipment-id="craft_shared_light_helmet_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_shared_light_helmet_70.png" width="249" height="343" loading="lazy" decoding="async" alt="Ícone de Elmo das Cinzas Sagradas do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Elmo das Cinzas Sagradas</h4><p class="forge-item-type">Elmo · leve</p><p class="forge-item-compat">Aelia, Lyn, Mira, Fae, Nerissa e Nymeris<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Cauda da Aurora</span><strong>40</strong></li><li><span>Seda Cristalina</span><strong>32</strong></li><li><span>Lágrima de Cristal</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_shared_light_chest_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_shared_light_chest_70.png" width="263" height="343" loading="lazy" decoding="async" alt="Ícone de Armadura das Cinzas Sagradas do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Armadura das Cinzas Sagradas</h4><p class="forge-item-type">Armadura · leve</p><p class="forge-item-compat">Aelia, Lyn, Mira, Fae, Nerissa e Nymeris<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Cauda da Aurora</span><strong>40</strong></li><li><span>Seda Cristalina</span><strong>32</strong></li><li><span>Lágrima de Cristal</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_shared_light_gloves_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_shared_light_gloves_70.png" width="248" height="343" loading="lazy" decoding="async" alt="Ícone de Luvas das Cinzas Sagradas do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Luvas das Cinzas Sagradas</h4><p class="forge-item-type">Luvas · leves</p><p class="forge-item-compat">Aelia, Lyn, Mira, Fae, Nerissa e Nymeris<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Cauda da Aurora</span><strong>40</strong></li><li><span>Seda Cristalina</span><strong>32</strong></li><li><span>Lágrima de Cristal</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_shared_light_boots_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_shared_light_boots_70.png" width="264" height="343" loading="lazy" decoding="async" alt="Ícone de Botas das Cinzas Sagradas do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Botas das Cinzas Sagradas</h4><p class="forge-item-type">Botas · leves</p><p class="forge-item-compat">Aelia, Lyn, Mira, Fae, Nerissa e Nymeris<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Cauda da Aurora</span><strong>40</strong></li><li><span>Seda Cristalina</span><strong>32</strong></li><li><span>Lágrima de Cristal</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_heavy_helmet_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_heavy_helmet_70.png" width="243" height="345" loading="lazy" decoding="async" alt="Ícone de Elmo da Obsidiana Imperial do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Elmo da Obsidiana Imperial</h4><p class="forge-item-type">Elmo · pesado</p><p class="forge-item-compat">Kael, Dorrik e Kharun<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_heavy_chest_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_heavy_chest_70.png" width="287" height="345" loading="lazy" decoding="async" alt="Ícone de Armadura da Obsidiana Imperial do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Armadura da Obsidiana Imperial</h4><p class="forge-item-type">Armadura · pesada</p><p class="forge-item-compat">Kael, Dorrik e Kharun<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_heavy_gloves_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_heavy_gloves_70.png" width="238" height="345" loading="lazy" decoding="async" alt="Ícone de Luvas da Obsidiana Imperial do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Luvas da Obsidiana Imperial</h4><p class="forge-item-type">Luvas · pesadas</p><p class="forge-item-compat">Kael, Dorrik e Kharun<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article><article class="forge-item" data-equipment-id="craft_heavy_boots_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_heavy_boots_70.png" width="260" height="345" loading="lazy" decoding="async" alt="Ícone de Botas da Obsidiana Imperial do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Botas da Obsidiana Imperial</h4><p class="forge-item-type">Botas · pesadas</p><p class="forge-item-compat">Kael, Dorrik e Kharun<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 2 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Presa do Permafrost</span><strong>40</strong></li><li><span>Couro das Geadas</span><strong>32</strong></li><li><span>Pluma Glacial</span><strong>24</strong></li></ul></details></div></article></div></div>
+<div class="forge-catalog-group"><h3>Um talismã para toda a equipe</h3><p class="forge-group-note">1 acessório universal</p><div class="forge-catalog"><article class="forge-item" data-equipment-id="craft_universal_accessory_70"><div class="forge-item-art"><img src="assets/equipment-70/craft_universal_accessory_70.png" width="250" height="336" loading="lazy" decoding="async" alt="Ícone de Talismã do Coração Vulcânico do jogo"></div><div class="forge-item-copy"><p class="forge-item-tier">Épico · Nível 70</p><h4>Talismã do Coração Vulcânico</h4><p class="forge-item-type">Acessório universal</p><p class="forge-item-compat">Todos os nove heróis<span>Herói de nível 70 ou superior</span></p><details class="forge-recipe"><summary>Receita desta peça</summary><p>55.000 Ouro · 3 adicionais à escolha</p><ul><li><span>Essência de Forja</span><strong>300</strong></li><li><span>Olho do Núcleo</span><strong>32</strong></li><li><span>Selo do Arauto</span><strong>28</strong></li><li><span>Insígnia de Malkor</span><strong>2</strong></li><li><span>Pluma Glacial</span><strong>40</strong></li><li><span>Cauda da Aurora</span><strong>32</strong></li><li><span>Fio da Nevasca</span><strong>24</strong></li></ul></details></div></article></div></div>
+
+          <div class="forge-techniques"><h3>11 técnicas permanentes, separadas dos equipamentos</h3><p>As técnicas de nível 70 começam a ficar elegíveis na fase <strong>650</strong>, nos mundos 3 e 4. A chance é de <strong>2% por abate comum</strong> e <strong>10% em chefe ou minichefe</strong>, escolhendo uma técnica elegível ainda desconhecida. A chance não é aplicada individualmente a cada técnica; no Mundo 3, técnicas de níveis anteriores ainda não aprendidas também podem participar.</p><div class="forge-technique-groups"><div><h4>Tecelã · 4 técnicas</h4><p>Elmo, armadura, luvas e botas leves.</p></div><div><h4>Arcana · 2 técnicas</h4><p>Armas mágicas/instrumento e acessório universal.</p></div><div><h4>Forja · 5 técnicas</h4><p>Armas físicas, elmo, armadura, luvas e botas pesadas.</p></div></div><p class="forge-technique-note">O conhecimento aprendido permanece. Fabricar também exige restaurar a Oficina com seus três conhecimentos e escolher os adicionais da receita.</p></div>
+
+          <p>Cada receita custa <strong>55.000 Ouro</strong> e pede 300 Essências de Forja, 32 Olhos do Núcleo, 28 Selos do Arauto, duas Insígnias de Malkor e três materiais de espécies do Mundo 4 em quantidades 40/32/24. Os ingredientes podem ser obtidos antes de Fenrir; a Essência vem da reciclagem de equipamentos. As receitas 70 não exigem materiais dos três chefes fixos do Mundo 4. Consulte os materiais de cada peça no catálogo acima.</p>
+
           <figure><img src="../../assets/screenshots/forge.webp" width="540" height="960" loading="lazy" alt="Catálogo real da Oficina e fabricação de equipamentos no Godot"><figcaption>A Oficina mantém fabricação, refino, evolução e Grande Têmpera no mesmo fluxo.</figcaption></figure>
+
         </section>
+
         <section class="section" id="balanceamento" aria-labelledby="balanceamento-title">
+
           <div class="section-heading"><p class="eyebrow">08 · Balanceamento</p><h2 id="balanceamento-title">Preparação antes do próximo desafio</h2></div>
+
           <p>Os ajustes de Kharun e resistência a crítico estão detalhados na seção de personagens. Malkor e Soberano Infernal recebem valores finais de ataque e defesa mais acessíveis, conservando suas mecânicas, fases, raiva e regeneração.</p>
+
           <div class="table-wrap" tabindex="0" role="region" aria-label="Valores finais dos chefes do Mundo 3; tabela rolável"><table class="stat-table"><caption>Valores atuais dos chefes do Mundo 3, antes dos modificadores de combate</caption><thead><tr><th scope="col">Chefe</th><th scope="col">HP</th><th scope="col">Ataque físico e mágico, cada</th><th scope="col">Defesa física e mágica, cada</th></tr></thead><tbody><tr><th scope="row">Malkor · 600</th><td>518.700</td><td>7.000</td><td>1.300</td></tr><tr><th scope="row">Soberano Infernal · 700</th><td>691.600</td><td>9.000</td><td>1.800</td></tr></tbody></table></div>
+
           <p>Receitas de nível <strong>50</strong> usam materiais de 300–500; as de nível <strong>60</strong> usam 300–699. Os volumes foram redistribuídos, e nenhuma receita ou evolução desses tiers exige material do Soberano da fase 700. Equipamentos já fabricados continuam válidos.</p>
+
           <p>O nível 70 é uma melhoria gradual: nas builds comparadas, trocar 60+5 por 70+5 aumentou o poder total em <strong>9,81–10,57%</strong>. Esse resultado não é um bônus fixo de todo herói; depende de seus atributos, extras e conjunto.</p>
+
           <div class="notice"><strong>O que as simulações confirmam:</strong> com a formação de teste no nível 75, ascensão 1 e equipamento 70+5, Fenrir foi vencido em 5/5 tentativas; Sacerdotisa e Rei tiveram 0/10 cada. Isso descreve aquela build e aquelas sementes. Não demonstra impossibilidade para toda composição nem garante vitória com sistemas futuros.</div>
+
         </section>
+
         <section class="section" id="interface" aria-labelledby="interface-title">
+
           <div class="section-heading"><p class="eyebrow">09 · Interface</p><h2 id="interface-title">Mais clareza entre batalhas</h2></div>
+
           <ul><li><strong>Mapas internos:</strong> tocar numa ilha mostra a descrição e a opção Abrir mundo; abrir exibe a trilha interna. Ao final da trilha, Voltar ao M1/M2/M3/M4 leva à primeira fase (1/201/401/701), disponível depois de concluir todos os chefes fixos do próprio mundo. No M3, vencer apenas Malkor 600 não libera o retorno; ele nunca inicia a fase 600 diretamente.</li><li><strong>Inventário:</strong> filtros para armas, capacetes, armaduras, luvas, botas e acessórios. Itens e Materiais guardam categoria, raridade e ordenação independentes durante a sessão.</li><li><strong>Heróis e autoequipar:</strong> o seletor de nome fica maior e alinhado, sem uma segunda miniatura junto ao retrato grande. O resultado do autoequipar informa a quantidade real de heróis disponíveis, sem limitar a mensagem aos quatro antigos.</li><li><strong>Missões:</strong> recompensas em grupos horizontais, com números inteiros na mesma linha. Valores de Essência iguais a zero deixam de ocupar espaço.</li><li><strong>Ascensão:</strong> os dezoito livros exibem capacidade 1/1; excesso antigo fica preservado no registro de overflow.</li><li><strong>Campo de batalha:</strong> formação mais próxima, preservando escala, sprites e legibilidade. Ícones antigos de status saem imediatamente do layout.</li><li><strong>Mapas e cenários:</strong> etiquetas deixam de formar blocos altos; chefes dos mundos 2 e 3 recebem fundos próprios em continuidade com seus biomas.</li></ul>
+
           <figure><img src="../../assets/screenshots/inventory.webp" width="540" height="960" loading="lazy" alt="Inventário real com equipamentos e filtros no Godot"><figcaption>Equipamento e materiais mantêm suas próprias escolhas de filtro.</figcaption></figure>
+
         
+
           <!-- FINAL_UI_2026_10_11 -->
+
           <div class="card"><h3>A campanha continua em primeiro plano</h3><p>O topo passa a mostrar a marca, Ouro e Gemas. Toque em Astraforge Idle para abrir o menu sobre a tela, com Loja, Missões e Configurações. Toque novamente na marca, fora do menu ou use Esc para fechá-lo. Letras, acentos, ícones e espaçamento foram refinados para leitura em telas menores.</p><p>A Home mantém a batalha real, barras de HP, avisos de habilidades, controle de AUTO, velocidade e Resumo. A apresentação acompanha o bioma sem cobrir os personagens com informações desnecessárias.</p></div>
+
           <div class="grid two"><section class="card"><h3>Loja por moeda e finalidade</h3><p>Gemas e Ouro têm abas próprias, com recrutamento, ascensão e resets organizados em seções. Preços e condições continuam vindo do catálogo do jogo. Pacotes aparecem como Em breve.</p><img src="../../assets/screenshots/shop-gems.webp" width="540" height="960" loading="lazy" alt="Loja real na aba Gemas, com produtos agrupados"></section><section class="card"><h3>Herói e equipamento mais claros</h3><p>Status abre ou recolhe o resumo inteiro do herói; Habilidades, Formação e Atributos ficam no grupo de ações. No inventário, Nome, Nível e Poder ficam acima da silhueta. As seis posições de equipamento mostram a arte correta das receitas fabricadas 50, 60 e 70.</p><img src="../../assets/screenshots/heroes.webp" width="540" height="960" loading="lazy" alt="Tela real de Heróis com resumo de status e ações"></section></div>
+
 <!-- FINAL_STATUS_SPLIT_2026_10_11 --><div class="card"><h3>Defesas com funções distintas</h3><p><strong>Resistência a dano</strong> conserva o atributo anterior e reduz o dano recebido. <strong>Resistência a controle</strong> é um novo atributo independente, que encurta controles aceitos como atordoamento, imobilização e silêncio. Ela não reduz dano nem substitui as regras de imunidade dos chefes. Ambas e a resistência a crítico possuem ícones distintos no resumo de status.</p><p>A tela de atributos apresenta textos maiores e Precisão seguida de Esquiva. A Oficina oferece os adicionais correspondentes; a arma da Sacerdotisa também permite escolher Cura, que participa das curas reais da heroína e cresce pelo refino vigente.</p><p>O HUD superior foi reduzido em cerca de 15%, com laterais transparentes. Os cenários existentes dos mundos 1, 2 e 3 preenchem o topo atrás do HUD, mantendo a apresentação própria do Mundo 4.</p></div></section>
+
         <section class="section" id="desempenho" aria-labelledby="desempenho-title">
+
           <div class="section-heading"><p class="eyebrow">10 · Desempenho</p><h2 id="desempenho-title">Navegação com menos reconstruções</h2></div>
+
           <p>A alternância entre Mundos e batalha reutiliza as telas, suspende a apresentação oculta e carrega mapas pela fila assíncrona existente. Trilhas e imagens de chefes que não estão sendo vistas deixam de ser carregadas na visão geral.</p>
+
           <p>Em sete trocas repetidas no PC de teste, a mediana da chamada de abrir Mundos passou de <strong>253,23 ms para 0,76 ms</strong>; o retorno à batalha, de <strong>122,13 ms para 6,00 ms</strong>. São tempos locais de navegação, sujeitos a cache e carga da máquina, e não uma medida de FPS no celular.</p>
-          <p>O <strong>teto de 60 FPS</strong> e as otimizações anteriores de HUD, poses e efeitos foram preservados. Não há nova promessa de 60 FPS constantes, redução de aquecimento ou ganho de CPU/GPU em Android para a V0.6.0. O teste físico desta revisão permanece pendente.</p>
+
+          <p>O <strong>Resumo reaproveita seus controles e atualiza somente o que mudou</strong>, reduzindo trabalho repetido nesse painel. As barras de HP e os avisos de habilidades também receberam ajustes de espaço para evitar sobreposições nas proporções de tela verificadas.</p><p>O <strong>teto de 60 FPS</strong> foi preservado. No <strong>Galaxy S24+</strong>, uma medição de <strong>45 segundos no Mundo 1 em x2</strong> registrou <strong>58,10 FPS de média</strong>. Houve pausas e quedas de ritmo; essa janela não comprova 60 FPS constantes.</p><details class="android-sample"><summary>Ver os números desta medição Android</summary><dl><div><dt>Frame médio</dt><dd>17,211 ms</dd></div><div><dt>P95</dt><dd>16,861 ms</dd></div><div><dt>P99</dt><dd>41,714 ms</dd></div><div><dt>Frames acima de 33,33 ms</dt><dd>51</dd></div></dl><p>Resultados dessa captura no aparelho físico, sem comparação de ganho Android antes/depois. O P99 mostra que ainda há pausas relevantes.</p></details><p>Uma segunda captura, iniciada no Mundo 1 em x1, teve perda da conexão USB e cobertura incompleta. Ela não valida navegação, Oficina ou retomada. Mundos 2, 3 e 4, chefes e aquecimento em sessão prolongada continuam pendentes. Não foi confirmado ganho global de CPU/GPU ou correção de travamentos no Android.</p>
+
         </section>
+
         <section class="section" id="correcoes" aria-labelledby="correcoes-title">
+
           <div class="section-heading"><p class="eyebrow">11 · Bugs corrigidos</p><h2 id="correcoes-title">O impacto no lugar e no momento certos</h2></div>
-          <ul><li>O retorno de um mundo deixa de retomar o último boss vencido; mapas, descrição e retorno à primeira fase têm ações separadas.</li><li>A mensagem de autoequipar acompanha o roster jogável atual.</li><li>Efeitos de habilidades só aparecem depois de receber sua posição, eliminando flashes na origem do campo.</li><li>Jornadas de ascensão em andamento recebem recuperação única: rota paga e materiais são preservados; contadores de abate reiniciam. Jornadas concluídas e estrelas conquistadas continuam intactas, com backup e proteção em falha de gravação.</li><li>Filtros de Itens e Materiais deixam de compartilhar categorias indevidamente; quantidades de recompensas não quebram no meio do número.</li><li>Gélido passa a ajustar a cadência real dos básicos de heróis e servos, normalizando o efeito entre fases e ao sair do Mundo 4.</li><li>Maldições de Nymeris e dano verdadeiro passivo de Lyn/Mira participam corretamente das mecânicas de Astarok.</li><li>Um mesmo uso de habilidade com múltiplos impactos não consome várias cargas indevidas dos espelhos da Sacerdotisa.</li><li>Limpeza de batalha desfaz referências antigas de escudos ao trocar encontros.</li><li>O Resumo conserva dano, cura e dano recebido acumulados no encontro ao abrir outras telas; contribuições de servos continuam atribuídas ao herói invocador.</li><li>Acessórios com têmpera de cura progridem tanto com cura realizada quanto recebida. Só HP efetivamente restaurado conta; autocura conta uma vez.</li><li>Saídas inferiores a cinco minutos não criam novas recompensas offline nem aviso de coleta. Uma ausência de pelo menos cinco minutos usa os limites atuais, preservando recibos já pendentes.</li><li>Bosses recebem orientação de sprites conforme sua arte, voltados para a equipe durante a apresentação de combate.</li></ul>
+
+          <ul><li>O retorno de um mundo deixa de retomar o último boss vencido; mapas, descrição e retorno à primeira fase têm ações separadas.</li><li>A mensagem de autoequipar acompanha o roster jogável atual.</li><li>Efeitos de habilidades só aparecem depois de receber sua posição, eliminando flashes na origem do campo.</li><li>Jornadas de ascensão em andamento recebem recuperação única: rota paga e materiais são preservados; contadores de abate reiniciam. Jornadas concluídas e estrelas conquistadas continuam intactas, com backup e proteção em falha de gravação.</li><li>Filtros de Itens e Materiais deixam de compartilhar categorias indevidamente; quantidades de recompensas não quebram no meio do número.</li><li>Gélido passa a ajustar a cadência real dos básicos de heróis e servos, normalizando o efeito entre fases e ao sair do Mundo 4.</li><li>Maldições de Nymeris e dano verdadeiro passivo de Lyn/Mira participam corretamente das mecânicas de Astarok.</li><li>Um mesmo uso de habilidade com múltiplos impactos não consome várias cargas indevidas dos espelhos da Sacerdotisa.</li><li>Limpeza de batalha desfaz referências antigas de escudos ao trocar encontros.</li><li>O Resumo conserva dano, cura e dano recebido acumulados no encontro ao abrir outras telas; contribuições de servos continuam atribuídas ao herói invocador.</li><li>Acessórios com têmpera de cura progridem tanto com cura realizada quanto recebida. Só HP efetivamente restaurado conta; autocura conta uma vez.</li><li>Saídas inferiores a cinco minutos não criam novas recompensas offline nem aviso de coleta. Uma ausência de pelo menos cinco minutos usa os limites atuais, preservando recibos já pendentes.</li><li>Bosses recebem orientação de sprites conforme sua arte, voltados para a equipe durante a apresentação de combate.</li><li>Barras de HP, sprites e avisos de habilidades recebem espaço próprio nas proporções de tela verificadas.</li><li>Corrigido o carregamento dos catálogos de efeitos de Malkor e Soberano nos recursos empacotados.</li></ul>
+
           <p>A validação consolidada do M4 registra <strong>39 suítes e validadores, 41.218 verificações aprovadas</strong> e 105 execuções de combate, com zero timeout. Há cenários repetidos entre rodadas: são 85 pares únicos de cenário/semente. As capturas e verificações visuais foram feitas no PC.</p>
+
         </section>
+
         <section class="section" id="limites" aria-labelledby="limites-title">
+
           <div class="section-heading"><p class="eyebrow">12 · Limitações conhecidas</p><h2 id="limites-title">O que ainda depende de revisão</h2></div>
-          <ul><li><strong>V0.6.0 Beta não está anunciada como lançada.</strong> Material, data e distribuição Android aguardam aprovação. O download do portal só aponta para um APK realmente disponível em Release pública.</li><li><strong>Equipamento 80/90 e ascensão 2 ainda não estão implementados.</strong> Sacerdotisa e Rei guardam a progressão futura; suas builds futuras não foram simuladas.</li><li><strong>Mundo 5 permanece indisponível.</strong> As fases 1201–1400 estão reservadas no catálogo.</li><li>Desempenho, áudio, aquecimento e consumo desta revisão ainda precisam de verificação em aparelho Android físico.</li><li>Resultados de simulação valem para os conjuntos, formações e sementes testados; não são garantia de vitória para qualquer equipe.</li><li>A validação de dados conserva 69 avisos de assets históricos ausentes. Quatro avisos de referências ao fechar a ferramenta de captura visual também estão registrados; nenhum erro de script foi observado no fechamento do M4.</li></ul>
+
+          <ul><li><strong>V0.6.0 Beta não está anunciada como lançada.</strong> Material, data e distribuição Android aguardam aprovação. O download do portal só aponta para um APK realmente disponível em Release pública.</li><li><strong>Equipamento 80/90 e ascensão 2 ainda não estão implementados.</strong> Sacerdotisa e Rei guardam a progressão futura; suas builds futuras não foram simuladas.</li><li><strong>Mundo 5 permanece indisponível.</strong> As fases 1201–1400 estão reservadas no catálogo.</li><li>O teste físico curto no Galaxy S24+ cobre uma janela do Mundo 1 em x2. A segunda captura tem cobertura incompleta. Mundos 2–4, chefes, menus, Oficina, áudio, retomada e sessão prolongada ainda precisam de validação física.</li><li>Resultados de simulação valem para os conjuntos, formações e sementes testados; não são garantia de vitória para qualquer equipe.</li><li>A validação de dados conserva 69 avisos de assets históricos ausentes. Quatro avisos de referências ao fechar a ferramenta de captura visual também estão registrados; nenhum erro de script foi observado no fechamento do M4.</li></ul>
+
           <p><a class="button button-outline" href="../../docs/changelog-v0.6.0.md">Ler o changelog completo</a> <a class="button button-gold" href="../../index.html#download">Consultar disponibilidade Android</a></p>
+
           <p class="patch-end">O inverno chegou ao projeto. A próxima etapa é revisar esta Beta e preparar sua distribuição.</p>
+
         </section>
+
       </article>
+
     </div>
+
   </main>
+
   <footer class="site-footer"><div class="container"><p>Astraforge Idle · Portal oficial</p><a href="../index.html">Histórico de atualizações</a><a href="../../index.html">Voltar ao portal</a></div></footer>
+
 </body>
+
 </html>
+
