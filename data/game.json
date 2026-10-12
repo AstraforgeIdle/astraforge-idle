@@ -1,0 +1,844 @@
+{
+  "locale": "pt-BR",
+  "generated_on": "2026-10-11",
+  "version": "0.6.0",
+  "release_status": "Beta em preparação para revisão",
+  "captures_updated_at_utc": "20261012T024054Z",
+  "heroes": [
+    {
+      "id": "hero_kael",
+      "name": "Kael",
+      "class_id": "class_warrior",
+      "class_name": "Guerreiro",
+      "role_id": "role_tank",
+      "role_name": "Tanque / Defesa",
+      "damage_type": "physical",
+      "combat_style": "Dano físico · tanque / defesa",
+      "description": "Avança até o inimigo, golpeia com o escudo e tem chance de atordoar. Retorna à formação após o impacto. Protege Kael e seus aliados, reduzindo o dano recebido. Kael atrai os inimigos e fortalece suas defesas.",
+      "features": [
+        "Investida Guardiã",
+        "Escudo Solar",
+        "Égide do Guardião"
+      ],
+      "skills": [
+        {
+          "damage_type": "physical",
+          "description": "Avança até o inimigo, golpeia com o escudo e tem chance de atordoar. Retorna à formação após o impacto.",
+          "id": "skill_shield_bash",
+          "name": "Investida Guardiã",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Protege Kael e seus aliados, reduzindo o dano recebido. Kael atrai os inimigos e fortalece suas defesas.",
+          "id": "skill_taunt",
+          "name": "Escudo Solar",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Aumenta permanentemente o HP e a defesa física de Kael.",
+          "id": "skill_iron_skin",
+          "name": "Égide do Guardião",
+          "type": "passive"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Desfere um golpe sagrado que causa dano em todos os inimigos vivos.",
+          "id": "skill_whirlwind",
+          "name": "Julgamento do Leão",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Enquanto Kael está vivo, reduz o dano recebido pelos aliados da retaguarda.",
+          "id": "skill_guardian_oath",
+          "name": "Voto do Protetor",
+          "type": "passive"
+        },
+        {
+          "damage_type": "heal",
+          "description": "Ergue uma barreira defensiva, recupera HP e fortalece as defesas de Kael.",
+          "id": "skill_last_fortress",
+          "name": "Muralha Celeste",
+          "type": "active"
+        }
+      ],
+      "image": "assets/characters/hero_kael.webp",
+      "width": 201,
+      "height": 192,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_aelia",
+      "name": "Aelia",
+      "class_id": "class_priestess",
+      "class_name": "Sacerdotisa",
+      "role_id": "role_healer",
+      "role_name": "Suporte / Cura",
+      "damage_type": "magic",
+      "combat_style": "Dano mágico · suporte / cura",
+      "description": "Cura todos os aliados e purifica veneno e queimadura. Dispara projéteis naturais contra todos os inimigos vivos.",
+      "features": [
+        "Vento Curativo",
+        "Dardos da Natureza",
+        "Santuário da Vida"
+      ],
+      "skills": [
+        {
+          "damage_type": "heal",
+          "description": "Cura todos os aliados e purifica veneno e queimadura.",
+          "id": "skill_healing_wind",
+          "name": "Vento Curativo",
+          "type": "active"
+        },
+        {
+          "damage_type": "magic",
+          "description": "Dispara projéteis naturais contra todos os inimigos vivos.",
+          "id": "skill_nature_darts",
+          "name": "Dardos da Natureza",
+          "type": "active"
+        },
+        {
+          "damage_type": "heal",
+          "description": "Cria um campo persistente que restaura a equipe ao longo do tempo.",
+          "id": "skill_life_sanctuary",
+          "name": "Santuário da Vida",
+          "type": "active"
+        },
+        {
+          "damage_type": "heal",
+          "description": "Revive um aliado. Sem derrotados, cura o aliado com menor HP usando ATQ mágico e Poder de Cura (PC). Os dois efeitos evoluem com a skill.",
+          "id": "skill_resurrection",
+          "name": "Ressurreição",
+          "type": "active"
+        },
+        {
+          "damage_type": "heal",
+          "description": "Aumenta a cura e a regeneração realizadas por Aelia.",
+          "id": "skill_natures_grace",
+          "name": "Graça da Natureza",
+          "type": "passive"
+        },
+        {
+          "damage_type": "none",
+          "description": "Reduz o dano recebido pela equipe e concede proteção natural.",
+          "id": "skill_forest_embrace",
+          "name": "Abraço da Floresta",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_aelia.webp",
+      "width": 130,
+      "height": 209,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_lyn",
+      "name": "Lyn",
+      "class_id": "class_archer",
+      "class_name": "Arqueira",
+      "role_id": "role_dps_physical",
+      "role_name": "Dps / Ataques Básicos",
+      "damage_type": "physical",
+      "combat_style": "Dano físico · dps / ataques básicos",
+      "description": "Flecha perfurante causa dano inicial e veneno persistente até purificação ou fim do combate. Três ondas de flechas atingem todos os inimigos. O dano total é dividido entre os impactos.",
+      "features": [
+        "Disparo Preciso",
+        "Chuva de Flechas",
+        "Passo da Floresta"
+      ],
+      "skills": [
+        {
+          "damage_type": "physical",
+          "description": "Flecha perfurante causa dano inicial e veneno persistente até purificação ou fim do combate.",
+          "id": "skill_piercing_arrow",
+          "name": "Disparo Preciso",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Três ondas de flechas atingem todos os inimigos. O dano total é dividido entre os impactos.",
+          "id": "skill_arrow_rain",
+          "name": "Chuva de Flechas",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Aumenta a velocidade dos ataques básicos por 10 segundos: +27,5% no nível 1, mais 2,5 pontos percentuais por nível, até +50%.",
+          "id": "skill_wind_steps",
+          "name": "Passo da Floresta",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Marca a equipe por 8s: Lyn recebe +22% a +40% ATQ (+2 pp por nível); os outros aliados recebem +10% ATQ fixos.",
+          "id": "skill_hunters_mark",
+          "name": "Marca do Caçador",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Aumenta permanentemente os atributos de crítico e dano crítico da Lyn. Cada upgrade concede +3 pontos percentuais de crítico e +4 pontos percentuais de dano crítico; os valores aparecem em Heróis, Atributos e combate.",
+          "id": "skill_forest_instinct",
+          "name": "Instinto Élfico",
+          "type": "passive"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Ataques básicos na mesma presa acumulam dano até 10 vezes. Após atingir 10 acúmulos, cada acerto básico adicional causa 150 de dano real, que pode critar com o dano crítico de Lyn. Expira após 10 segundos sem atacar, troca de alvo ou morte.",
+          "id": "skill_forest_eyes",
+          "name": "Harmonia da Natureza",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_lyn.webp",
+      "width": 335,
+      "height": 342,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_mira",
+      "name": "Mira",
+      "class_id": "class_mage",
+      "class_name": "Maga",
+      "role_id": "role_dps_magic",
+      "role_name": "Dps / Magia",
+      "damage_type": "magic",
+      "combat_style": "Dano mágico · dps / magia",
+      "description": "Dispara um projétil arcano contra o inimigo causando dano mágico elevado. Cometas em área e queimadura de 0,5% HP/s, limitada pelo MATK e nível da skill. Cura recebida -50%. Usos no mesmo alvo ampliam os meteoros.",
+      "features": [
+        "Projétil Arcano",
+        "Chuva de Cometas",
+        "Sobrecarga Mística"
+      ],
+      "skills": [
+        {
+          "damage_type": "magic",
+          "description": "Dispara um projétil arcano contra o inimigo causando dano mágico elevado.",
+          "id": "skill_arcane_ray",
+          "name": "Projétil Arcano",
+          "type": "active"
+        },
+        {
+          "damage_type": "magic",
+          "description": "Cometas em área e queimadura de 0,5% HP/s, limitada pelo MATK e nível da skill. Cura recebida -50%. Usos no mesmo alvo ampliam os meteoros.",
+          "id": "skill_astral_rain",
+          "name": "Chuva de Cometas",
+          "type": "active"
+        },
+        {
+          "damage_type": "magic",
+          "description": "Cada skill conjurada acumula poder mágico conforme o nível da Sobrecarga Mística até o fim da fase.",
+          "id": "skill_mystic_surge",
+          "name": "Sobrecarga Mística",
+          "type": "passive"
+        },
+        {
+          "damage_type": "magic",
+          "description": "Ruptura Astral causa dano e reduz DEF em 15%; acumula com redução flat.",
+          "id": "skill_ruin_seal",
+          "name": "Ruptura Astral",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Reduz recarga e amplia dano crítico. Cada aliado recebe proteção contra magia; dano físico atravessa.",
+          "id": "skill_awakened_mind",
+          "name": "Véu Arcano",
+          "type": "active"
+        },
+        {
+          "damage_type": "true",
+          "description": "Críticos da Mira causam dano real adicional: 20% no nível 1 e +3 pontos percentuais por upgrade.",
+          "id": "skill_arcane_echo",
+          "name": "Ressonância Arcana",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_mira.webp",
+      "width": 198,
+      "height": 218,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_dorrik",
+      "name": "Dorrik",
+      "class_id": "class_forger",
+      "class_name": "Forjador · Dverin",
+      "role_id": "role_bruiser",
+      "role_name": "Tanque / Bruiser",
+      "damage_type": "physical",
+      "combat_style": "Dano físico · tanque / bruiser",
+      "description": "Um golpe de martelo em um inimigo causa dano físico e stun. Alvos imunes ao stun sofrem atraso no próximo ataque. Avança até um inimigo e desfere um golpe físico que reduz sua DEF temporariamente.",
+      "features": [
+        "Martelo da Forja",
+        "Investida do Ferreiro",
+        "Postura da Bigorna"
+      ],
+      "skills": [
+        {
+          "damage_type": "physical",
+          "description": "Um golpe de martelo em um inimigo causa dano físico e stun. Alvos imunes ao stun sofrem atraso no próximo ataque.",
+          "id": "skill_forge_hammer",
+          "name": "Martelo da Forja",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Avança até um inimigo e desfere um golpe físico que reduz sua DEF temporariamente.",
+          "id": "skill_smith_charge",
+          "name": "Investida do Ferreiro",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Adota uma postura defensiva temporária e transforma dano evitado ou absorvido em Pressão para o próximo acerto.",
+          "id": "skill_anvil_stance",
+          "name": "Postura da Bigorna",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Salta até o grupo inimigo e aterrissa com um impacto físico em área. Abre fissuras de magma e deixa o chão em brasa.",
+          "id": "skill_forge_rupture",
+          "name": "Ruptura da Forja",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Dano causado e recebido alimenta o Calor. Suas faixas fortalecem ATQ, DEF e habilidades; o máximo ativa Superaquecido.",
+          "id": "skill_forge_heart",
+          "name": "Coração da Forja",
+          "type": "passive"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Com Calor suficiente, entra no grupo e substitui o ataque básico por golpes e giros flamejantes em área, curando parte do dano causado.",
+          "id": "skill_forge_whirlwind",
+          "name": "Torvelinho da Forja",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_dorrik.webp",
+      "width": 149,
+      "height": 167,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_fae",
+      "name": "Fae",
+      "class_id": "class_blade_dancer",
+      "class_name": "Blade Dancer · Elin",
+      "role_id": "role_dps_mobile",
+      "role_name": "Dps / Mobilidade",
+      "damage_type": "physical",
+      "combat_style": "Dano físico · dps / mobilidade",
+      "description": "Avanço curto e três cortes. Dança Perfeita adiciona um corte. Giro de cinco cortes em área. Dança Perfeita adiciona dois cortes.",
+      "features": [
+        "Corte Crescente",
+        "Pétalas de Aço",
+        "Passo da Raposa"
+      ],
+      "skills": [
+        {
+          "damage_type": "physical",
+          "description": "Avanço curto e três cortes. Dança Perfeita adiciona um corte.",
+          "id": "skill_crescent_cut",
+          "name": "Corte Crescente",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Giro de cinco cortes em área. Dança Perfeita adiciona dois cortes.",
+          "id": "skill_steel_petals",
+          "name": "Pétalas de Aço",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Dash e corte; inalvejável somente durante o avanço. Dança Perfeita fortalece a próxima skill.",
+          "id": "skill_fox_step",
+          "name": "Passo da Raposa",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Oito cortes alternando alvos. Dança Perfeita encerra com dois cortes em área; o último é fortalecido.",
+          "id": "skill_thousand_blades_waltz",
+          "name": "Valsa das Mil Lâminas",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Ritmo mantém velocidade, dano e crítico durante o combate. Básicos no mesmo alvo acumulam dano de Duelo. Dança Perfeita consome somente sua carga separada.",
+          "id": "skill_dance_rhythm",
+          "name": "Ritmo da Dança",
+          "type": "passive"
+        },
+        {
+          "damage_type": "physical",
+          "description": "A cada oito acertos: corte extra e redução da maior recarga. Concede até um Ritmo extra por ação; não conta o próprio corte.",
+          "id": "skill_lethal_grace",
+          "name": "Graça Letal",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_fae.webp",
+      "width": 169,
+      "height": 169,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_bardo",
+      "name": "Nerissa",
+      "class_id": "class_bard",
+      "class_name": "Barda",
+      "role_id": "role_support_magic",
+      "role_name": "Suporte / Utilidade",
+      "damage_type": "magic",
+      "combat_style": "Dano mágico · suporte / utilidade",
+      "description": "Sete notas mágicas independentes. Abates diretos concedem Harmonia Fúnebre à equipe por 30s, até cinco acúmulos. Atrai ataques ao aliado de maior HP máximo por 5 s. Cura 50%–77% do HP perdido e reflete 25%–34%, limitada a 50%–95% do MATK atual da Nerissa por golpe. Defesa, escudos e esquiva são respeitados; não reflete dano letal.",
+      "features": [
+        "Canção da Morte",
+        "Canto da Sereia",
+        "Balada do Véu Eterno"
+      ],
+      "skills": [
+        {
+          "damage_type": "magic",
+          "description": "Sete notas mágicas independentes. Abates diretos concedem Harmonia Fúnebre à equipe por 30s, até cinco acúmulos.",
+          "id": "bardo_skill_01",
+          "name": "Canção da Morte",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Atrai ataques ao aliado de maior HP máximo por 5 s. Cura 50%–77% do HP perdido e reflete 25%–34%, limitada a 50%–95% do MATK atual da Nerissa por golpe. Defesa, escudos e esquiva são respeitados; não reflete dano letal.",
+          "id": "bardo_skill_02",
+          "name": "Canto da Sereia",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Cura 10%–17,2% do HP máximo da equipe e concede escudo por 4s. Cada upgrade acrescenta 0,8 ponto percentual de cura e 2 de escudo. Qualquer escudo aliado ativa Ressonância Cristalina.",
+          "id": "bardo_skill_03",
+          "name": "Balada do Véu Eterno",
+          "type": "active"
+        },
+        {
+          "damage_type": "magic",
+          "description": "Armazena 50% do dano efetivo. A cada três usos, dispara o dano atual mais toda a reserva. O acúmulo atravessa fases.",
+          "id": "bardo_skill_04",
+          "name": "Última Sintonia",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Enquanto estiver na equipe: +5% velocidade de ataque, redução de recarga e esquiva. Cada upgrade acrescenta 0,75 ponto percentual a cada bônus.",
+          "id": "bardo_passive_01",
+          "name": "Espírito da Canção",
+          "type": "passive"
+        },
+        {
+          "damage_type": "true",
+          "description": "A cada 10 habilidades de Nerissa, lança a Nota do Sono: controle em área e dano real de apoio por segundo (12%–21% do MATK). O contador reinicia ao ativar e ao mudar de fase.",
+          "id": "bardo_passive_02",
+          "name": "Encore",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_bardo.webp",
+      "width": 124,
+      "height": 110,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_kharun",
+      "name": "Kharun",
+      "class_id": "class_renegade_monk",
+      "class_name": "Monge Renegado",
+      "role_id": "role_control_bruiser",
+      "role_name": "Off-Tank / Controle",
+      "damage_type": "physical",
+      "combat_style": "Dano físico · off-tank / controle",
+      "description": "Golpe físico em linha. Empurra o primeiro alvo; uma colisão real entre inimigos causa dano extra e stun, uma vez por uso. Avança à retaguarda para interromper uma conjuração. Só aplica silêncio se interromper; retorna à frente protegido.",
+      "features": [
+        "Bastão do Céu Partido",
+        "Passo do Exilado",
+        "Roda das Mil Sombras"
+      ],
+      "skills": [
+        {
+          "damage_type": "physical",
+          "description": "Golpe físico em linha. Empurra o primeiro alvo; uma colisão real entre inimigos causa dano extra e stun, uma vez por uso.",
+          "id": "skill_skybreak_staff",
+          "name": "Bastão do Céu Partido",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Avança à retaguarda para interromper uma conjuração. Só aplica silêncio se interromper; retorna à frente protegido.",
+          "id": "skill_exiles_step",
+          "name": "Passo do Exilado",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Três giros físicos em área. Rouba vida do HP removido e concede proteção desde o primeiro acerto, inclusive contra um único boss. O último giro desequilibra.",
+          "id": "skill_thousand_shadows",
+          "name": "Roda das Mil Sombras",
+          "type": "active"
+        },
+        {
+          "damage_type": "physical",
+          "description": "Ergue o Bastão Celestial e golpeia a área. Interrompe, atordoa e reduz a velocidade dos ataques básicos.",
+          "id": "skill_profaned_king_pillar",
+          "name": "Pilar do Rei Profanado",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Concede esquiva própria. Aparar é uma defesa separada: pode amortecer ataques básicos e skills diretas, fortalecendo as defesas por um curto período.",
+          "id": "skill_renegade_discipline",
+          "name": "Disciplina do Renegado",
+          "type": "passive"
+        },
+        {
+          "damage_type": "none",
+          "description": "Ao perder HP, assume posturas defensivas progressivas e exclusivas. Cura reavalia a postura; não concede ATQ nem HP máximo.",
+          "id": "skill_masterless_path",
+          "name": "Caminho Sem Mestre",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_kharun.webp",
+      "width": 356,
+      "height": 477,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    },
+    {
+      "id": "hero_nymeris",
+      "name": "Nymeris",
+      "class_id": "class_necromancer",
+      "class_name": "Necromante",
+      "role_id": "role_dps_magic",
+      "role_name": "Dps / Magia",
+      "damage_type": "magic",
+      "combat_style": "Dano mágico · dps / magia",
+      "description": "Uma maldição por uso: Veneno, Ruína ou Sentença. Prioriza a ausente e depois a menor carga; até três cargas de cada. Renova a duração. Invoca um servo por uso. Executor, Arauto e Bastião; prioriza reanimar um morto. Três vivos bloqueiam o uso. Atributos aumentam com o nível da skill. Servos vivos permanecem entre fases da sessão.",
+      "features": [
+        "Pragas do Véu",
+        "Despertar dos Condenados",
+        "Fúria dos Condenados"
+      ],
+      "skills": [
+        {
+          "damage_type": "magic",
+          "description": "Uma maldição por uso: Veneno, Ruína ou Sentença. Prioriza a ausente e depois a menor carga; até três cargas de cada. Renova a duração.",
+          "id": "skill_veil_plagues",
+          "name": "Pragas do Véu",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Invoca um servo por uso. Executor, Arauto e Bastião; prioriza reanimar um morto. Três vivos bloqueiam o uso. Atributos aumentam com o nível da skill. Servos vivos permanecem entre fases da sessão.",
+          "id": "skill_condemned_awakening",
+          "name": "Despertar dos Condenados",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Fortalece os servos vivos: Executor acelera ataques, Arauto causa mais dano e Bastião recebe menos dano. Duração e força aumentam com o nível. Renova sem empilhar.",
+          "id": "skill_condemned_fury",
+          "name": "Fúria dos Condenados",
+          "type": "active"
+        },
+        {
+          "damage_type": "magic",
+          "description": "Um impacto mágico devastador em um inimigo. +10% por carga de maldição no alvo e +12% por servo vivo; bônus somados. Não consome maldições.",
+          "id": "skill_death_verdict",
+          "name": "Veredito da Morte",
+          "type": "active"
+        },
+        {
+          "damage_type": "none",
+          "description": "Cada morte de um servo concede aos sobreviventes +5% a +15% de ataque e ambas as defesas por acúmulo, conforme o nível. Até oito acúmulos aditivos; duram até o servo morrer. Não concede almas.",
+          "id": "skill_pact_of_three",
+          "name": "Pacto dos Três",
+          "type": "passive"
+        },
+        {
+          "damage_type": "magic",
+          "description": "Cada morte de inimigo e cada 50.000 de dano efetivo da Nymeris e servos gera uma alma. Dez almas ativam almas vermelhas por 60 s. Atacam juntas por segundo: uma no Nv. 1, duas no Nv. 5 e três no Nv. 10; podem dividir alvos ou convergir num boss. Dez novas renovam o tempo. Progresso permanece entre fases da sessão.",
+          "id": "skill_profane_ascension",
+          "name": "Ascensão Profana",
+          "type": "passive"
+        }
+      ],
+      "image": "assets/characters/hero_nymeris.webp",
+      "width": 303,
+      "height": 290,
+      "provenance": [
+        "data/heroes.csv",
+        "data/hero_roster.json",
+        "DataManager.get_hero_skills (inclui overlays canônicos de skills)",
+        "data/ui/hero_presentation.json",
+        "DataManager.get_hero_idle_preview_resource"
+      ]
+    }
+  ],
+  "worlds": [
+    {
+      "id": "world_01",
+      "name": "Bosque dos Brotos",
+      "number": 1,
+      "stage_range": [
+        1,
+        200
+      ],
+      "description": "Uma floresta viva e cheia de esperança, onde os primeiros brotos do mundo renascem.",
+      "image": "assets/screenshots/world1.webp",
+      "width": 540,
+      "height": 960
+    },
+    {
+      "id": "world_02",
+      "name": "Floresta Corrompida",
+      "number": 2,
+      "stage_range": [
+        201,
+        400
+      ],
+      "description": "Além dos brotos, a Corrupção alcança as raízes. Uma nova jornada espera por você.",
+      "image": "assets/screenshots/world2.webp",
+      "width": 540,
+      "height": 960
+    },
+    {
+      "id": "world_03",
+      "name": "Vulcão Infernal",
+      "number": 3,
+      "stage_range": [
+        401,
+        700
+      ],
+      "description": "Calor Intenso — Heróis: -10% ATK. Três bosses guardam a Caldeira.",
+      "image": "assets/screenshots/world3.webp",
+      "width": 540,
+      "height": 960
+    },
+    {
+      "id": "world_04",
+      "name": "Picos Congelados",
+      "number": 4,
+      "stage_range": [
+        701,
+        1200
+      ],
+      "description": "Gélido nos heróis e servos: cooldowns −15% e velocidade de ataque −15%. Uma ilha de neve até o Trono do Inverno.",
+      "image": "assets/screenshots/world4.webp",
+      "width": 540,
+      "height": 960
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "world1",
+      "title": "Mundo 1 — Bosque dos Brotos",
+      "image": "assets/screenshots/world1.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Mundo 1 — Bosque dos Brotos."
+    },
+    {
+      "id": "world2",
+      "title": "Mundo 2 — Floresta Corrompida",
+      "image": "assets/screenshots/world2.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Mundo 2 — Floresta Corrompida."
+    },
+    {
+      "id": "world3",
+      "title": "Mundo 3 — Vulcão Infernal",
+      "image": "assets/screenshots/world3.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Mundo 3 — Vulcão Infernal."
+    },
+    {
+      "id": "world4",
+      "title": "Mundo 4 — Picos Congelados",
+      "image": "assets/screenshots/world4.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Mundo 4 — Picos Congelados."
+    },
+    {
+      "id": "fenrir",
+      "title": "Combate contra Fenrir",
+      "image": "assets/screenshots/fenrir.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Combate contra Fenrir."
+    },
+    {
+      "id": "priestess",
+      "title": "Combate contra a Sacerdotisa de Cristal",
+      "image": "assets/screenshots/priestess.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Combate contra a Sacerdotisa de Cristal."
+    },
+    {
+      "id": "winter-king",
+      "title": "Combate contra o Rei do Inverno",
+      "image": "assets/screenshots/winter-king.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Combate contra o Rei do Inverno."
+    },
+    {
+      "id": "astarok",
+      "title": "Encontro raro com Astarok",
+      "image": "assets/screenshots/astarok.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Encontro raro com Astarok."
+    },
+    {
+      "id": "inventory",
+      "title": "Inventário e equipamento individual",
+      "image": "assets/screenshots/inventory.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Inventário e equipamento individual."
+    },
+    {
+      "id": "forge",
+      "title": "Coração da Forja — Dorrik",
+      "image": "assets/screenshots/forge.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Coração da Forja — Dorrik."
+    },
+    {
+      "id": "forge-overview",
+      "title": "Oficina de Astraforge",
+      "image": "assets/screenshots/forge-overview.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Oficina de Astraforge."
+    },
+    {
+      "id": "heroes",
+      "title": "Heróis e evolução",
+      "image": "assets/screenshots/heroes.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Heróis e evolução."
+    },
+    {
+      "id": "missions",
+      "title": "Missões da campanha",
+      "image": "assets/screenshots/missions.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Missões da campanha."
+    },
+    {
+      "id": "world-map",
+      "title": "Mapa dos mundos — Picos Congelados e Abrir Mundo",
+      "image": "assets/screenshots/world-map.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Mapa dos mundos — Picos Congelados e Abrir Mundo."
+    },
+    {
+      "id": "kharun-skill",
+      "title": "Kharun — Roda das Mil Sombras",
+      "image": "assets/screenshots/kharun-skill.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Kharun — Roda das Mil Sombras."
+    },
+    {
+      "id": "shop-gems",
+      "title": "Loja — Gemas",
+      "image": "assets/screenshots/shop-gems.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Loja — Gemas."
+    },
+    {
+      "id": "shop-gold",
+      "title": "Loja — Ouro",
+      "image": "assets/screenshots/shop-gold.webp",
+      "width": 540,
+      "height": 960,
+      "alt": "Captura real do jogo: Loja — Ouro."
+    }
+  ],
+  "unavailable_screenshots": [],
+  "excluded_registered_heroes": [
+    {
+      "id": "hero_thorin",
+      "name": "Thorin",
+      "reason": "Cadastrado em heroes.csv, mas ausente de playable_hero_ids; não apresentado como jogável."
+    },
+    {
+      "id": "hero_nox",
+      "name": "Nox",
+      "reason": "Cadastrado em heroes.csv, mas ausente de playable_hero_ids; não apresentado como jogável."
+    }
+  ]
+}

@@ -1,14 +1,13 @@
-/**
- * Configuração opcional. No endereço padrão do GitHub Pages
- * (usuario.github.io/nome-do-repositorio/), o site descobre automaticamente
- * usuário e repositório. Para testar localmente ou usar domínio próprio,
- * preencha os campos abaixo.
- *
- * É necessário que o APK esteja publicado como asset de uma GitHub Release
- * estável em um repositório público. Nenhum token é necessário.
- */
-window.ASTRAFORGE_CONFIG = {
-  githubOwner: "",
-  githubRepo: "",
-  preferredApkName: "Astraforge-Idle.apk"
-};
+// Public website configuration only. Never add tokens or private project paths here.
+export const siteConfig = Object.freeze({
+  owner: 'AstraforgeIdle',
+  repo: 'astraforge-idle',
+  locale: 'pt-BR',
+  siteUrl: 'https://astraforgeidle.github.io/astraforge-idle/',
+  previewVersion: '0.6.0',
+  previewStatus: 'preparation',
+  // Resolved against this module directory, so deep pages work in GitHub Pages.
+  // Use 'index.html' when packaging the V0.6.0 notes as a standalone site root.
+  notesPath: 'updates/v0.6.0/index.html',
+  requestTimeoutMs: 8000,
+});

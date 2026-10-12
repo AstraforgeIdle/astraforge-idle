@@ -1,0 +1,174 @@
+{
+  "original_sha256": "ad7d31c5464b5024f27caeb5b82b37de0f743220ced93947d1a76f79dc506811",
+  "original_bytes": 9501157,
+  "adapted_image_occurrences": 22,
+  "unique_embedded_images": 20,
+  "images": [
+    {
+      "path": "assets/archive-01-62f724d1c437.webp",
+      "sha256": "62f724d1c4372ab97297957931a80b9ffb16926a3cb709453f858d7741c45815",
+      "bytes": 587952,
+      "width": 1800,
+      "height": 760,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-02-bf67fda44f54.webp",
+      "sha256": "bf67fda44f54c8528a63de2c4eeab7409f30364f825ed67e3a7b0860e8e39ef8",
+      "bytes": 641492,
+      "width": 1261,
+      "height": 1247,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-03-6278e03b0fc6.webp",
+      "sha256": "6278e03b0fc6cb0f287f124be243409e9fce2a592eacf9097caa046191cd7100",
+      "bytes": 726606,
+      "width": 1122,
+      "height": 1402,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-04-9f040b44b55a.webp",
+      "sha256": "9f040b44b55a5956e0419e1ed4fb8369764ab98548159c3cfa8eb19dd2fe5029",
+      "bytes": 401116,
+      "width": 1122,
+      "height": 1402,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-05-2797abf26eee.webp",
+      "sha256": "2797abf26eee3b433fa766ebf4002fd440f74c58252afb162c2971857d14cd14",
+      "bytes": 67348,
+      "width": 388,
+      "height": 329,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-06-da8d96c972e5.webp",
+      "sha256": "da8d96c972e57b606d67f5c5752739953651b5096668f99c68d951c99f48fe68",
+      "bytes": 28550,
+      "width": 240,
+      "height": 204,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-07-7bba4ea8c2f9.webp",
+      "sha256": "7bba4ea8c2f90af7a0f4501d4e6baeff9c8b3cc166abe0a7420226fa8fd2a996",
+      "bytes": 30944,
+      "width": 221,
+      "height": 220,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-08-b7630de16caf.webp",
+      "sha256": "b7630de16caf29d950012b355dece0371bdc13860883126460d228e578fa8765",
+      "bytes": 31596,
+      "width": 219,
+      "height": 220,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-09-890f9863747c.webp",
+      "sha256": "890f9863747c162c20e2810d3fb08a927b25a17cc7a7e7f65577708a686f7b1e",
+      "bytes": 31070,
+      "width": 240,
+      "height": 220,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-10-78bffd3c563f.webp",
+      "sha256": "78bffd3c563f43cb9bb02848888b985b10d1a1a74c2a70d2f0e71199ef63e3e9",
+      "bytes": 30116,
+      "width": 227,
+      "height": 220,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-11-5c15d040a7bd.webp",
+      "sha256": "5c15d040a7bdf452c806e420db2f7ca269326b6c2d33ac4dda46d27fe6589e41",
+      "bytes": 643004,
+      "width": 1500,
+      "height": 1000,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-12-2a30f0f3e8f0.webp",
+      "sha256": "2a30f0f3e8f00e714a2d830d3ec7d41db12e744d02e5b1a593e907db8c65c93b",
+      "bytes": 130532,
+      "width": 398,
+      "height": 546,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-13-fe859931b36f.webp",
+      "sha256": "fe859931b36f74178a311710c7fa0f00a15ca1d215e3e0909d480660dbef8c1a",
+      "bytes": 160856,
+      "width": 398,
+      "height": 546,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-14-2398b0928bf0.webp",
+      "sha256": "2398b0928bf0916b1985a692bd42ef51b2030b8160562980f3846c75e45de018",
+      "bytes": 178608,
+      "width": 398,
+      "height": 546,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-15-cce6d4d20fb5.webp",
+      "sha256": "cce6d4d20fb5d1da8c2a39e563db8909f1f543f733189a00e0655fbcc500e509",
+      "bytes": 523702,
+      "width": 1254,
+      "height": 1254,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-16-e8b344b4a228.webp",
+      "sha256": "e8b344b4a2288126d93811ed522645cc542ccdace8264dfd7af259d11e697034",
+      "bytes": 538306,
+      "width": 1254,
+      "height": 1254,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-17-8af12892babc.webp",
+      "sha256": "8af12892babcbbac4f187e245c78265db4ff1c0aba308449bdf632335b5b454d",
+      "bytes": 602658,
+      "width": 1254,
+      "height": 1254,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-18-d42921c48acc.webp",
+      "sha256": "d42921c48acca78fe6b8f7a3cb1d11cbd719cd6484afd4a43e177a918dac859a",
+      "bytes": 128832,
+      "width": 576,
+      "height": 338,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-19-44c023369bff.webp",
+      "sha256": "44c023369bff8b39543c082513e979307397e52d6cbb93dcd3bc9d7aa55801fe",
+      "bytes": 129450,
+      "width": 576,
+      "height": 338,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    },
+    {
+      "path": "assets/archive-20-708f58dc2c75.webp",
+      "sha256": "708f58dc2c7556e8ebd5f7fb976d210e76ce9fec4a26ea8df4bf3bf7be121f8f",
+      "bytes": 108172,
+      "width": 576,
+      "height": 338,
+      "source": "Imagem embutida no HTML V0.5.2 fornecido; extração com bytes idênticos"
+    }
+  ],
+  "transformations": [
+    "Original preservado byte a byte em original.html",
+    "Imagens embutidas extraídas sem alterar pixels; imagens repetidas compartilham arquivo",
+    "Adicionadas navegação histórica, aviso de arquivo, canonical/OG e link para pular conteúdo",
+    "Adicionadas dimensões e carga diferida; prosa, estilos e comportamento originais preservados"
+  ]
+}
