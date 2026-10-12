@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>V0.5.2 — A Oficina Desperta | Arquivo histórico | Astraforge Idle</title>
+<meta content="Astraforge Idle V0.5.2 — A Oficina Desperta. Nova Forja, heróis reformulados, minichefes raros, equipamentos épicos, balanceamento e correções de desempenho." name="description"/>
+<style>
+:root{--bg:#08111f;--bg2:#0f1c35;--panel:#101a31;--panel2:#17264a;--text:#f6f1e8;--muted:#d6e1f2;--soft:#9fb3d6;--gold:#e9c988;--gold2:#fff0c5;--line:rgba(233,201,136,.25);--line2:rgba(255,255,255,.08);--blue:#7dc9ff;--violet:#d4c0ff;--mint:#9cf0cf;--warn:#f4c57b;--ok:#aef3c5;--danger:#ff8b8b;--content:1220px;--shadow:0 20px 54px rgba(0,0,0,.38);--r:18px;}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;color:var(--text);font:400 16px/1.68 Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 0% 0%,rgba(66,109,222,.20),transparent 28%),radial-gradient(circle at 100% 0%,rgba(170,94,255,.12),transparent 24%),linear-gradient(180deg,#101936 0%,#0a1222 12%,#09111f 45%,#0d1730 100%);-webkit-font-smoothing:antialiased;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at center, black 40%, transparent 92%);z-index:-1}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit;cursor:pointer}h1,h2,h3,h4{margin:0;line-height:1.06}h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif}p{margin:0 0 12px}ul{margin:0;padding-left:18px}strong{color:#fff8e8}::selection{background:#f0d18f;color:#17253d}
+.container{width:min(var(--content),calc(100% - 34px));margin:auto}.progress{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--gold2),var(--violet));box-shadow:0 0 12px rgba(255,248,222,.7);z-index:150}.header{position:sticky;top:0;z-index:120;background:rgba(8,16,32,.84);backdrop-filter:blur(16px);border-bottom:1px solid rgba(233,201,136,.16)}.header-inner{max-width:var(--content);height:78px;margin:auto;padding:0 10px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;flex:none}.brand-mark{width:42px;height:42px;border:1px solid var(--gold);display:grid;place-items:center;transform:rotate(45deg);box-shadow:inset 0 0 0 4px #0d1732}.brand-mark span{transform:rotate(-45deg);font:700 28px Georgia,serif;color:var(--gold2)}.brand-text{font:700 17px/1 Georgia,serif;letter-spacing:.12em}.brand-text small{display:block;margin-top:5px;font:700 9px/1 Inter,sans-serif;letter-spacing:.18em;color:#d2dcef}.nav{display:flex;align-items:center;gap:16px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{flex:none;padding:4px 0;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#d8e2f6;position:relative}.nav a.active,.nav a:hover{color:#fff0c5}.nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:12px 16px;border:1px solid transparent;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.btn.primary{background:linear-gradient(135deg,#efd49b,#fff0c7);color:#1c2a44}.btn.ghost{border-color:rgba(228,237,255,.24);background:rgba(228,237,255,.06);color:#eef4ff}.frame{background:linear-gradient(150deg,rgba(20,34,68,.98),rgba(15,24,47,.98));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.hero{padding:54px 0 42px}.eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#fff0be}.eyebrow:before{content:"";width:32px;height:1px;background:rgba(255,240,190,.82)}.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.chip{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.05)}.chip.gold{border-color:rgba(233,201,136,.32);background:rgba(233,201,136,.10);color:#ffefc0}.chip.violet{border-color:rgba(212,192,255,.32);background:rgba(212,192,255,.10);color:#efe6ff}.chip.mint{border-color:rgba(156,240,207,.28);background:rgba(156,240,207,.09);color:#dffff5}.chip.warn{border-color:rgba(244,197,123,.28);background:rgba(244,197,123,.10);color:#ffe6be}.hero-grid{display:grid;grid-template-columns:1fr;gap:22px}.hero-copy h1{font-size:clamp(52px,9vw,94px);letter-spacing:-.055em;line-height:.92;margin:18px 0 18px}.hero-copy h1 em{font-style:normal;color:var(--gold2)}.hero-copy .date{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,240,190,.30);background:rgba(255,240,190,.08);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#fff5d9}.hero-copy .lede{max-width:900px;font-size:18px;line-height:1.8;color:#dbe5f6}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.hero-note{margin-top:16px;font-size:12px;color:#c5d4ea}.banner img{width:100%;aspect-ratio:2.37;object-fit:cover;border-top-left-radius:var(--r);border-top-right-radius:var(--r)}.banner figcaption{padding:12px 16px;background:rgba(6,13,28,.58);font-size:11px;color:#d9e3f7}
+.summary{padding:0 0 22px}.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.summary-card{padding:22px 18px;text-align:center}.summary-card strong{display:block;font:400 clamp(34px,4vw,48px)/1 Georgia,serif;color:#fff0c3}.summary-card span{display:block;margin-top:8px;font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#d7e2f7}
+.section{padding:68px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:26px}.kicker{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#dde7fa}.kicker:before{content:"";width:26px;height:1px;background:rgba(255,240,190,.75)}.section-head h2{font-size:clamp(38px,5.4vw,60px);letter-spacing:-.045em;margin-top:8px}.section-head h2 em{font-style:normal;color:var(--gold2)}.section-head p{max-width:760px;font-size:16px;line-height:1.75;color:#d5e1f4;margin-top:10px}
+.patch-block{margin-top:18px}.patch-title{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line2);background:linear-gradient(90deg,rgba(255,255,255,.03),rgba(255,255,255,0));border-top-left-radius:var(--r);border-top-right-radius:var(--r)}.patch-title h3{font-size:28px}.tag{display:inline-flex;align-items:center;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.tag.new{background:rgba(156,240,207,.10);border:1px solid rgba(156,240,207,.30);color:#defff3}.tag.update{background:rgba(125,201,255,.10);border:1px solid rgba(125,201,255,.30);color:#e4f5ff}.tag.test{background:rgba(244,197,123,.11);border:1px solid rgba(244,197,123,.30);color:#ffe7c1}.tag.watch{background:rgba(255,139,139,.10);border:1px solid rgba(255,139,139,.28);color:#ffdcdc}.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:18px}.feature-card{padding:22px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.feature-card h4{font-size:24px;margin-bottom:10px}.feature-card p{font-size:14px;color:#d8e3f5;line-height:1.76}.feature-card ul{margin-top:14px;font-size:13px;line-height:1.72;color:#d0dbef}
+.forge-layout{display:grid;grid-template-columns:1.04fr .96fr;gap:18px}.text-card{padding:24px 26px}.text-card h3{font-size:32px;margin-bottom:10px}.text-card p{color:#d8e3f5}.text-card .sub{margin-top:16px;font-size:12px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#ffeebd}.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.mini{padding:14px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.mini strong{display:block;font-size:13px;color:#fff0c7;margin-bottom:5px}.mini span{display:block;font-size:12px;color:#d4dff2}.system-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}.system{padding:20px}.system .step{font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#ffebb3}.system h4{font-size:26px;margin:10px 0 10px}.system p{font-size:13px;color:#d8e3f6}.system ul{margin-top:12px;font-size:12px;line-height:1.72;color:#cedaee}
+.asset-stack{display:grid;gap:14px}.asset-stack figure{margin:0;padding:16px}.asset-stack img{width:100%;border-radius:14px;background:#091125;border:1px solid rgba(255,255,255,.08)}.asset-stack figcaption{margin-top:8px;font-size:12px;color:#cfdbef}
+.hero-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.hero-card{overflow:hidden}.sheet-head{padding:16px;background:linear-gradient(180deg,#0c1631,#111d3c);border-bottom:1px solid rgba(255,255,255,.08)}.sheet-head img{width:100%;border-radius:12px;background:#081125}.copy{padding:22px}.copy .role{font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#ffebb3}.copy h3{font-size:34px;margin:10px 0 12px}.copy p{font-size:14px;line-height:1.76;color:#d8e3f4}.copy .delta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 10px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.pill.buff{background:rgba(156,240,207,.10);border:1px solid rgba(156,240,207,.28);color:#dcfff2}.pill.update{background:rgba(125,201,255,.10);border:1px solid rgba(125,201,255,.28);color:#e4f5ff}.copy ul{margin-top:12px;font-size:13px;line-height:1.72;color:#ced9ed}
+.item-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.gallery-card{padding:16px}.gallery-card img{width:100%;border-radius:14px;background:#091125;border:1px solid rgba(255,255,255,.08)}.gallery-card h4{font-size:24px;margin:12px 0 8px}.gallery-card p{font-size:13px;color:#d6e2f4}
+.boss-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.boss-card{overflow:hidden}.boss-card .art{padding:16px;background:linear-gradient(180deg,#0c1631,#111d3d);border-bottom:1px solid rgba(255,255,255,.08)}.boss-card .art img{width:100%;border-radius:12px;background:#081124}.boss-card .body{padding:22px}.boss-card .world{font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#ffeab6}.boss-card h3{font-size:32px;margin:10px 0 12px}.boss-card p{font-size:14px;line-height:1.75;color:#d8e3f4}.boss-card ul{margin-top:12px;font-size:13px;line-height:1.72;color:#cedaee}
+.tester-layout{display:grid;grid-template-columns:1.04fr .96fr;gap:18px}.checklist{padding:24px 26px}.checklist h3{font-size:32px;margin-bottom:10px}.checklist p{color:#d8e3f5}.list-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}.list-item{padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}.list-item strong{display:block;font-size:13px;color:#fff0c7;margin-bottom:5px}.list-item span{display:block;font-size:12px;color:#d6e1f3}.note-card{padding:24px 26px}.note-card h3{font-size:30px;margin-bottom:10px}.note-card p{font-size:14px;color:#d8e3f6;line-height:1.75}.watch-list{margin-top:14px;display:grid;gap:10px}.watch{padding:14px;border-radius:12px;background:rgba(255,255,255,.03);border-left:3px solid var(--gold)}.watch strong{display:block;font-size:13px;color:#fff1cb;margin-bottom:5px}.watch span{display:block;font-size:12px;color:#d4e0f2}
+.footer{padding:72px 0 90px}.footer-box{padding:40px 28px;text-align:center}.footer-box h2{font-size:clamp(40px,5vw,62px);letter-spacing:-.04em}.footer-box h2 em{font-style:normal;color:var(--gold2)}.footer-box p{max-width:820px;margin:16px auto 0;font-size:16px;line-height:1.82;color:#dbe5f6}.foot-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}.footline{margin-top:22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#d2ddf0}
+@media (max-width:1100px){.feature-grid,.hero-cards,.boss-grid,.gallery-grid,.system-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.forge-layout,.item-layout,.tester-layout,.hero-grid{grid-template-columns:1fr}}
+@media (max-width:760px){.container{width:min(var(--content),calc(100% - 22px))}.header-inner{height:74px}.brand-text{display:none}.nav{gap:14px}.nav a{font-size:10px}.hero-copy h1{font-size:clamp(42px,15vw,62px)}.summary-grid,.feature-grid,.system-grid,.hero-cards,.gallery-grid,.boss-grid,.mini-grid,.list-box{grid-template-columns:1fr}.section{padding:54px 0}.header-inner .btn.ghost{display:none}}
+@media print{.header,.progress,.hero-actions{display:none!important}body{background:#fff;color:#21324e}body:before{display:none}.frame{box-shadow:none!important;background:#f4f6fa!important;color:#21324e!important;border-color:#bcc4d1!important}p,li,.section-head p{color:#37485f!important}.hero-copy h1,.section-head h2,.text-card h3,.copy h3,.boss-card h3,.footer-box h2{color:#21324e!important}}
+</style>
+<style>
+/* Heróis — Fae e Nymeris */
+.fae-spotlight{display:grid;grid-template-columns:minmax(290px,.82fr) minmax(0,1.35fr);overflow:hidden;margin:0 0 18px;border-color:rgba(158,137,255,.48);background:linear-gradient(120deg,#111b3d,#181c42 54%,#121d38)}
+.fae-stage{position:relative;min-height:490px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 54%,rgba(104,101,255,.25),transparent 58%),linear-gradient(150deg,#102449,#161438 70%,#0b1430);border-right:1px solid rgba(198,180,255,.20)}
+.fae-stage:before{content:'';position:absolute;inset:16px;border:1px solid rgba(162,172,251,.25);pointer-events:none;border-radius:14px}.fae-stage:after{content:'';position:absolute;inset:auto 4% -55px;height:110px;background:rgba(131,124,255,.35);filter:blur(52px)}
+.fae-stars{position:absolute;right:13%;top:9%;font:110px/1 Georgia,serif;color:rgba(216,194,255,.16);transform:rotate(15deg)}
+.fae-main{position:relative;z-index:2;max-height:450px;max-width:min(98%,440px);width:auto;object-fit:contain;image-rendering:auto;filter:drop-shadow(0 15px 18px rgba(5,7,24,.62)) drop-shadow(0 0 18px rgba(110,100,250,.28))}
+.fae-stage-caption{position:absolute;z-index:3;bottom:20px;left:18px;right:18px;text-align:center;font:900 11px/1.4 Inter,Segoe UI,sans-serif;letter-spacing:.18em;color:#eee5ff}
+.fae-copy{padding:34px 32px}.fae-copy .role,.nymeris-label{font:900 10px/1.4 Inter,Segoe UI,sans-serif;letter-spacing:.18em;color:#d9c8ff}.fae-copy h3{font-size:clamp(36px,4.2vw,56px);letter-spacing:-.04em;margin:13px 0 18px}.fae-copy h3 em{color:#d4baff;font-style:normal}.fae-copy p{color:#dbe5fb;font-size:14px;line-height:1.78}.fae-pills{display:flex;flex-wrap:wrap;gap:8px;margin:19px 0 15px}.fae-pills span{font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;padding:7px 10px;color:#f4eaff;border:1px solid rgba(184,168,255,.34);background:rgba(185,161,255,.10);border-radius:999px}
+.fae-pose-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:14px 0}.fae-thumb{height:95px;border:1px solid rgba(190,178,255,.23);background:linear-gradient(180deg,#122147,#0c1431);border-radius:9px;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden}.fae-thumb img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 5px 5px #03061688)}.fae-preserve{margin:14px 0 4px;font-size:12px!important;color:#cbd7ed!important}
+.fae-gallery{margin-top:12px;border-top:1px solid rgba(211,200,252,.22)}.fae-gallery summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 2px 5px;color:#e8d9ff;font-size:12px;font-weight:800}.fae-gallery summary::-webkit-details-marker{display:none}.fae-gallery summary span{font-size:18px}.fae-full{margin-top:10px;padding:10px;border:1px solid rgba(211,200,252,.2);background:#0a122a;border-radius:9px}.fae-full img{display:block;width:100%;height:auto;object-fit:contain}
+.nymeris-update{display:grid;grid-template-columns:80px 1fr auto;gap:18px;align-items:center;padding:23px 26px;margin:0 0 35px;background:linear-gradient(100deg,#171936,#211837 58%,#101b37);border-color:rgba(215,170,255,.25)}
+.nymeris-sigil{font:60px Georgia,serif;color:#d9acff;text-align:center;text-shadow:0 0 22px #a86df855}.nymeris-description h3{font-size:27px;margin:5px 0 8px}.nymeris-description p{color:#dbe3f2;font-size:13px;line-height:1.7;margin:0}.nymeris-delta{text-align:center;min-width:120px;padding:8px 0 8px 18px;border-left:1px solid rgba(218,174,255,.25)}.nymeris-delta strong{display:block;font:400 42px/1 Georgia,serif;color:#e9caff}.nymeris-delta span{display:block;font-size:10px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#ddccec;margin-top:6px}.nymeris-delta small{display:block;font-size:10px;color:#b9b1d9;margin-top:4px}
+.hero-trio-heading{margin:26px 0 18px}.hero-trio-heading h3{font-size:31px}.hero-trio-heading p{color:#d0dcec;font-size:13px;margin-top:7px}
+/* Balanceamento Mundo III */
+.balance-feature{overflow:hidden;border-color:rgba(233,201,136,.32);background:linear-gradient(130deg,#231d38,#171f3e 45%,#0f1d38)}
+.balance-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 24px;border-bottom:1px solid rgba(233,201,136,.18)}.balance-target{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;color:#ffe4af}
+.balance-content{display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:center;padding:32px 28px 30px}.balance-number{text-align:center;display:flex;align-items:center;flex-direction:column;gap:9px;border-right:1px solid rgba(255,255,255,.08);padding:8px 24px 8px 0}.balance-number>span{font-size:9px;letter-spacing:.16em;font-weight:900;color:#f1d9aa}.balance-number>strong{font:400 72px/1 Georgia,serif;color:#fff0bc}.balance-number>small{font-size:10px;color:#cbd7eb}.balance-line{display:grid;grid-template-columns:4fr 5fr;gap:6px;width:90%;margin-top:12px}.balance-line i{height:8px;background:rgba(169,188,223,.4);border-radius:5px}.balance-line i+ i{background:linear-gradient(90deg,#e9b878,#fbe29c)}.balance-details h3{font-size:33px;margin-bottom:9px}.balance-details p{font-size:14px;color:#dce7f8;line-height:1.74}.balance-stats{display:flex;flex-wrap:wrap;gap:8px;margin:17px 0}.balance-stats span{padding:7px 10px;border:1px solid rgba(242,208,143,.3);background:rgba(242,208,143,.08);border-radius:8px;color:#ffeac2;font-size:11px;font-weight:800}.balance-details .balance-foot{font-size:12px;color:#cad8e9;border-left:2px solid #e9c988;padding-left:13px;margin-top:14px}
+@media(max-width:960px){.fae-spotlight{grid-template-columns:1fr}.fae-stage{min-height:380px;border-right:0;border-bottom:1px solid rgba(198,180,255,.20)}.fae-main{max-height:365px}.balance-content{grid-template-columns:1fr}.balance-number{border-right:0;border-bottom:1px solid rgba(255,255,255,.08);padding:0 0 22px}.nymeris-update{grid-template-columns:62px 1fr}.nymeris-delta{grid-column:2;justify-self:start;min-width:auto;display:flex;gap:9px;align-items:center;text-align:left;padding:0;border:0}}
+@media(max-width:560px){.fae-copy{padding:24px 18px}.fae-stage{min-height:345px}.fae-main{max-height:310px}.fae-thumb{height:72px}.fae-pose-strip{gap:4px}.nymeris-update{padding:18px;grid-template-columns:1fr}.nymeris-sigil{display:none}.nymeris-delta{grid-column:1}.balance-head{flex-wrap:wrap;padding:14px}.balance-content{padding:22px 18px}.balance-number>strong{font-size:58px}.balance-details h3{font-size:28px}}
+@media print{.fae-spotlight,.nymeris-update,.balance-feature{background:#f1f1f7!important;color:#202940!important;box-shadow:none!important;border-color:#b6bed0}.fae-copy p,.nymeris-description p,.balance-details p{color:#34455e!important}.fae-main,.fae-thumb img{print-color-adjust:exact;-webkit-print-color-adjust:exact}.fae-gallery:not([open]){display:none}}
+
+/* Atualização V0.5.2 — retrato da Fae + pequenos ajustes de estabilidade */
+.fae-stage{isolation:isolate;min-height:560px;background:#0b1732}
+.fae-stage .fae-portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;z-index:1;filter:saturate(1.05) contrast(1.02)}
+.fae-stage:before{z-index:4;inset:12px;border-color:rgba(252,225,178,.45);box-shadow:inset 0 0 30px rgba(10,14,31,.22)}
+.fae-stage:after{content:"";position:absolute;z-index:2;inset:0;background:linear-gradient(180deg,rgba(6,12,34,.02) 40%,rgba(7,12,31,.88) 100%);filter:none;height:auto}
+.fae-stage .fae-stars{z-index:3;color:rgba(255,231,191,.75);text-shadow:0 0 30px rgba(255,232,174,.4)}
+.fae-stage .fae-sprite-accent{position:absolute;bottom:38px;right:13px;max-width:28%;max-height:30%;height:auto;object-fit:contain;z-index:4;filter:drop-shadow(0 6px 12px #050916) drop-shadow(0 0 4px rgba(196,177,255,.5))}
+.fae-stage .fae-stage-caption{z-index:5;bottom:15px;left:20px;right:110px;text-align:left;font-size:10px;letter-spacing:.16em;text-shadow:0 1px 8px rgba(0,0,0,.9)}
+.fixes-section{padding-top:46px;border-top:1px solid rgba(234,205,150,.09)}
+.fixes-section .section-head h2{font-size:clamp(36px,4.8vw,56px)}
+.fixes-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fix-card{padding:24px 25px;background:linear-gradient(145deg,rgba(18,29,56,.95),rgba(13,21,43,.98));border-color:rgba(232,201,136,.20);box-shadow:0 8px 26px rgba(0,0,0,.18)}
+.fix-eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:#e6ca95;margin-bottom:12px}
+.fix-card h3{font-size:27px;margin-bottom:12px;letter-spacing:-.02em}
+.fix-card p{color:#d3dff2;font-size:13px;line-height:1.75;margin:0}
+.fixes-footnote{color:#aebed9;font-size:12px;line-height:1.7;margin:17px 4px 0}
+@media(max-width:960px){.fixes-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.fixes-grid{grid-template-columns:1fr}.fae-stage{min-height:470px}.fae-stage .fae-portrait{object-position:50% 36%}.fae-stage .fae-sprite-accent{max-width:24%;max-height:27%;bottom:36px}.fae-stage .fae-stage-caption{right:100px}}
+@media(max-width:560px){.fae-stage{min-height:435px}.fae-stage .fae-portrait{object-position:50% 25%}.fae-stage .fae-sprite-accent{max-width:24%;bottom:29px}.fae-stage .fae-stage-caption{font-size:9px;right:87px}.fix-card{padding:21px}}
+@media print{.fix-card{break-inside:avoid;box-shadow:none}.fae-stage .fae-portrait{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+<link rel="canonical" href="https://astraforgeidle.github.io/astraforge-idle/updates/v0.5.2/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta property="og:site_name" content="Astraforge Idle"/>
+<meta property="og:title" content="V0.5.2 — A Oficina Desperta | Arquivo histórico"/>
+<meta property="og:description" content="Notas históricas fornecidas, preservadas com o conteúdo original."/>
+<meta property="og:url" content="https://astraforgeidle.github.io/astraforge-idle/updates/v0.5.2/"/>
+<meta property="og:image" content="https://astraforgeidle.github.io/astraforge-idle/updates/v0.5.2/assets/archive-01-62f724d1c437.webp"/>
+<style>
+.history-portal{background:#07121d;color:#e9debd;padding:14px 24px;border-bottom:1px solid #8b713c;font:14px/1.6 Georgia,serif;}
+.history-portal-inner{max-width:1180px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;}
+.history-portal a{color:#efc76c;text-decoration:underline;text-underline-offset:4px;}
+.history-portal p{margin:0;flex:1 1 420px;}
+.history-skip{position:absolute;left:12px;top:-90px;z-index:999;background:#07121d;color:#efc76c;padding:12px;}
+.history-skip:focus{top:8px;}
+.history-portal a:focus-visible{outline:2px solid #efc76c;outline-offset:4px;}
+</style>
+</head>
+<body>
+<a class="history-skip" href="#history-content">Pular para as notas históricas</a>
+<nav class="history-portal" aria-label="Portal e arquivo histórico"><div class="history-portal-inner">
+<a href="../../index.html">← Portal oficial</a><a href="../index.html">Todas as atualizações</a>
+<p><strong>Arquivo V0.5.2.</strong> Conteúdo histórico preservado. A data e os valores abaixo pertencem ao documento original; os ajustes atuais estão em V0.6.0.</p>
+<a href="original.html">Abrir original preservado</a>
+</div></nav>
+
+<div class="progress" id="progress"></div>
+<header class="header">
+<div class="header-inner">
+<a class="brand" href="#inicio"><span class="brand-mark"><span>A</span></span><span class="brand-text">ASTRAFORGE<small>IDLE · PATCH NOTES</small></span></a>
+<nav class="nav">
+<a href="#resumo">Resumo</a>
+<a href="#forja">Nova Forja</a>
+<a href="#herois">Heróis</a>
+<a href="#itens">Itens</a>
+<a href="#minichefes">Minichefes</a>
+<a href="#balanceamento">Balanceamento</a><a href="#correcoes">Correções</a><a href="#teste">Feedback</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<a class="btn ghost" href="#teste">O que testar</a>
+<button class="btn primary" onclick="window.print()" type="button">Salvar PDF ↗</button>
+</div>
+</div>
+</header>
+<main id="history-content">
+<section class="hero" id="inicio">
+<div class="container hero-grid">
+<div class="hero-copy">
+<div class="eyebrow">Notas da atualização</div>
+<div class="date">Atualização V0.5.2 · 10 de outubro de 2026</div>
+<h1>A <em>Oficina</em><br/>Desperta.</h1>
+<p class="lede">Boas-vindas à atualização <strong>A Oficina Desperta!</strong> A Oficina abre suas portas, três minichefes raros surgem pela campanha e Kael, Aelia, Mira e Fae entram em combate com animações renovadas. Chegou a hora de coletar materiais, fabricar equipamentos épicos e descobrir até onde sua equipe consegue evoluir.</p>
+<div class="chip-row">
+<span class="chip gold">Nova Forja</span>
+<span class="chip violet">Heróis V2</span>
+<span class="chip mint">Minichefes raros</span>
+<span class="chip warn">Refino +0 a +10</span>
+<span class="chip violet">Fae · nova dança de lâminas</span></div>
+<div class="hero-actions">
+<a class="btn primary" href="#resumo">Ver resumo do patch ↘</a>
+<a class="btn ghost" href="#herois">Ir para heróis</a>
+</div>
+</div>
+<figure class="frame banner">
+<img alt="Banner do patch notes com Kael, Aelia e Mira usando ilustrações e sprites dos heróis" src="assets/archive-01-62f724d1c437.webp" width="1800" height="760" loading="eager" fetchpriority="high">
+<figcaption>Kael, Aelia e Mira — novos movimentos, novas poses e ataques com efeitos renovados.</figcaption>
+</figure>
+</div>
+</section>
+<section class="summary" id="resumo">
+<div class="container">
+<div class="summary-grid">
+<div class="frame summary-card"><strong>36</strong><span>Receitas épicas</span></div>
+<div class="frame summary-card"><strong>3</strong><span>Minichefes raros</span></div>
+<div class="frame summary-card"><strong>208</strong><span>Desenhos novos de heróis</span></div>
+<div class="frame summary-card"><strong>42</strong><span>Origens de materiais</span></div>
+</div>
+<div class="patch-block frame" style="margin-top:18px">
+<div class="patch-title"><h3>Resumo do patch</h3><span class="tag new">Destaques</span></div>
+<div class="feature-grid">
+<article class="feature-card"><h4>Nova Forja</h4><p>O novo ciclo de progressão foi ativado: desbloqueio da Oficina, fabricação épica, refino +0 → +10, têmpera em combate e evolução 50 → 60.</p><ul><li>3 conhecimentos restauram 4 acessos.</li><li>O terceiro conhecimento fecha a cadeia de abertura.</li></ul></article>
+<article class="feature-card"><h4>Heróis reformulados</h4><p>Kael, Aelia e Mira ganharam novos movimentos. Fae entra no grupo com 60 desenhos inéditos, enquanto Nymeris recebe um pequeno ajuste de proporção visual.</p><ul><li>Fae: novas poses para ataques, habilidades e movimentação.</li><li>Nymeris: altura visual +5%, sem alteração de habilidades.</li></ul></article>
+<article class="feature-card"><h4>Minichefes</h4><p>Matriarca, Espreita e Cadinho Vivo entram no fluxo da campanha com identidade própria e materiais exclusivos para abastecer a Nova Forja.</p><ul><li>2% de chance por conclusão elegível.</li><li>Cadinho especial garante o conhecimento III.</li></ul></article>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="forja">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Nova Forja</div><h2>Sistema novo. <em>Fluxo completo.</em></h2><p>Os antigos conhecimentos retornaram aos três mundos. Reúna as relíquias para restaurar a Oficina e liberar a fabricação de equipamentos épicos, o refino, a têmpera em combate e a evolução do nível 50 para o 60.</p></div></div>
+<div class="forge-layout">
+<article class="frame text-card">
+<h3>Desbloqueio da Oficina</h3>
+<p>Os conhecimentos <strong>I</strong> e <strong>II</strong> podem surgir em qualquer ordem. Enquanto faltar uma das três relíquias, todos os ofícios permanecem selados. Após obter as duas primeiras, a primeira vitória especial contra o <strong>Cadinho Vivo</strong> garante o conhecimento III e restaura a Oficina automaticamente.</p>
+<div class="sub">Acessos liberados com a restauração</div>
+<div class="mini-grid">
+<div class="mini"><strong>Tecelã</strong><span>Equipamentos leves e peças associadas ao trabalho da Mira.</span></div>
+<div class="mini"><strong>Segredos da Arcana</strong><span>Armas mágicas, grimórios, orbes e acessórios arcanos.</span></div>
+<div class="mini"><strong>Coração da Forja</strong><span>Armas físicas, armaduras e peças mais pesadas.</span></div>
+<div class="mini"><strong>Grande Têmpera</strong><span>Refino, barra de têmpera e evolução de item.</span></div>
+</div>
+</article>
+<div class="asset-stack">
+<figure class="frame"><img alt="Coleção de equipamentos usados na Nova Forja" src="assets/archive-02-bf67fda44f54.webp" width="1261" height="1247" loading="lazy"><figcaption>Armas, vestes, armaduras e acessórios da nova linha de equipamentos épicos.</figcaption></figure>
+<figure class="frame"><img alt="Segundo atlas real de equipamentos da Oficina" src="assets/archive-03-6278e03b0fc6.webp" width="1122" height="1402" loading="lazy"><figcaption>Famílias de equipamentos físicos, mágicos e de suporte.</figcaption></figure>
+</div>
+</div>
+<div class="system-grid">
+<article class="frame system"><div class="step">Etapa 01</div><h4>Craft</h4><p>O item é criado apenas quando receita, materiais, compatibilidade, extras e espaço de inventário estão válidos.</p><ul><li>Gera um item com identidade própria.</li><li>Usa os mesmos stats vistos no combate.</li><li>Falha de gravação reverte o consumo.</li></ul></article>
+<article class="frame system"><div class="step">Etapa 02</div><h4>Refino</h4><p>O primeiro refino é imediato e tem 100% de sucesso por 5.000 de ouro. Os demais dependem de têmpera concluída.</p><ul><li>+0 → +1 garantido.</li><li>Falha consome apenas ouro.</li><li>Item e progresso são mantidos.</li></ul></article>
+<article class="frame system"><div class="step">Etapa 03</div><h4>Têmpera</h4><p>O progresso da barra acontece em combate real com a peça equipada, a partir da fase 401.</p><ul><li>Conta HP efetivo por categoria.</li><li>Ignora overkill, overheal e eventos artificiais.</li><li>Para ao desequipar.</li></ul></article>
+<article class="frame system"><div class="step">Etapa 04</div><h4>Evolução</h4><p>O item 50 evolui para 60 mantendo a própria identidade, extras, refino e histórico.</p><ul><li>30.000 de ouro + materiais da receita 60.</li><li>Mesmo item, não uma cópia.</li><li>Preserva a proporção da barra.</li></ul></article>
+</div>
+</div>
+</section>
+<section class="section" id="herois">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Heróis</div><h2>Heróis em destaque. <em>Movimentos renovados.</em></h2><p>Fae recebe uma reformulação completa das animações. Kael, Aelia e Mira também ganharam novos corpos e movimentos, enquanto Nymeris recebeu um ajuste visual de altura. As habilidades e seus valores não mudaram nesta atualização visual.</p></div></div>
+<div class="hero-trio-heading"><h3>Kael, Aelia e Mira</h3><p>As reformulações de vanguarda, suporte e magia também estão presentes nesta atualização.</p></div>
+<div class="nymeris-update frame">
+<div aria-hidden="true" class="nymeris-sigil">✧</div>
+<div class="nymeris-description"><span class="nymeris-label">AJUSTE VISUAL · NYMERIS</span><h3>Presença mais imponente</h3><p>Nymeris ficou <strong>5% mais alta</strong>, preservando a largura anterior e a identidade da personagem. O ajuste não altera suas habilidades, atributos, servos nem velocidade de combate.</p></div>
+<div class="nymeris-delta"><strong>+5%</strong><span>Altura visual</span><small>159,6 → 167,58</small></div>
+</div>
+<div class="fae-spotlight frame" id="fae">
+<div class="fae-stage"><img alt="Arte da Fae com duas lâminas sob a lua e flores de cerejeira" class="fae-portrait" decoding="async" loading="lazy" src="assets/archive-04-9f040b44b55a.webp" width="1122" height="1402">
+<div class="fae-stars">✦</div>
+<img alt="Sprite de combate da Fae com duas lâminas" class="fae-sprite-accent" loading="lazy" src="assets/archive-05-2797abf26eee.webp" width="388" height="329">
+<span class="fae-stage-caption">FAE · A DANÇA DAS LÂMINAS</span>
+</div>
+<div class="fae-copy">
+<div class="role">REFORMULAÇÃO VISUAL · FAE</div>
+<h3>A dança das lâminas<br/><em>ganha nova vida.</em></h3>
+<p>Fae está de visual renovado! Seus novos movimentos valorizam o cabelo azul, as orelhas e a cauda de raposa, além das duas lâminas que definem seu estilo de combate.</p>
+<p>São <strong>60 novos desenhos</strong>, com golpes mais distintos, expressões aprimoradas e transições de movimento que dão mais personalidade a cada ataque.</p>
+<div class="fae-pills"><span>60 novos desenhos</span><span>12 poses do ataque básico</span><span>4 habilidades renovadas</span></div>
+<div aria-label="Amostra das novas poses de Fae" class="fae-pose-strip">
+<div class="fae-thumb"><img alt="Fae em pose de combate" loading="lazy" src="assets/archive-06-da8d96c972e5.webp" width="240" height="204"></div>
+<div class="fae-thumb"><img alt="Fae em outra pose de combate" loading="lazy" src="assets/archive-07-7bba4ea8c2f9.webp" width="221" height="220"></div>
+<div class="fae-thumb"><img alt="Fae em pose baixa" loading="lazy" src="assets/archive-08-b7630de16caf.webp" width="219" height="220"></div>
+<div class="fae-thumb"><img alt="Fae com as lâminas erguidas" loading="lazy" src="assets/archive-09-890f9863747c.webp" width="240" height="220"></div>
+<div class="fae-thumb"><img alt="Fae em gesto expressivo" loading="lazy" src="assets/archive-10-78bffd3c563f.webp" width="227" height="220"></div>
+</div>
+<p class="fae-preserve"><strong>Habilidades preservadas:</strong> Corte Crescente, Pétalas de Aço, Passo da Raposa e Valsa receberam novos movimentos, sem mudança de dano, recarga, velocidade ou efeitos.</p>
+<details class="fae-gallery"><summary>Ver mais poses da Fae <span>＋</span></summary><div class="fae-full"><img alt="Folha com doze poses reais da nova Fae" loading="lazy" src="assets/archive-11-5c15d040a7bd.webp" width="1500" height="1000"></div></details>
+</div>
+</div>
+<div class="hero-cards">
+<article class="frame hero-card">
+<div class="sheet-head"><img alt="Animações de Kael" src="assets/archive-12-2a30f0f3e8f0.webp" width="398" height="546" loading="lazy"></div>
+<div class="copy"><div class="role">Vanguarda · guerreiro</div><h3>Kael</h3><p>Kael assume uma postura de guarda mais firme, com espada e escudo mais nítidos. Corridas, cortes e investidas ganham movimentos próprios, reforçando sua presença na linha de frente.</p><div class="delta"><span class="pill update">Nova leitura de arma</span><span class="pill buff">Nova postura de guarda</span></div><ul><li>48 desenhos novos integrados ao herói.</li><li>Corrida, corte e investida mais distintas entre si.</li><li>Ataque básico com arco curto e impacto visual local.</li></ul></div>
+</article>
+<article class="frame hero-card">
+<div class="sheet-head"><img alt="Animações da Aelia" src="assets/archive-13-fe859931b36f.webp" width="398" height="546" loading="lazy"></div>
+<div class="copy"><div class="role">Suporte · cura</div><h3>Aelia</h3><p>Aelia recebeu gestos próprios para cura, purificação, santuário e Ressurreição. Seus novos movimentos tornam mais fácil distinguir cada feitiço e acompanhar o momento da recuperação dos aliados.</p><div class="delta"><span class="pill update">Conjuração refinada</span><span class="pill buff">Cura mais legível</span></div><ul><li>52 desenhos novos, o maior pacote do trio.</li><li>Remapeamento dos ramos de revive para o novo corpo.</li><li>Melhor leitura de cajado, rosto e manto.</li></ul></div>
+</article>
+<article class="frame hero-card">
+<div class="sheet-head"><img alt="Animações da Mira" src="assets/archive-14-2398b0928bf0.webp" width="398" height="546" loading="lazy"></div>
+<div class="copy"><div class="role">Arcana · maga</div><h3>Mira</h3><p>Mira ganhou novas poses para raio, selo e véu. O cajado lunar e os movimentos de conjuração estão mais nítidos, com efeitos breves que acompanham o impacto dos ataques.</p><div class="delta"><span class="pill update">Conjurações distintas</span><span class="pill buff">Cajado mais legível</span></div><ul><li>48 desenhos novos integrados ao kit visual.</li><li>Ataque básico com VFX curto e local.</li><li>Silhueta e ritmo de magia mais limpos.</li></ul></div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="itens">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Itens e materiais</div><h2>Mais famílias. <em>Mais identidade visual.</em></h2><p>A Oficina reúne 36 receitas épicas distribuídas por 18 famílias, nos níveis 50 e 60. Armas, proteções e acessórios oferecem combinações de atributos para adaptar o equipamento ao papel de cada herói.</p></div></div>
+<div class="patch-block frame">
+<div class="patch-title"><h3>Itens fabricáveis</h3><span class="tag update">Itens</span></div>
+<div class="item-layout" style="padding:18px">
+<article class="text-card" style="padding:6px 6px 6px 0;background:none;border:none;box-shadow:none">
+<h3>Equipamentos épicos</h3>
+<p>As receitas incluem armas físicas e mágicas, armaduras, vestes, elmos, botas, luvas, acessórios e instrumentos. Cada família possui requisitos e combinações de atributos próprios, com opções compatíveis com os nove heróis.</p>
+<div class="mini-grid">
+<div class="mini"><strong>Armas</strong><span>1 atributo fixo + 3 extras.</span></div>
+<div class="mini"><strong>Defesas</strong><span>HP, DEF Física, DEF Mágica + 2 extras.</span></div>
+<div class="mini"><strong>Acessórios</strong><span>HP base + 3 extras.</span></div>
+<div class="mini"><strong>Raridade</strong><span>Todas as receitas desta etapa são épicas.</span></div>
+</div>
+</article>
+<div class="asset-stack">
+<figure class="frame"><img alt="Equipamentos reais azuis e dourados" src="assets/archive-02-bf67fda44f54.webp" width="1261" height="1247" loading="lazy"><figcaption>Armas, armaduras e acessórios da Oficina.</figcaption></figure>
+<figure class="frame"><img alt="Equipamentos reais variados" src="assets/archive-03-6278e03b0fc6.webp" width="1122" height="1402" loading="lazy"><figcaption>Itens físicos, arcanos e de suporte.</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="patch-block frame" style="margin-top:18px">
+<div class="patch-title"><h3>Materiais por afinidade</h3><span class="tag update">Materiais</span></div>
+<div class="gallery-grid" style="padding:18px">
+<article class="gallery-card frame" style="box-shadow:none"><img alt="Materiais verdes" src="assets/archive-15-cce6d4d20fb5.webp" width="1254" height="1254" loading="lazy"><h4>Verdes / naturais</h4><p>Fragmentos orgânicos, itens botânicos e materiais obtidos nas regiões de floresta e em criaturas naturais.</p></article>
+<article class="gallery-card frame" style="box-shadow:none"><img alt="Materiais roxos" src="assets/archive-16-e8b344b4a228.webp" width="1254" height="1254" loading="lazy"><h4>Roxos / arcanos</h4><p>Essências, cristais e fragmentos mágicos usados em armas, acessórios e equipamentos arcanos.</p></article>
+<article class="gallery-card frame" style="box-shadow:none"><img alt="Materiais vermelhos" src="assets/archive-17-8af12892babc.webp" width="1254" height="1254" loading="lazy"><h4>Vermelhos / ígneos</h4><p>Escória, rochas vulcânicas e componentes aquecidos para receitas ligadas à Forja e ao Cadinho.</p></article>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="minichefes">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Minichefes raros</div><h2>Novos encontros. <em>Novas pressões.</em></h2><p>Os três novos minichefes raros surgem durante a exploração e deixam materiais exclusivos para a Oficina. Cada um traz movimentos e efeitos próprios. Encontros raros têm <strong>2% de chance por conclusão normal elegível</strong>, sem substituir os chefes principais da campanha.</p></div></div>
+<div class="boss-grid">
+<article class="frame boss-card"><div class="art"><img alt="Animações da Matriarca" src="assets/archive-18-d42921c48acc.webp" width="576" height="338" loading="lazy"></div><div class="body"><div class="world">Mundo I · raro</div><h3>Matriarca</h3><p>Uma criatura ancestral da floresta, com carapaça coberta de musgo e raízes. A Matriarca surge como ameaça rara do primeiro mundo.</p><ul><li>Surge em conclusões elegíveis do Mundo I.</li><li>Entrega material exclusivo ligado às rotas verdes.</li><li>Batalha especial sem substituir o chefe principal.</li></ul></div></article>
+<article class="frame boss-card"><div class="art"><img alt="Animações de Cadinho Vivo" src="assets/archive-19-44c023369bff.webp" width="576" height="338" loading="lazy"></div><div class="body"><div class="world">Mundo III · especial + raro</div><h3>Cadinho Vivo</h3><p>O coração incandescente da nova Oficina. Depois de encontrar os conhecimentos I e II, o Cadinho Vivo aguarda na fase 450; a primeira vitória contra ele concede o conhecimento III.</p><ul><li>Fase 450 especial após I e II.</li><li>Depois da primeira vitória, entra na rotação rara.</li><li>Vencer o encontro especial pela primeira vez concede a relíquia necessária para restaurar a Oficina.</li></ul></div></article>
+<article class="frame boss-card"><div class="art"><img alt="Animações da Espreita" src="assets/archive-20-708f58dc2c75.webp" width="576" height="338" loading="lazy"></div><div class="body"><div class="world">Mundo II · raro</div><h3>Espreita</h3><p>Uma criatura sombria envolta em raízes e cristais violetas. A Espreita acrescenta novos desafios ao segundo mundo.</p><ul><li>Encontro raro do Mundo II.</li><li>Contribui com materiais de afinidade roxa.</li><li>Concede materiais usados em receitas arcanas.</li></ul></div></article>
+</div>
+</div>
+</section><section class="section balance-section" id="balanceamento">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Balanceamento · Mundo III</div><h2>Um desafio maior <em>nas fases finais.</em></h2><p>O trecho final do terceiro mundo ficou mais exigente. Os inimigos comuns e elites das fases <strong>601 a 699</strong> receberam um aumento direto nos atributos de combate.</p></div></div>
+<div class="balance-feature frame">
+<div class="balance-head"><span class="balance-target">INIMIGOS COMUNS E ELITES · FASES 601–699</span><span class="tag watch">Aumento de dificuldade</span></div>
+<div class="balance-content">
+<div class="balance-number"><span>ATUALIZAÇÃO DE ATRIBUTOS</span><strong>+20%</strong><small>sobre os valores anteriores</small><div class="balance-line"><i></i><i></i></div></div>
+<div class="balance-details"><h3>Mais resistência. Mais perigo.</h3><p>Os cinco atributos principais aumentaram em 20% neste intervalo de fases. A mudança busca tornar o avanço até o Soberano mais desafiador, valorizando a evolução dos equipamentos e a composição da equipe.</p>
+<div class="balance-stats"><span>Vida (HP)</span><span>Ataque físico</span><span>Ataque mágico</span><span>Defesa física</span><span>Defesa mágica</span></div>
+<p class="balance-foot"><strong>Sem mudanças:</strong> Malkor (600), Soberano (700), inimigos fora das fases 601–699, quantidade de inimigos, frequência dos ataques e recompensas. Os ajustes já existentes dos chefes permanecem.</p></div>
+</div>
+</div>
+</div>
+</section><section aria-labelledby="fixes-title" class="section fixes-section" id="correcoes">
+<div class="container">
+<div class="section-head">
+<div>
+<div class="kicker">Correções e melhorias</div>
+<h2 id="fixes-title">Bugs <em>corrigidos.</em></h2>
+<p>Ajustes de estabilidade e apresentação para manter as batalhas mais consistentes, com atenção especial às animações, à navegação e ao consumo de recursos durante o combate.</p>
+</div>
+</div>
+<div class="fixes-grid">
+<article class="frame fix-card">
+<div class="fix-eyebrow">Desempenho</div>
+<h3>Limite de 60 FPS</h3>
+<p>A renderização passa a trabalhar com uma meta de até <strong>60 quadros por segundo</strong>, evitando a geração desnecessária de quadros acima desse valor em telas de alta taxa de atualização.</p>
+</article>
+<article class="frame fix-card">
+<div class="fix-eyebrow">CPU e GPU</div>
+<h3>Combates mais estáveis</h3>
+<p>Foram realizados ajustes na apresentação dos personagens e dos efeitos para diminuir o trabalho de processamento e reduzir oscilações durante sequências de habilidades.</p>
+</article>
+<article class="frame fix-card">
+<div class="fix-eyebrow">Interface</div>
+<h3>Navegação refinada</h3>
+<p>Correções na consulta à origem dos materiais, na seleção de atributos e no retorno às telas da Oficina tornam o fluxo de fabricação mais claro e consistente.</p>
+</article>
+</div>
+<p class="fixes-footnote">A estabilidade dos 60 FPS pode variar conforme o aparelho e a versão instalada. Durante os testes, avisem caso o contador ultrapasse esse limite, ocorram quedas perceptíveis ou haja aquecimento excessivo.</p>
+</div>
+</section>
+<section class="section" id="teste">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Feedback da atualização</div><h2>Sua experiência importa</h2><p>Queremos saber como estão funcionando os novos sistemas durante suas partidas. Compartilhem suas impressões sobre a progressão da Oficina, os encontros raros, a fabricação dos equipamentos e as animações dos heróis.</p></div></div>
+<div class="tester-layout">
+<article class="frame checklist">
+<h3>Conte como foi sua jornada</h3>
+<p>Ao explorar a atualização, estes são os pontos que mais queremos acompanhar:</p>
+<div class="list-box">
+<div class="list-item"><strong>Desbloqueio da Oficina</strong><span>O fluxo dos 3 conhecimentos está claro e fácil de entender?</span></div>
+<div class="list-item"><strong>Navegação</strong><span>A estrutura da Nova Forja é intuitiva ou gera confusão em alguma etapa?</span></div>
+<div class="list-item"><strong>Craft e recursos</strong><span>Os custos e materiais parecem coerentes com o esforço pedido?</span></div>
+<div class="list-item"><strong>Refino e têmpera</strong><span>A relação entre barra, ouro e tentativas faz sentido?</span></div>
+<div class="list-item"><strong>Fae e heróis V2</strong><span>As novas animações da Fae, Kael, Aelia e Mira ficaram mais claras, especialmente em AUTO e x2?</span></div><div class="list-item"><strong>Nymeris</strong><span>A nova altura melhora a leitura sem prejudicar o encaixe das animações e dos efeitos?</span></div>
+<div class="list-item"><strong>Minichefes</strong><span>Os encontros raros passam sensação real de evento especial?</span></div><div class="list-item"><strong>Balanceamento do Mundo III</strong><span>O aumento de dificuldade nas fases 601–699 está adequado à progressão de equipamento?</span></div>
+<div class="list-item"><strong>Itens</strong><span>Os ícones das famílias estão coerentes e bem diferenciados?</span></div>
+<div class="list-item"><strong>Materiais</strong><span>Os drops parecem relevantes para a progressão da Forja?</span></div>
+<div class="list-item"><strong>Fluidez e FPS</strong><span>O jogo mantém até 60 FPS nas suas partidas? Houve quedas, travamentos ou aquecimento?</span></div></div>
+</article>
+<article class="frame note-card">
+<h3>O que ainda estamos ajustando</h3>
+<p>A Oficina já está disponível para testes, mas seguimos acompanhando o ritmo da economia, a dificuldade das fases 601–699 do Mundo III e a leitura visual dos equipamentos. Os próximos ajustes serão orientados pelos resultados das partidas.</p>
+<div class="watch-list">
+<div class="watch"><strong>Economia de longo prazo</strong><span>Os custos centrais já existem, mas a sensação final de progressão ainda precisa de rodadas adicionais de observação.</span></div>
+<div class="watch"><strong>Representação visual do equipamento no corpo</strong><span>Os efeitos e benefícios existem, mas a troca completa da geometria das peças ainda não está tratada como acabamento final.</span></div>
+<div class="watch"><strong>Fases 601–699</strong><span>Queremos atenção especial para a percepção de dificuldade e para o acesso real aos materiais de tiers mais altos.</span></div>
+<div class="watch"><strong>Clareza do fluxo novo</strong><span>Se houver termos, etapas ou relações entre sistemas que pareçam confusos, esse feedback é prioridade.</span></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="footer">
+<div class="container">
+<div class="frame footer-box">
+<h2>A Oficina despertou. <em>Sua jornada continua.</em></h2>
+<p>Obrigado por explorar os novos sistemas de Astraforge Idle! Continuem enviando seus relatos de batalha, sugestões e descobertas. Cada experiência ajuda a aprimorar a Oficina, os novos encontros e a progressão dos equipamentos.</p>
+<div class="foot-actions"><a class="btn primary" href="#inicio">Voltar ao topo ↑</a><button class="btn ghost" onclick="window.print()" type="button">Imprimir / salvar PDF</button></div>
+<div class="footline">ASTRAFORGE IDLE · PATCH NOTES V0.5.2 · A OFICINA DESPERTA · 10.10.2026</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+(function(){
+  const progress=document.getElementById('progress');
+  const sections=[...document.querySelectorAll('section[id]')];
+  const navLinks=[...document.querySelectorAll('.nav a')];
+  function updateProgress(){const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';}
+  let ticking=false;window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{updateProgress();ticking=false;});ticking=true;}},{passive:true});updateProgress();
+  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);if(!visible.length)return;const id=visible[0].target.id;navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));},{rootMargin:'-20% 0px -55% 0px',threshold:[0,.15,.35,.6]});sections.forEach(s=>observer.observe(s));}
+})();
+</script>
+</body>
+</html>

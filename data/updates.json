@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "locale": "pt-BR",
+  "updates": [
+    {
+      "version": "0.6.0-beta",
+      "slug": "v0.6.0",
+      "title": "Picos Congelados",
+      "title_origin": "Título editorial baseado no nome canônico do mundo",
+      "summary": "Mundo 4, quinze espécies, três chefes fixos, Astarok, equipamento 70 e ajustes de Kharun.",
+      "status": "in_review_preparation",
+      "status_label": "Em preparação para revisão",
+      "release_confirmed": false,
+      "published_at": null,
+      "path": "updates/v0.6.0/index.html"
+    },
+    {
+      "version": "0.5.3-beta",
+      "slug": "v0.5.3",
+      "title": "Oficina e refinamento",
+      "title_origin": "Descrição do arquivo; não é um título oficial de atualização recuperado",
+      "summary": "Resumo do registro de preparação Android, sem confirmação de Release pública.",
+      "status": "documented_preparation_archive",
+      "status_label": "Registro documentado",
+      "release_confirmed": false,
+      "published_at": null,
+      "path": "updates/v0.5.3/index.html"
+    },
+    {
+      "version": "0.5.2",
+      "slug": "v0.5.2",
+      "title": "A Oficina Desperta",
+      "title_origin": "Notas originais fornecidas",
+      "summary": "Notas históricas originais: Oficina, encontros raros, equipamentos épicos e movimentos dos heróis.",
+      "status": "original_notes_archive",
+      "status_label": "Arquivo histórico",
+      "release_confirmed": false,
+      "published_at": null,
+      "document_date": "2026-10-10",
+      "document_date_note": "Data impressa no documento histórico fornecido; não confirmada independentemente como data de Release pública",
+      "path": "updates/v0.5.2/index.html",
+      "original_path": "updates/v0.5.2/original.html"
+    }
+  ]
+}
