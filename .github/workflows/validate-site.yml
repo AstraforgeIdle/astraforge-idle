@@ -20,3 +20,27 @@ jobs:
           node-version: '22'
       - name: Verificar testes e links
         run: node --test tests/*.test.mjs
+
+  browser-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar Playwright
+        run: npm install --no-save --ignore-scripts playwright@1.56.1
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Testar seis tamanhos e componentes
+        run: node tests/browser-audit.mjs
+      - name: Capturas de referência
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capturas-site-desktop-mobile
+          path: site-audit/*.png
+          if-no-files-found: ignore
+          retention-days: 7
