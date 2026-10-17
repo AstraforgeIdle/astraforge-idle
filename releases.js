@@ -61,6 +61,7 @@ export function selectPublicApkRelease(list, options = {}) {
       publishedAt: item.published_at,
       prerelease: item.prerelease === true,
       assetName: apk.name,
+      assetSizeBytes: apk.size,
       downloadUrl: repositoryUrl(apk.browser_download_url, config, 'apk'),
       releaseUrl,
       notesUrl: matchesPreview(tagName, config) ? localNotesUrl(config) : releaseUrl,
@@ -154,6 +155,7 @@ export function renderReleaseState(root, state, options = {}) {
   text(root, 'status', download ? `APK público disponível para Android${release.prerelease ? ' · versão Beta' : ''}.` : messages[status] || messages.error);
   text(root, 'version', download ? release.tagName : 'Disponibilidade futura');
   text(root, 'name', download ? release.name : 'Acompanhe as versões públicas do Astraforge Idle');
+  text(root, 'size', download && Number.isFinite(release.assetSizeBytes) ? 'Tamanho aproximado: ' + (release.assetSizeBytes / (1024 * 1024)).toFixed(0) + ' MB · arquivo hospedado no GitHub' : '');
   link(root, 'download', download, `Baixar APK · ${release?.tagName || ''}`);
   link(root, 'notes', notes, 'Notas desta versão');
   for (const node of nodes(root, 'status')) {
