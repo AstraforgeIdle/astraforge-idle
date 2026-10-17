@@ -168,3 +168,14 @@ a,button { touch-action:manipulation; }
 .install-help summary { cursor:pointer; color:#e9c58d; font-weight:700; }
 .install-help p { font-size:.88rem; margin:.65rem 0 0; }
 @media (hover:none) { .world-card:hover>img, .gallery a:hover { transform:none; } }
+
+/* Elementos interativos com área confortável de toque */
+.filter-bar button { min-height:44px; }
+.lightbox > button { min-height:44px; min-width:44px; }
+.download details summary { padding-block:.45rem; }
+.character summary { padding-block:.45rem; min-height:42px; }
+[data-release-status] { overflow-wrap:anywhere; }
+@media (max-width:510px) {
+  .release-links .button { flex-basis:100%; }
+  .site-header .nav-links { max-height:calc(100svh - 76px); overflow-y:auto; }
+}
