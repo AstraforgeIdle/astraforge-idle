@@ -634,6 +634,73 @@
         "data/ui/hero_presentation.json",
         "DataManager.get_hero_idle_preview_resource"
       ]
+    },
+    {
+      "id": "hero_morvann",
+      "name": "Morvann",
+      "class_id": "class_berserker",
+      "class_name": "Berserker",
+      "role_id": "role_dps_physical",
+      "role_name": "Dano físico / Sustentação",
+      "damage_type": "physical",
+      "combat_style": "Dano físico · alvo único · roubo de vida",
+      "description": "Berserker de meio de formação que concentra dano em um único alvo e recupera vida por acertos diretos.",
+      "features": [
+        "Corte do Crepúsculo",
+        "Lâmina do Abismo",
+        "Vontade Inquebrável"
+      ],
+      "skills": [
+        {
+          "id": "editorial_morvann_1",
+          "name": "Corte do Crepúsculo",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Golpe físico contra um alvo."
+        },
+        {
+          "id": "editorial_morvann_2",
+          "name": "Ruptura Sombria",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Reduz a defesa física do alvo."
+        },
+        {
+          "id": "editorial_morvann_3",
+          "name": "Passos da Ruína",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Investida que reduz a velocidade de ataque."
+        },
+        {
+          "id": "editorial_morvann_4",
+          "name": "Lâmina do Abismo",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Atordoa e ganha dano verdadeiro contra alvos marcados."
+        },
+        {
+          "id": "editorial_morvann_5",
+          "name": "Fúria das Marcas",
+          "type": "passive",
+          "damage_type": "physical",
+          "description": "Acertos diretos roubam vida e acumulam marcas; a terceira explode, causando dano e recuperando HP."
+        },
+        {
+          "id": "editorial_morvann_6",
+          "name": "Vontade Inquebrável",
+          "type": "passive",
+          "damage_type": "none",
+          "description": "Resiste ao dano letal uma vez por encontro e precisa recuperar HP antes do fim da proteção."
+        }
+      ],
+      "image": "updates/v0.7.0/assets/characters/hero-morvann.webp",
+      "width": 321,
+      "height": 237,
+      "provenance": [
+        "updates/v0.7.0/index.html (notas editoriais)",
+        "IDs editorial_morvann_* não são identificadores internos do Godot"
+      ]
     }
   ],
   "worlds": [
@@ -688,6 +755,19 @@
       "image": "assets/screenshots/world4.webp",
       "width": 540,
       "height": 960
+    },
+    {
+      "id": "world_05",
+      "name": "Abismo da Corrupção",
+      "number": 5,
+      "stage_range": [
+        1201,
+        1800
+      ],
+      "description": "Das Ruínas Externas ao Santuário Interior, com Beemote Cristalino, Rainha do Abismo e Serafiel.",
+      "image": "updates/v0.7.0/assets/screens/world5-battle.webp",
+      "width": 527,
+      "height": 759
     }
   ],
   "screenshots": [
