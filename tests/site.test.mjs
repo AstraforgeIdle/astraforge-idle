@@ -9,10 +9,10 @@ const read = path => readFileSync(resolve(root, path), 'utf8');
 const home = read('index.html');
 const history = read('updates/index.html');
 
-test('homepage keeps one download, all five worlds and nine heroes', () => {
+test('homepage keeps one download, all five worlds and ten heroes', () => {
   assert.equal((home.match(/id="download"/g) || []).length, 1);
   assert.equal((home.match(/class="world-card"/g) || []).length, 5);
-  assert.equal((home.match(/data-hero-category="/g) || []).length, 9);
+  assert.equal((home.match(/data-hero-category="/g) || []).length, 10);
   assert.equal((home.match(/data-gallery-type="/g) || []).length, 8);
   for (const id of ['inicio','download','mundos','personagens','sistemas','galeria','atualizacoes','comunidade'])
     assert.ok(home.includes('id="' + id + '"'), 'Missing section: ' + id);
@@ -25,6 +25,12 @@ test('visitor can reach APK early without losing release validation', () => {
   assert.match(home,/releases\.js|app\.js/);
   assert.match(read('config.js'),/previewVersion: '0\.7\.2'/);
   assert.match(read('releases.js'),/selectPublicApkRelease/);
+});
+
+test('Morvann is included with the canonical public sprite and support text', () => {
+  assert.match(home,/updates\/v0\.7\.0\/assets\/characters\/hero-morvann\.webp/);
+  assert.match(home,/App não instalado/);
+  assert.ok(existsSync(resolve(root,'updates/v0.7.0/assets/characters/hero-morvann.webp')));
 });
 
 test('progressive enhancement includes hero filters, gallery filters and searchable notes', () => {
@@ -59,5 +65,10 @@ test('public editorial update metadata is current, unique, and has notes pages',
     assert.ok(existsSync(resolve(root,update.path)), 'Missing notes '+update.path);
   }
   assert.equal(content.updates[0].slug,'v0.7.2');
-  assert.equal(JSON.parse(read('data/game.json')).version,'0.7.2');
+  const game = JSON.parse(read('data/game.json'));
+  assert.equal(game.version,'0.7.2');
+  assert.equal(game.heroes.length,10);
+  assert.equal(game.worlds.length,5);
+  assert.ok(game.heroes.some(hero => hero.name === 'Morvann'));
+  assert.ok(game.worlds.some(world => world.name === 'Abismo da Corrupção'));
 });
