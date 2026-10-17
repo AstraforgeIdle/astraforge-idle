@@ -9,7 +9,7 @@ Site e distribuição pública da versão Android de **Astraforge Idle**, RPG id
 
 ## O que o visitante encontra
 
-- Página inicial com apresentação do jogo, mundos, heróis e sistemas de evolução.
+- Página inicial com os cinco mundos, dez heróis jogáveis e sistemas de evolução.
 - Capturas reais do runtime Godot, com galeria ampliável e filtros.
 - Busca por versão e assunto em [Atualizações](updates/index.html).
 - Consulta **sem autenticação** à API pública do GitHub Releases: o site só exibe download de APK publicado e válido; versões em rascunho não são ofertadas.
@@ -45,11 +45,21 @@ Acesse `http://localhost:8080/`. Não use `file://` para verificar módulos JS e
 
 ## Executar testes
 
-Com Node.js 22 ou superior:
+Com Node.js 22 ou superior, execute os testes rápidos:
 
 ```bash
 node --test tests/*.test.mjs
 ```
+
+Para uma auditoria visual automatizada em Chromium (360, 390, 768, 920, 1024 e 1440 px):
+
+```bash
+npm install --no-save --ignore-scripts playwright@1.56.1
+npx playwright install chromium
+node tests/browser-audit.mjs
+```
+
+O fluxo de pull request executa ambas as etapas e armazena capturas de referência para desktop e celular.
 
 Além dos testes automatizados, confira menu, download, filtros, ampliação de imagens e tamanhos de tela diferentes **em um navegador real** antes de publicar.
 
