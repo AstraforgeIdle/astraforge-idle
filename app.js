@@ -22,13 +22,38 @@ if (galleryLinks.length && typeof HTMLDialogElement !== 'undefined') {
   close.type = 'button'; close.textContent = 'Fechar ×';
   const shot = document.createElement('img');
   const caption = document.createElement('p');
-  dialog.append(close, shot, caption); document.body.append(dialog);
+  const controls = document.createElement('div');
+  controls.className = 'lightbox-controls';
+  const previous = document.createElement('button');
+  previous.type = 'button'; previous.textContent = '← Anterior';
+  const following = document.createElement('button');
+  following.type = 'button'; following.textContent = 'Próxima →';
+  controls.append(previous, following);
+  dialog.append(close, shot, caption, controls); document.body.append(dialog);
+  const visibleShots = () => galleryLinks.filter(link => !link.hidden);
+  const showShot = link => {
+    if (!link) return;
+    origin = link;
+    shot.src = link.href; shot.alt = link.querySelector('img')?.alt || '';
+    caption.textContent = link.dataset.caption || shot.alt;
+    controls.hidden = visibleShots().length < 2;
+  };
+  const navigate = offset => {
+    const options = visibleShots();
+    const current = options.indexOf(origin);
+    if (!options.length || current < 0) return;
+    showShot(options[(current + offset + options.length) % options.length]);
+  };
+  previous.addEventListener('click', () => navigate(-1));
+  following.addEventListener('click', () => navigate(1));
+  dialog.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') { event.preventDefault(); navigate(-1); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); navigate(1); }
+  });
   let origin;
   for (const link of galleryLinks) link.addEventListener('click', event => {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-    event.preventDefault(); origin = link;
-    shot.src = link.href; shot.alt = link.querySelector('img')?.alt || '';
-    caption.textContent = link.dataset.caption || shot.alt;
+    event.preventDefault(); showShot(link);
     dialog.showModal(); close.focus();
   });
   close.addEventListener('click', () => dialog.close());
