@@ -4,8 +4,8 @@ export const siteConfig = Object.freeze({
   repo: 'astraforge-idle',
   locale: 'pt-BR',
   siteUrl: 'https://astraforgeidle.github.io/astraforge-idle/',
-  // Public GA4 ID: leave empty until a real property is connected (format G-XXXXXXXXXX).
-  ga4MeasurementId: '',
+  // Public GA4 measurement ID. Events are sent only after visitors opt in.
+  ga4MeasurementId: 'G-SZHF2LMYG0',
   previewVersion: '0.7.2',
   previewStatus: 'published',
   // Resolved against this module directory, so deep pages work in GitHub Pages.
