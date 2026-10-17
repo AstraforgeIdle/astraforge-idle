@@ -3,6 +3,66 @@
   "locale": "pt-BR",
   "updates": [
     {
+      "version": "0.7.2",
+      "slug": "v0.7.2",
+      "title": "Dano dos mobs em ajuste",
+      "title_origin": "Notas oficiais da versão",
+      "summary": "Revisão do dano dos inimigos comuns e da progressão das fases, com o balanceamento em observação.",
+      "status": "published_beta",
+      "status_label": "Beta publicada",
+      "release_confirmed": true,
+      "published_at": "2026-10-17T19:54:34Z",
+      "path": "updates/v0.7.2/index.html"
+    },
+    {
+      "version": "0.7.1",
+      "slug": "v0.7.1",
+      "title": "Combate recalibrado",
+      "title_origin": "Notas oficiais da versão",
+      "summary": "Recalibração do dano entre heróis, monstros e chefes, com ajustes de dificuldade em observação.",
+      "status": "published_beta",
+      "status_label": "Beta publicada",
+      "release_confirmed": true,
+      "published_at": "2026-10-17T16:54:06Z",
+      "path": "updates/v0.7.1/index.html"
+    },
+    {
+      "version": "0.7.0",
+      "slug": "v0.7.0",
+      "title": "O Abismo desperta",
+      "title_origin": "Notas oficiais da versão",
+      "summary": "Mundo 5, novos chefes, Ascensão Lendária, equipamentos e ajustes de sistemas.",
+      "status": "published_beta",
+      "status_label": "Beta publicada",
+      "release_confirmed": true,
+      "published_at": "2026-10-17T00:59:40Z",
+      "path": "updates/v0.7.0/index.html"
+    },
+    {
+      "version": "0.6.3",
+      "slug": "v0.6.3",
+      "title": "Equilíbrio, mundos e combate",
+      "title_origin": "Notas oficiais da versão",
+      "summary": "Ajustes de Nerissa, atributos dos mundos, bosses e modo descanso.",
+      "status": "published_beta",
+      "status_label": "Beta publicada",
+      "release_confirmed": true,
+      "published_at": "2026-10-14T02:32:33Z",
+      "path": "updates/v0.6.3/index.html"
+    },
+    {
+      "version": "0.6.2",
+      "slug": "v0.6.2",
+      "title": "Lyn e Fae: balanceamento e visual",
+      "title_origin": "Notas oficiais da versão",
+      "summary": "Balanceamento e melhorias nas habilidades, ataques e efeitos de Lyn e Fae.",
+      "status": "published_beta",
+      "status_label": "Beta publicada",
+      "release_confirmed": true,
+      "published_at": "2026-10-12T23:57:30Z",
+      "path": "updates/v0.6.2/index.html"
+    },
+    {
       "version": "0.6.1-beta",
       "slug": "v0.6.1",
       "title": "Oficina, heróis e chefes",
