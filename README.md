@@ -71,7 +71,7 @@ Além dos testes automatizados, confira menu, download, filtros, ampliação de 
 4. Sincronize `data/updates.json` e os textos editoriais da homepage, sem presumir funcionalidades ainda não lançadas.
 5. Valide links e testes. A publicação da branch `main` alimenta o GitHub Pages conforme as configurações do repositório.
 
-O site **não** contém APK e não altera o código da Godot. A consulta às Releases não utiliza tokens, cookies, analytics ou armazenamento de contas.
+O site **não** contém APK e não altera o código da Godot. A consulta às Releases não utiliza tokens, cookies ou armazenamento de contas; eventos opcionais de Analytics, quando autorizados pelo visitante, são tratados separadamente.
 
 Mais informações: [Guia de manutenção](docs/site-maintenance.md).
 
@@ -84,10 +84,12 @@ As imagens exibidas vêm do projeto e as notas mais antigas continuam arquivadas
 
 O módulo `analytics.js` prepara a medição de visitas, cliques de chamada para download e cliques reais no APK, preservando a página no ar mesmo sem Analytics.
 
-**Ativação, dependente da propriedade Google:**
+**Estado atual:** GA4 configurado com ID público `G-SZHF2LMYG0` (propriedade Astraforge Idle), ativo **somente após o consentimento do visitante**. Nenhuma chave secreta foi incluída.
+
+**Para manter ou alterar a propriedade:**
 1. Crie ou selecione uma propriedade GA4 e um fluxo **Web** para `https://astraforgeidle.github.io/astraforge-idle/`.
 2. Copie o **ID de medição** (formato `G-XXXXXXXXXX`) e defina-o em `config.js`, propriedade pública `ga4MeasurementId`.
-3. Publique o ajuste. Até então, `ga4MeasurementId: ''` mantém o Analytics completamente desabilitado. Não colocar tokens, segredos ou credenciais neste arquivo.
+3. Publique o ajuste. Para desativar o GA4 no futuro, defina `ga4MeasurementId: ''`. Não coloque tokens, segredos ou credenciais neste arquivo.
 4. Acesse o site, aceite as estatísticas na faixa de consentimento e acompanhe o Realtime/DebugView da propriedade.
 5. Eventos: `download_cta_click` (CTA), `apk_download_click` (clique no APK validado, inclui `release_version` e `file_size_mb`) e `release_notes_click`.
 
