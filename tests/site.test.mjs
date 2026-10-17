@@ -1,0 +1,63 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const read = path => readFileSync(resolve(root, path), 'utf8');
+const home = read('index.html');
+const history = read('updates/index.html');
+
+test('homepage keeps one download, all five worlds and nine heroes', () => {
+  assert.equal((home.match(/id="download"/g) || []).length, 1);
+  assert.equal((home.match(/class="world-card"/g) || []).length, 5);
+  assert.equal((home.match(/data-hero-category="/g) || []).length, 9);
+  assert.equal((home.match(/data-gallery-type="/g) || []).length, 8);
+  for (const id of ['inicio','download','mundos','personagens','sistemas','galeria','atualizacoes','comunidade'])
+    assert.ok(home.includes('id="' + id + '"'), 'Missing section: ' + id);
+});
+
+test('visitor can reach APK early without losing release validation', () => {
+  assert.ok(home.indexOf('id="download"') < home.indexOf('id="mundos"'));
+  for (const hook of ['data-release-version','data-release-status','data-release-download','data-release-notes','data-release-action','data-release-size'])
+    assert.ok(home.includes(hook), 'Missing release hook: ' + hook);
+  assert.match(home,/releases\.js|app\.js/);
+  assert.match(read('config.js'),/previewVersion: '0\.7\.2'/);
+  assert.match(read('releases.js'),/selectPublicApkRelease/);
+});
+
+test('progressive enhancement includes hero filters, gallery filters and searchable notes', () => {
+  for(const key of ['data-hero-filter','data-gallery-filter']) assert.ok(home.includes(key));
+  assert.ok(history.includes('data-update-search'));
+  const js=read('app.js');
+  assert.ok(js.includes('mountCardFilter'));
+  assert.ok(js.includes('updateSearch.addEventListener'));
+  assert.ok(read('assets/css/site-v3.css').includes('.character[hidden]'));
+});
+
+test('homepage and historical index have no missing local href/src references', () => {
+  for (const page of ['index.html','updates/index.html']) {
+    const content=read(page);
+    const links=[...content.matchAll(/(?:href|src)="([^"]+)"/g)].map(m=>m[1]);
+    for (const href of links) {
+      if (/^(?:#|https?:|mailto:|data:|javascript:)/i.test(href)) continue;
+      const target=href.split(/[?#]/)[0]; if(!target) continue;
+      const absolute=resolve(root,dirname(page),decodeURIComponent(target));
+      assert.ok(absolute.startsWith(root), 'URL leaves repository: '+href);
+      assert.ok(existsSync(absolute), 'Missing '+href+' in '+page);
+    }
+  }
+});
+
+test('public editorial update metadata is current, unique, and has notes pages', () => {
+  const content=JSON.parse(read('data/updates.json'));
+  const paths=new Set();
+  for(const update of content.updates){
+    assert.ok(!paths.has(update.path), 'Duplicate update '+update.path);
+    paths.add(update.path);
+    assert.ok(existsSync(resolve(root,update.path)), 'Missing notes '+update.path);
+  }
+  assert.equal(content.updates[0].slug,'v0.7.2');
+  assert.equal(JSON.parse(read('data/game.json')).version,'0.7.2');
+});
