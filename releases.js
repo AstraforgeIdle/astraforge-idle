@@ -1,4 +1,5 @@
 import { siteConfig } from './config.js';
+import { trackEvent } from './analytics.js';
 
 const moduleRoot = new URL('./', import.meta.url);
 const messages = Object.freeze({
@@ -157,6 +158,15 @@ export function renderReleaseState(root, state, options = {}) {
   text(root, 'name', download ? release.name : 'Acompanhe as versões públicas do Astraforge Idle');
   text(root, 'size', download && Number.isFinite(release.assetSizeBytes) ? 'Tamanho aproximado: ' + (release.assetSizeBytes / (1024 * 1024)).toFixed(0) + ' MB · arquivo hospedado no GitHub' : '');
   link(root, 'download', download, `Baixar APK · ${release?.tagName || ''}`);
+  for (const node of nodes(root, 'download')) {
+    if (download) {
+      node.setAttribute('data-release-tag', release.tagName);
+      node.setAttribute('data-release-size-mb', String(Math.round(release.assetSizeBytes / (1024 * 1024))));
+    } else {
+      node.removeAttribute('data-release-tag');
+      node.removeAttribute('data-release-size-mb');
+    }
+  }
   link(root, 'notes', notes, 'Notas desta versão');
   for (const node of nodes(root, 'status')) {
     node.setAttribute('aria-live', 'polite');
@@ -182,6 +192,20 @@ export function mountReleases(root = document, options = {}) {
     }).finally(() => { pending = null; });
     return pending;
   };
+  for (const node of nodes(root, 'download')) {
+    node.addEventListener('click', () => {
+      if (node.hidden || !node.getAttribute('href')) return;
+      trackEvent('apk_download_click', {
+        release_version: node.getAttribute('data-release-tag') || 'unknown',
+        file_size_mb: Number(node.getAttribute('data-release-size-mb')) || 0,
+      });
+    });
+  }
+  for (const node of nodes(root, 'notes')) {
+    node.addEventListener('click', () => {
+      if (!node.hidden && node.getAttribute('href')) trackEvent('release_notes_click');
+    });
+  }
   for (const node of nodes(root, 'action')) node.addEventListener('click', retry);
   return { ready: retry(), retry };
 }

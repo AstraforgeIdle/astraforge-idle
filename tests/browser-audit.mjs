@@ -110,6 +110,50 @@ try {
     console.log('PASS',width,'homepage + filters + dialog + search + downloads');
     await page.close();
   }
+
+  // Consent-enabled preview uses a test measurement ID without contacting Google.
+  const analyticsPage=await browser.newPage({viewport:{width:390,height:900}});
+  let googleLoads=0;
+  await analyticsPage.route('**/config.js', async route => {
+    const source=readFileSync(resolve(root,'config.js'),'utf8');
+    await route.fulfill({status:200,contentType:'text/javascript',
+      body:source.replace("ga4MeasurementId: '',","ga4MeasurementId: 'G-TEST123456',")});
+  });
+  await analyticsPage.route('https://www.googletagmanager.com/gtag/js**', route => {
+    googleLoads++;
+    return route.fulfill({status:200,contentType:'text/javascript',body:'/* mock Google tag */'});
+  });
+  await analyticsPage.route(/https:\/\/api\.github\.com\/repos\/AstraforgeIdle\/astraforge-idle\/releases/, route =>
+    route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([release])}));
+  await analyticsPage.goto(base,{waitUntil:'networkidle'});
+  check(await analyticsPage.locator('.analytics-consent').isVisible(),'Consent banner missing');
+  check(googleLoads===0,'Google tag requested before consent');
+  await analyticsPage.locator('[data-analytics-decline]').click();
+  check(googleLoads===0,'Google tag requested after decline');
+  await analyticsPage.reload({waitUntil:'networkidle'});
+  check((await analyticsPage.locator('.analytics-consent').count())===0,'Refusal not persisted');
+  check(googleLoads===0,'Google tag requested despite saved refusal');
+  await analyticsPage.goto(base+'privacidade.html',{waitUntil:'networkidle'});
+  await analyticsPage.locator('[data-privacy-settings]').click();
+  await analyticsPage.locator('[data-analytics-accept]').click();
+  check(googleLoads===1,'Google tag not loaded exactly once on acceptance');
+  await analyticsPage.goto(base,{waitUntil:'networkidle'});
+  await analyticsPage.locator('[data-release-download]:visible').waitFor();
+  check(googleLoads===2,'Google tag not loaded for consenting returning visitor');
+  await analyticsPage.locator('.hero-copy a[data-track-event="download_cta_click"]').click();
+  await analyticsPage.evaluate(() => document.querySelector('[data-release-download]')
+    .addEventListener('click', event => event.preventDefault(), {capture:true}));
+  await analyticsPage.locator('[data-release-download]').click();
+  const events=await analyticsPage.evaluate(() => window.dataLayer
+    .filter(args => args[0]==='event').map(args => ({name:args[1],params:args[2]})));
+  check(events.some(event=>event.name==='download_cta_click'),'Missing CTA event');
+  check(events.some(event=>event.name==='apk_download_click' && event.params.release_version==='v0.7.2'),
+    'Missing validated APK click event');
+  check(await analyticsPage.locator('[data-latest-release-highlight]').isVisible(),
+    'Latest release should be highlighted automatically');
+  console.log('PASS CONSENT: no Google calls before consent, rejection persists, CTA and APK events work');
+  await analyticsPage.close();
+
   assert.deepEqual(errors,[], 'Uncaught browser errors');
   console.log('BROWSER AUDIT PASSED: 6 screen widths');
 } finally {

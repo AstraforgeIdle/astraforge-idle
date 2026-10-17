@@ -1,0 +1,38 @@
+name: "Sugestão de melhoria"
+description: "Proponha uma melhoria concreta para o jogo ou site."
+title: "[Sugestão] "
+body:
+  - type: markdown
+    attributes:
+      value: "Compartilhe sua ideia e o problema que ela resolveria. Não envie informações pessoais."
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Área"
+      options:
+        - "Heróis / Habilidades"
+        - "Combate / Balanceamento"
+        - "Mundos / Progressão"
+        - "Inventário / Oficina"
+        - "Interface / Acessibilidade"
+        - "Desempenho / Android"
+        - "Site / Comunicação"
+        - "Outra"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Qual problema ou oportunidade você identificou?"
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Qual melhoria você sugere?"
+    validations:
+      required: true
+  - type: textarea
+    id: benefits
+    attributes:
+      label: "Como isso melhoraria a experiência?"

@@ -78,3 +78,25 @@ Mais informações: [Guia de manutenção](docs/site-maintenance.md).
 ## Limites
 
 As imagens exibidas vêm do projeto e as notas mais antigas continuam arquivadas. Informação de lançamento, tamanho do APK e links de download só devem ser tratados como confirmados quando forem devolvidos pela Release pública correspondente. A assinatura Android usada para atualizar uma instalação existente precisa ser compatível com a versão já instalada.
+
+
+## Métricas e privacidade (GA4)
+
+O módulo `analytics.js` prepara a medição de visitas, cliques de chamada para download e cliques reais no APK, preservando a página no ar mesmo sem Analytics.
+
+**Ativação, dependente da propriedade Google:**
+1. Crie ou selecione uma propriedade GA4 e um fluxo **Web** para `https://astraforgeidle.github.io/astraforge-idle/`.
+2. Copie o **ID de medição** (formato `G-XXXXXXXXXX`) e defina-o em `config.js`, propriedade pública `ga4MeasurementId`.
+3. Publique o ajuste. Até então, `ga4MeasurementId: ''` mantém o Analytics completamente desabilitado. Não colocar tokens, segredos ou credenciais neste arquivo.
+4. Acesse o site, aceite as estatísticas na faixa de consentimento e acompanhe o Realtime/DebugView da propriedade.
+5. Eventos: `download_cta_click` (CTA), `apk_download_click` (clique no APK validado, inclui `release_version` e `file_size_mb`) e `release_notes_click`.
+
+O script do Google só é carregado **após aceite explícito**. Recusa é lembrada no navegador e pode ser alterada pela página `privacidade.html`. Os eventos captam cliques, **não comprovam download concluído nem instalação**. Sem consentimento, não há coleta GA4 por esse módulo.
+
+## Busca, comunidade e novas Releases
+
+- `sitemap.xml` relaciona homepage, histórico, privacidade e notas arquivadas. Envie `https://astraforgeidle.github.io/astraforge-idle/sitemap.xml` ao Google Search Console caso deseje indexação monitorada.
+- `robots.txt` fica no diretório do **projeto GitHub Pages**: robôs aplicam o arquivo do **raiz do domínio**, não necessariamente `/astraforge-idle/robots.txt`. Não é uma regra global de rastreamento do domínio. O sitemap pode ser submetido diretamente.
+- A homepage usa a API pública de GitHub Releases para destacar a última versão que possua APK público, sem promover rascunhos. Os cartões históricos e suas páginas continuam editoriais e não são reescritos automaticamente.
+- `.github/ISSUE_TEMPLATE/` contém formulários para bugs e sugestões. Para publicá-los o jogador precisa entrar em sua conta GitHub.
+- Sobre o tamanho do APK e assinatura Android, veja `docs/android-apk-checklist.md`.
