@@ -179,3 +179,38 @@ a,button { touch-action:manipulation; }
   .release-links .button { flex-basis:100%; }
   .site-header .nav-links { max-height:calc(100svh - 76px); overflow-y:auto; }
 }
+
+/* GA4: transparente, opcional e responsivo. O banner só aparece com ID válido. */
+.analytics-consent {
+  position:fixed; z-index:9998; left:clamp(.6rem,2vw,1.5rem);
+  right:clamp(.6rem,2vw,1.5rem); bottom:clamp(.6rem,2vw,1.5rem);
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+  max-width:1040px; margin-inline:auto; padding:1.1rem 1.35rem;
+  background:#0c1c2df7; border:1px solid #d5ae73; color:#f7f1e7;
+  border-radius:13px; box-shadow:0 15px 60px #000b;
+}
+.analytics-consent strong { display:block; color:#f4d39a; font-size:1rem; }
+.analytics-consent p { margin:.3rem 0 .35rem; font-size:.88rem; line-height:1.55; color:#d3dde7; }
+.analytics-consent a { color:#e9d09f; text-decoration:underline; font-size:.84rem; }
+.analytics-consent-actions { display:flex; flex-wrap:wrap; gap:.6rem; flex-shrink:0; }
+.analytics-consent-actions button { cursor:pointer; min-height:44px; padding:.7rem 1rem; border-radius:7px; font:700 .82rem/1.2 inherit; border:1px solid #e5c184; background:transparent; color:#f3deb9; }
+.analytics-consent-actions [data-analytics-accept] { background:#eac38a; color:#152235; }
+.analytics-consent-actions button:hover { filter:brightness(1.12); }
+.analytics-consent-actions button:focus-visible { outline:3px solid #6dd2f6; outline-offset:3px; }
+.release-highlight { display:flex; justify-content:space-between; align-items:center; gap:1.3rem; padding:1.1rem 1.4rem; margin:0 0 1.4rem; border:1px solid #d8af7766; border-radius:12px; background:linear-gradient(110deg,#192d42,#0e1c2d); }
+.release-highlight[hidden] { display:none!important; }
+.release-highlight strong { display:block; color:#f4e1c5; font-size:1.1rem; }
+.release-highlight .eyebrow { font-size:.7rem; }
+.release-highlight p { color:#b8cbdb; margin:.25rem 0 0; font-size:.85rem; }
+.release-highlight a { flex-shrink:0; color:#f5d39c; text-decoration:underline; }
+.release-highlight a[hidden] { display:none!important; }
+.privacy-content { max-width:840px; min-height:60vh; }
+.privacy-content h1 { font-size:clamp(2rem,4.5vw,3.5rem); }
+.privacy-content h2 { margin-top:2rem; font-size:1.35rem; }
+.privacy-content p { max-width:72ch; line-height:1.75; }
+.privacy-content a { color:#e5c48f; }
+@media (max-width:760px) {
+  .analytics-consent,.release-highlight { flex-direction:column; align-items:stretch; }
+  .analytics-consent-actions button { flex:1 1 145px; }
+  .release-highlight a { align-self:flex-start; }
+}
