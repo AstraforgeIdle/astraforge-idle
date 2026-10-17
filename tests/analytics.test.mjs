@@ -11,7 +11,8 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const file=p=>readFileSync(resolve(root,p),'utf8');
 
 test('GA4 requires an explicit public measurement ID',()=>{
-  assert.equal(siteConfig.ga4MeasurementId,'');
+  assert.equal(siteConfig.ga4MeasurementId,'G-SZHF2LMYG0');
+  assert.equal(validMeasurementId(siteConfig.ga4MeasurementId),true);
   assert.equal(validMeasurementId(''),false);
   assert.equal(validMeasurementId('G-XXXXXXXXXX'),true);
   assert.equal(validMeasurementId('G-TEST123456'),true);
