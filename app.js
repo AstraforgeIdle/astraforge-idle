@@ -54,3 +54,48 @@ if (sections.length && 'IntersectionObserver' in window) {
 }
 
 if (document.querySelector('[data-release-status]')) mountReleases(document);
+
+
+/** Small progressive-enhancement filters. With JS off, every card remains visible. */
+function mountCardFilter(groupSelector, buttonAttribute, itemSelector, itemAttribute, counterSelector, label) {
+  const group = document.querySelector(groupSelector);
+  if (!group) return;
+  const items = [...document.querySelectorAll(itemSelector)];
+  const buttons = [...group.querySelectorAll('button')];
+  const count = document.querySelector(counterSelector);
+  if (!items.length || !buttons.length) return;
+  const update = value => {
+    let shown = 0;
+    for (const item of items) {
+      const visible = value === 'todos' || item.getAttribute(itemAttribute) === value;
+      item.hidden = !visible;
+      if (visible) shown++;
+    }
+    for (const button of buttons) button.setAttribute('aria-pressed', String(button.getAttribute(buttonAttribute) === value));
+    if (count) count.textContent = shown + ' ' + label;
+  };
+  for (const button of buttons) button.addEventListener('click', () => update(button.getAttribute(buttonAttribute)));
+  update('todos');
+}
+mountCardFilter('[data-hero-filter]', 'data-hero-role', '.character[data-hero-category]', 'data-hero-category', '[data-hero-count]', 'heróis');
+mountCardFilter('[data-gallery-filter]', 'data-gallery-category', '.gallery [data-gallery-type]', 'data-gallery-type', '[data-gallery-count]', 'capturas');
+
+/** Search local patch history without requests or external services. */
+const updateSearch = document.querySelector('[data-update-search]');
+if (updateSearch) {
+  const cards = [...document.querySelectorAll('.update-list .update-card')];
+  const message = document.querySelector('[data-update-count]');
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  const search = () => {
+    const query = normalize(updateSearch.value);
+    let visible = 0;
+    for (const card of cards) {
+      const matches = !query || normalize(card.textContent).includes(query);
+      card.hidden = !matches;
+      if (matches) visible++;
+    }
+    if (message) message.textContent = visible ? visible + ' atualizações encontradas' : 'Nenhuma atualização encontrada';
+  };
+  updateSearch.addEventListener('input', search);
+  search();
+}
