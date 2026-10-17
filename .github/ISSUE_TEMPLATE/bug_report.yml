@@ -1,0 +1,62 @@
+name: "Relatar bug"
+description: "Informe um erro no Astraforge Idle para ajudar a reproduzir e corrigir."
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Obrigado por testar o Astraforge Idle. Evite incluir dados pessoais, senhas ou informações de contas."
+  - type: input
+    id: version
+    attributes:
+      label: "Versão do jogo"
+      description: "Ex.: v0.7.2. Confira no menu do jogo."
+      placeholder: "v0.7.2"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: "Aparelho e Android"
+      placeholder: "Ex.: Samsung Galaxy S24+ / Android 16"
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Onde ocorreu?"
+      options:
+        - "Instalação / Atualização do APK"
+        - "Combate / Balanceamento"
+        - "Heróis / Habilidades"
+        - "Mundos / Fases"
+        - "Inventário / Oficina"
+        - "Interface / Acessibilidade"
+        - "Desempenho / Travamentos"
+        - "Outro"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Como reproduzir"
+      description: "Explique as etapas até o problema aparecer."
+      placeholder: "1. Abri ...\n2. Toquei ...\n3. Ocorreu ..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Resultado esperado"
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: "O que aconteceu?"
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "Capturas ou vídeo (opcional)"
+      description: "Anexe imagens sem dados pessoais."
