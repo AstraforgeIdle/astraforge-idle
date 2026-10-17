@@ -40,6 +40,8 @@ try {
   browser=await chromium.launch({headless:true,args:['--no-sandbox']});
   for(const width of [360,390,768,920,1024,1440]) {
     const page=await browser.newPage({ viewport:{width,height:900}, deviceScaleFactor:1, reducedMotion:'reduce' });
+    // Baseline UX checks run with a saved refusal to keep consent unobtrusive.
+    await page.addInitScript(() => localStorage.setItem('astra_forge_analytics_consent_v1','declined'));
     page.on('pageerror',e=>errors.push(width+': '+e.message));
     await page.route(/https:\/\/api\.github\.com\/repos\/AstraforgeIdle\/astraforge-idle\/releases/, route =>
       route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([release])}));
@@ -114,11 +116,6 @@ try {
   // Consent-enabled preview uses a test measurement ID without contacting Google.
   const analyticsPage=await browser.newPage({viewport:{width:390,height:900}});
   let googleLoads=0;
-  await analyticsPage.route('**/config.js', async route => {
-    const source=readFileSync(resolve(root,'config.js'),'utf8');
-    await route.fulfill({status:200,contentType:'text/javascript',
-      body:source.replace("ga4MeasurementId: '',","ga4MeasurementId: 'G-TEST123456',")});
-  });
   await analyticsPage.route('https://www.googletagmanager.com/gtag/js**', route => {
     googleLoads++;
     return route.fulfill({status:200,contentType:'text/javascript',body:'/* mock Google tag */'});
@@ -137,6 +134,9 @@ try {
   await analyticsPage.locator('[data-privacy-settings]').click();
   await analyticsPage.locator('[data-analytics-accept]').click();
   check(googleLoads===1,'Google tag not loaded exactly once on acceptance');
+  check(await analyticsPage.evaluate(() => window.dataLayer.some(
+    entry => entry[0] === 'config' && entry[1] === 'G-SZHF2LMYG0'
+  )), 'The published Google measurement ID is not being configured');
   await analyticsPage.goto(base,{waitUntil:'networkidle'});
   await analyticsPage.locator('[data-release-download]:visible').waitFor();
   check(googleLoads===2,'Google tag not loaded for consenting returning visitor');
