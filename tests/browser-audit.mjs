@@ -91,6 +91,13 @@ try {
     check(await morvann.evaluate(img=>img.naturalWidth>0),width+' Morvann image missing');
     if(width===390||width===1440) {
       await page.goto(base,{waitUntil:'networkidle'});
+      const broken = await page.evaluate(async () => {
+        const imgs = [...document.images];
+        for(const img of imgs) img.loading='eager';
+        await Promise.all(imgs.map(img => img.decode().catch(() => {})));
+        return imgs.filter(img => !img.naturalWidth).map(img => img.currentSrc || img.src);
+      });
+      check(!broken.length,width+' has broken visual assets: '+broken.join(', '));
       await page.screenshot({path:resolve(screenshots,'home-'+width+'.png'),fullPage:true,animations:'disabled'});
     }
     await page.goto(base+'updates/',{waitUntil:'networkidle'});
