@@ -140,7 +140,7 @@ try {
   await analyticsPage.goto(base,{waitUntil:'networkidle'});
   await analyticsPage.locator('[data-release-download]:visible').waitFor();
   check(googleLoads===2,'Google tag not loaded for consenting returning visitor');
-  await analyticsPage.locator('a[data-track-event="download_cta_click"]').first().click();
+  await analyticsPage.locator('.hero-copy a[data-track-event="download_cta_click"]').click();
   await analyticsPage.evaluate(() => document.querySelector('[data-release-download]')
     .addEventListener('click', event => event.preventDefault(), {capture:true}));
   await analyticsPage.locator('[data-release-download]').click();
