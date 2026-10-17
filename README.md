@@ -1,39 +1,70 @@
-# Astraforge Idle — Portal oficial V2
+# Astraforge Idle — Site oficial
 
-Entrega local para revisão, preparada em **11/10/2026**. A V0.6.0 Beta é apresentada como conteúdo em preparação. Este pacote não publica o site, não inclui APK e não altera a exportação Android.
+Site e distribuição pública da versão Android de **Astraforge Idle**, RPG idle 2D em pixel art desenvolvido na Godot.
 
-## Abrir e revisar
+**Site:** https://astraforgeidle.github.io/astraforge-idle/  
+**Downloads:** https://github.com/AstraforgeIdle/astraforge-idle/releases  
+**Comunidade:** https://github.com/AstraforgeIdle/astraforge-idle/discussions  
+**Bugs:** https://github.com/AstraforgeIdle/astraforge-idle/issues
 
-Extraia o ZIP mantendo as pastas. Execute um servidor HTTP estático na pasta extraída, por exemplo:
+## O que o visitante encontra
 
-```text
+- Página inicial com apresentação do jogo, mundos, heróis e sistemas de evolução.
+- Capturas reais do runtime Godot, com galeria ampliável e filtros.
+- Busca por versão e assunto em [Atualizações](updates/index.html).
+- Consulta **sem autenticação** à API pública do GitHub Releases: o site só exibe download de APK publicado e válido; versões em rascunho não são ofertadas.
+- Instruções de instalação e atualização do APK Android.
+- Acesso a Discussions e Issues para feedback e suporte.
+
+## Estrutura do site
+
+| Caminho | Responsabilidade |
+|---|---|
+| `index.html` | Homepage, informações do jogo e CTA de download |
+| `updates/index.html` | Índice pesquisável de notas e hotfixes |
+| `updates/v*/` | Notas históricas por versão (URLs preservadas) |
+| `styles.css` | Estilos compartilhados e legado das notas |
+| `assets/css/site-v3.css` | Refinamentos de layout, navegação e filtros do portal |
+| `app.js` | Menu, galeria, filtros e busca local |
+| `releases.js` | Consulta, seleção e renderização segura dos APKs publicados |
+| `config.js` | Repositório, versão e rota das notas locais |
+| `assets/` | Identidade visual, sprites e capturas de tela |
+| `data/` | Dados editoriais e metadados públicos |
+| `tests/` | Validação automatizada, sem dependências de frontend |
+| `docs/` | Documentação e instruções de manutenção |
+
+## Rodar localmente
+
+É um site estático, sem framework, instalação de dependências ou etapa de compilação.
+
+```bash
 python -m http.server 8080
 ```
 
-Abra `http://localhost:8080/`. Não há instalação de dependências ou etapa de build. O HTML e as imagens também podem ser abertos diretamente, mas os módulos de JavaScript e a consulta ao GitHub precisam de HTTP/HTTPS; abrir por `file://` não é o teste completo.
+Acesse `http://localhost:8080/`. Não use `file://` para verificar módulos JS e consulta a Releases. A disponibilidade do APK depende da API pública e da rede.
 
-## Conteúdo
+## Executar testes
 
-- `index.html`: página inicial permanente, quatro mundos, nove heróis jogáveis, sistemas, galeria e download.
-- `updates/index.html`: histórico independente.
-- `updates/v0.6.0/index.html`: doze seções das notas atuais.
-- `updates/v0.5.3/index.html`: registro baseado na documentação disponível, sem publicação presumida.
-- `updates/v0.5.2/index.html`: notas históricas adaptadas com recursos locais; `original.html` preserva o arquivo fornecido integralmente.
-- `styles.css`, `app.js`, `releases.js`, `config.js`: apresentação e interações sem bibliotecas externas.
-- `assets/`: capturas reais Godot em WebP, personagens e marca oficiais; imagens históricas ficam separadas.
-- `data/game.json` e `data/updates.json`: metadados públicos em PT-BR, com IDs estáveis para evolução futura.
-- `docs/`: procedência, auditoria, changelog, validação e instruções de publicação.
+Com Node.js 22 ou superior:
 
-## Download
+```bash
+node --test tests/*.test.mjs
+```
 
-O portal consulta a API pública das Releases do repositório em `config.js`. Escolhe a Release pública mais recente com um APK válido; ignora rascunhos e não constrói URLs de APK por adivinhação. Prereleases públicas podem ser oferecidas como Beta. Falha de rede, limite da API e ausência de APK têm mensagens próprias, com acesso permanente ao histórico público. Não há token, telemetria ou dados de conta.
+Além dos testes automatizados, confira menu, download, filtros, ampliação de imagens e tamanhos de tela diferentes **em um navegador real** antes de publicar.
 
-Em 11/10/2026, a consulta sem autenticação retornou HTTP 200 e lista vazia. Isso registra a disponibilidade naquele momento; o portal consulta novamente quando aberto. A existência da prévia V0.6.0 não torna seu APK disponível automaticamente.
+## Atualizações e publicação
 
-## Publicação futura
+1. Publique a nova APK em uma Release pública do GitHub e confirme a existência do asset `.apk` carregado.
+2. Crie a página de notas em `updates/vX.Y.Z/index.html` e adicione ao índice.
+3. Se a nova versão tiver notas locais no portal, atualize `previewVersion` e `notesPath` em `config.js`.
+4. Sincronize `data/updates.json` e os textos editoriais da homepage, sem presumir funcionalidades ainda não lançadas.
+5. Valide links e testes. A publicação da branch `main` alimenta o GitHub Pages conforme as configurações do repositório.
 
-Veja [deployment.md](docs/deployment.md). O pacote independente `Astraforge_Patch_Notes_V0.6.0.zip` contém as mesmas notas adaptadas à sua raiz e pode ser hospedado separadamente. Para integrar no portal, use a página já em `updates/v0.6.0/`, cujos caminhos relativos foram preparados para essa posição.
+O site **não** contém APK e não altera o código da Godot. A consulta às Releases não utiliza tokens, cookies, analytics ou armazenamento de contas.
 
-## Validação e limites
+Mais informações: [Guia de manutenção](docs/site-maintenance.md).
 
-Veja [validation.md](docs/validation.md). Foram testados arquivos, imagens, links, módulos e estados da integração de Releases. O acesso do navegador à prévia local foi recusado; a revisão visual e de interação em navegador real continua pendente. As capturas do jogo foram feitas no runtime Godot no PC, com save sintético isolado; não representam teste físico Android.
+## Limites
+
+As imagens exibidas vêm do projeto e as notas mais antigas continuam arquivadas. Informação de lançamento, tamanho do APK e links de download só devem ser tratados como confirmados quando forem devolvidos pela Release pública correspondente. A assinatura Android usada para atualizar uma instalação existente precisa ser compatível com a versão já instalada.
