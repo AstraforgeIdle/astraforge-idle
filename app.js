@@ -1,4 +1,10 @@
 import { mountReleases } from './releases.js';
+import { mountAnalytics, trackEvent } from './analytics.js';
+mountAnalytics();
+document.addEventListener('click', event => {
+  const element = event.target.closest?.('a[data-track-event]');
+  if (element && !element.hidden) trackEvent(element.dataset.trackEvent, { origin: element.dataset.trackOrigin || 'site' });
+});
 
 document.documentElement.classList.add('js');
 const menu = document.querySelector('.menu-toggle');
@@ -89,7 +95,21 @@ if (sections.length && 'IntersectionObserver' in window) {
   sections.forEach(section => observer.observe(section));
 }
 
-if (document.querySelector('[data-release-status]')) mountReleases(document);
+if (document.querySelector('[data-release-status]')) {
+  const manager = mountReleases(document);
+  manager.ready.then(state => {
+    // Curated patch notes remain archival; the current public release highlight is live.
+    const highlight = document.querySelector('[data-latest-release-highlight]');
+    if (!highlight || state.status !== 'available') return;
+    const title = highlight.querySelector('[data-latest-release-title]');
+    const notes = highlight.querySelector('[data-latest-release-notes]');
+    const published = state.release;
+    if (title) title.textContent = 'Última Release Android: ' + published.tagName;
+    const url = published.notesUrl || published.releaseUrl;
+    if (notes && url) { notes.href = url; notes.hidden = false; }
+    highlight.hidden = false;
+  });
+}
 
 
 /** Small progressive-enhancement filters. With JS off, every card remains visible. */
