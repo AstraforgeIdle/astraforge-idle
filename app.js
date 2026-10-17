@@ -4,13 +4,24 @@ document.documentElement.classList.add('js');
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 if (menu && nav) {
-  const closeMenu = () => { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); };
-  menu.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+  const setMenuState = open => {
+    nav.classList.toggle('open', open);
     menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    menu.textContent = open ? 'Fechar ×' : 'Menu ☰';
+  };
+  setMenuState(false);
+  menu.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
+  nav.addEventListener('click', event => { if (event.target.closest('a')) setMenuState(false); });
+  document.addEventListener('pointerdown', event => {
+    if (nav.classList.contains('open') && !event.target.closest('.site-header')) setMenuState(false);
   });
-  nav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && nav.classList.contains('open')) { closeMenu(); menu.focus(); } });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('open')) { setMenuState(false); menu.focus(); }
+  });
+  window.matchMedia('(min-width: 921px)').addEventListener('change', event => {
+    if (event.matches) setMenuState(false);
+  });
 }
 
 const galleryLinks = [...document.querySelectorAll('[data-gallery]')];
