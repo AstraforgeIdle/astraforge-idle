@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1420">
+  <meta name="description" content="Astraforge Idle v0.7.1: nova fórmula de dano dos inimigos, rebalanceamento geral e período de observação.">
+  <link rel="canonical" href="https://astraforgeidle.github.io/astraforge-idle/updates/v0.7.1/">
+  <meta property="og:type" content="article"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Astraforge Idle"><meta property="og:title" content="Hotfix v0.7.1 — Combate recalibrado"><meta property="og:description" content="Nova fórmula de dano, rebalanceamento de mobs e bosses, com acompanhamento contínuo."><meta property="og:url" content="https://astraforgeidle.github.io/astraforge-idle/updates/v0.7.1/">
+  <link rel="icon" href="../../assets/branding/emblem.webp" type="image/webp">
+  <title>Astraforge Idle — Hotfix v0.7.1 | Combate recalibrado</title>
+  <style>
+    :root{color-scheme:dark;--bg:#08131f;--panel:#101e2b;--line:#263a48;--cream:#f3efe4;--gold:#e4b96b;--muted:#aab9c5;--soft:#142636}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--cream);font:16px/1.65 'Segoe UI',Arial,sans-serif}
+    body:before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 45% at 78% 10%,#24506b39,transparent 76%);z-index:-1}
+    a{color:inherit}
+    button{font:inherit;cursor:pointer}
+    .container{max-width:1000px;margin:auto;padding:0 36px}
+    .top{border-bottom:1px solid #34445260;background:#08131fe6}
+    .nav{min-height:82px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .brand{display:flex;align-items:center;gap:13px;text-decoration:none;letter-spacing:.15em;font-weight:800;font-size:15px;line-height:1.05}
+    .brand small{display:block;color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.32em;margin-top:7px}
+    .seal{display:grid;place-items:center;width:40px;height:44px;border:1px solid #c99b5488;background:linear-gradient(140deg,#192c3b,#0c1721);clip-path:polygon(50% 0,95% 18%,95% 73%,50% 100%,5% 73%,5% 18%);font:28px Georgia,serif;color:var(--gold)}
+    .print{padding:9px 13px;background:transparent;border:1px solid var(--line);border-radius:4px;color:#e2dfd5;font-size:12px;font-weight:600}
+    .print:hover{border-color:var(--gold);color:var(--gold)}
+    main{padding-top:0}
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding:77px 0 67px}
+    .hero .container{position:relative}
+    .hero .container:after{content:'✦';position:absolute;right:88px;top:12px;color:#e4b96b16;font-size:245px;line-height:1;pointer-events:none}
+    .eyebrow{display:flex;align-items:center;gap:14px;color:var(--gold);font-size:11px;letter-spacing:.25em;font-weight:800;text-transform:uppercase}
+    .eyebrow:before{content:'';width:32px;height:1px;background:var(--gold)}
+    .date{margin-top:19px;color:#95a9b9;font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+    h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400}
+    h1{position:relative;margin:20px 0 20px;font-size:clamp(52px,7vw,85px);line-height:1.06;letter-spacing:-.06em;max-width:750px}
+    h1 em{font-style:normal;color:var(--gold)}
+    .intro{position:relative;color:#ced9e0;max-width:690px;margin:0;font-size:18px;line-height:1.75}
+    .content{padding-top:50px;padding-bottom:42px}
+    .section-heading{font-size:12px;font-weight:750;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 20px}
+    .changes{border-top:1px solid var(--line)}
+    .change{padding:27px 5px;display:grid;grid-template-columns:55px minmax(190px,260px) 1fr;align-items:start;gap:16px;border-bottom:1px solid var(--line)}
+    .number{color:#9b835f;font:20px Georgia,serif}
+    .change h2{margin:0;font-size:25px;line-height:1.23}
+    .change p{margin:0;color:var(--muted);line-height:1.7}
+    .observe{margin-top:38px;border:1px solid #876b446c;background:linear-gradient(105deg,#1c2a33,#10202e 72%);display:grid;grid-template-columns:36px 1fr;align-items:start;gap:14px;padding:24px 28px;border-radius:3px}
+    .observe svg{margin-top:2px}
+    .observe h2{margin:0 0 6px;font:23px Georgia,serif;color:var(--gold)}
+    .observe p{margin:0;color:#c3d0d7;font-size:14px;line-height:1.7}
+    .bottom{margin-top:10px;border-top:1px solid var(--line)}
+    .footer{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:15px;color:#8599a8;font-size:12px}
+    .footer strong{color:var(--cream);font-weight:600;letter-spacing:.1em}
+    @media(max-width:680px){.container{padding:0 22px}.nav{min-height:74px}.print{font-size:11px}.hero{padding:54px 0 50px}.hero .container:after{right:10px;top:75px;font-size:140px}.intro{font-size:16px}.content{padding-top:37px}.change{grid-template-columns:34px 1fr;gap:6px 12px;padding:23px 0}.change p{grid-column:2}.change h2{font-size:24px}.observe{padding:22px 18px}.footer{flex-wrap:wrap;gap:5px;padding-top:17px;padding-bottom:17px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{*{color-adjust:exact;print-color-adjust:exact}.print{display:none}body{background:#fff;color:#1a2226}.hero{padding:34px 0}.hero .container:after{display:none}.intro,.change p,.observe p{color:#23333b}.section-heading,.eyebrow,h1 em,.observe h2{color:#906622}.content{padding-top:22px}.observe{background:#f7f5ef}.top,.bottom,.change,.hero{border-color:#bbb}.footer{color:#555}a{text-decoration:none}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="container nav">
+      <a class="brand" href="../../index.html" aria-label="Astraforge Idle, voltar ao portal"><span class="seal" aria-hidden="true">A</span><span>ASTRAFORGE<small>IDLE · PATCH NOTES</small></span></a>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px"><a class="print" style="text-decoration:none" href="../index.html">← Atualizações</a><button class="print" type="button" onclick="window.print()">Salvar em PDF ↗</button></div>
+    </div>
+  </header>
+  <main id="inicio">
+    <section class="hero" aria-labelledby="headline">
+      <div class="container">
+        <div class="eyebrow">Hotfix · v0.7.1</div>
+        <p class="date">17 de outubro de 2026</p>
+        <h1 id="headline">Combate <em>recalibrado.</em></h1>
+        <p class="intro">Uma nova fórmula de dano e ajustes gerais de balanceamento redefinem o desafio de mobs e bosses no Astraforge Idle.</p>
+      </div>
+    </section>
+    <div class="container content">
+      <p class="section-heading">O que mudou</p>
+      <div class="changes">
+        <article class="change">
+          <span class="number">01</span>
+          <h2>Nova fórmula de dano</h2>
+          <p>Revisado o cálculo do dano causado por mobs e bosses aos heróis, estabelecendo uma nova base para os confrontos.</p>
+        </article>
+        <article class="change">
+          <span class="number">02</span>
+          <h2>Mobs mais relevantes</h2>
+          <p>Rebalanceados ataques e progressão. Os inimigos comuns agora representam uma ameaça maior à sobrevivência da equipe ao longo das fases.</p>
+        </article>
+        <article class="change">
+          <span class="number">03</span>
+          <h2>Bosses recalibrados</h2>
+          <p>Os confrontos com chefes também passaram por ajustes de dano, preservando sua importância e dificuldade.</p>
+        </article>
+      </div>
+      <aside class="observe" aria-labelledby="observe-heading">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" aria-hidden="true"><path d="M12.5 2 23 21H2L12.5 2Z" stroke="#e4b96b" stroke-width="1.3"/><path d="M12.5 9v6m0 3v.7" stroke="#e4b96b" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div><h2 id="observe-heading">Balanceamento em observação</h2><p>Vamos acompanhar o dano recebido, a sobrevivência dos heróis e a dificuldade entre fases. Ajustes pontuais poderão ser feitos nas próximas atualizações.</p></div>
+      </aside>
+    </div>
+  </main>
+  <footer class="bottom"><div class="container footer"><strong>ASTRAFORGE IDLE</strong><span>Hotfix v0.7.1 · Notas de balanceamento</span></div></footer>
+</body>
+</html>
