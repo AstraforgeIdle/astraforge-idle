@@ -66,3 +66,13 @@ test('community issue templates include a direct report path',()=>{
     assert.match(file(path),/validations:/);
   }
 });
+
+test('every published update page loads GA4 through the same opt-in consent module',()=>{
+  for(const version of ['0.5.2','0.5.3','0.6.0','0.6.1','0.6.2','0.6.3','0.7.0','0.7.1','0.7.2','0.7.3']){
+    const path='updates/v'+version+'/index.html';
+    const html=file(path);
+    assert.match(html,/href="\.\.\/\.\.\/assets\/css\/analytics-consent\.css"/,path+' consent styling missing');
+    assert.match(html,/<script type="module" src="\.\.\/\.\.\/(?:privacy|app)\.js">/,path+' opt-in loader missing');
+    assert.doesNotMatch(html,/<script[^>]+src="https:\/\/www\.googletagmanager\.com/,path+' should not pre-load GA4');
+  }
+});

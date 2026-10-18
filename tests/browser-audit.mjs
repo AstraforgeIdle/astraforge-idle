@@ -151,6 +151,11 @@ try {
     'Missing validated APK click event');
   check(await analyticsPage.locator('[data-latest-release-highlight]').isVisible(),
     'Latest release should be highlighted automatically');
+  await analyticsPage.goto(base+'updates/v0.7.2/',{waitUntil:'networkidle'});
+  check(googleLoads===3,'A standalone patch notes page did not load Google tag after consent');
+  check(await analyticsPage.evaluate(() => window.dataLayer.some(
+    entry => entry[0] === 'config' && entry[1] === 'G-SZHF2LMYG0'
+  )), 'Patch notes did not configure the correct GA4 measurement ID');
   console.log('PASS CONSENT: no Google calls before consent, rejection persists, CTA and APK events work');
   await analyticsPage.close();
 
