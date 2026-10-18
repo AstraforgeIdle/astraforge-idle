@@ -28,13 +28,13 @@ test('visitor can reach APK early without losing release validation', () => {
 });
 
 test('v0.7.3 has a visible and accessible notes highlight next to the APK', () => {
-  assert.match(home, /class="release-notes-feature"/);
-  assert.match(home, /aria-labelledby="release-notes-feature-title"/);
-  assert.match(home, /href="updates\\/v0\\.7\\.3\\/index\\.html">Explorar todas as novidades/);
-  assert.match(home, /presente épico dos testadores/);
+  assert.ok(home.includes('class="release-notes-feature"'));
+  assert.ok(home.includes('aria-labelledby="release-notes-feature-title"'));
+  assert.ok(home.includes('href="updates/v0.7.3/index.html">Explorar todas as novidades'));
+  assert.ok(home.includes('presente épico dos testadores'));
   const css = read('assets/css/site-v3.css');
-  assert.match(css, /\\.release-notes-feature\\s*\\{/);
-  assert.match(css, /@media \\(max-width:510px\\)/);
+  assert.ok(css.includes('.release-notes-feature {'));
+  assert.ok(css.includes('@media (max-width:510px)'));
 });
 
 test('Morvann is included with the canonical public sprite and support text', () => {
