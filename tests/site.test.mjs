@@ -23,7 +23,7 @@ test('visitor can reach APK early without losing release validation', () => {
   for (const hook of ['data-release-version','data-release-status','data-release-download','data-release-notes','data-release-action','data-release-size'])
     assert.ok(home.includes(hook), 'Missing release hook: ' + hook);
   assert.match(home,/releases\.js|app\.js/);
-  assert.match(read('config.js'),/previewVersion: '0\.7\.2'/);
+  assert.match(read('config.js'),/previewVersion: '0\.7\.3'/);
   assert.match(read('releases.js'),/selectPublicApkRelease/);
 });
 
@@ -64,7 +64,11 @@ test('public editorial update metadata is current, unique, and has notes pages',
     paths.add(update.path);
     assert.ok(existsSync(resolve(root,update.path)), 'Missing notes '+update.path);
   }
-  assert.equal(content.updates[0].slug,'v0.7.2');
+  assert.equal(content.updates[0].slug,'v0.7.3');
+  const currentNotes = read('updates/v0.7.3/index.html');
+  for (const marker of ['Presente dos Testadores','Bosses do M3','Escolha seu nome','Formação'])
+    assert.ok(currentNotes.includes(marker), 'Missing v0.7.3 notes section: ' + marker);
+  assert.ok(currentNotes.includes('data:image/'), 'Screenshots were not preserved');
   const game = JSON.parse(read('data/game.json'));
   assert.equal(game.version,'0.7.2');
   assert.equal(game.heroes.length,10);
