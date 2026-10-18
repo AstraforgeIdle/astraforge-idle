@@ -3,6 +3,18 @@
   "locale": "pt-BR",
   "updates": [
     {
+      "version": "0.7.3",
+      "slug": "v0.7.3",
+      "title": "Seu aventureiro. Sua identidade.",
+      "title_origin": "Notas oficiais fornecidas em HTML",
+      "summary": "Novo Perfil do Jogador, 15 retratos, Correio e Presente dos Testadores; formação 3×3, nerfs nos bosses do M3 e ajustes em equipamentos.",
+      "status": "published_beta",
+      "status_label": "Beta publicada",
+      "release_confirmed": true,
+      "published_at": "2026-10-18T15:16:00Z",
+      "path": "updates/v0.7.3/index.html"
+    },
+    {
       "version": "0.7.2",
       "slug": "v0.7.2",
       "title": "Dano dos mobs em ajuste",
