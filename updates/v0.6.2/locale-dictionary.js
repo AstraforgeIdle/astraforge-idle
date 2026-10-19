@@ -106,5 +106,19 @@ export default {
   "Astraforge Idle · V0.6.2 · 12/10/2026": "Astraforge Idle · V0.6.2 · October 12, 2026",
   "HTML independente, com arte e capturas incorporadas. Funciona offline.": "Standalone HTML with embedded artwork and screenshots. Works offline.",
   "Voltar ao início ↑": "Back to top ↑",
-  "← Voltar às atualizações": "← Back to updates"
+  "← Voltar às atualizações": "← Back to updates",
+  "Idioma do site": "Website language",
+  "Português do Brasil": "Brazilian Portuguese",
+  "Navegação principal": "Main navigation",
+  "Heróis ajustados nesta rodada": "Heroes adjusted in this balance pass",
+  "Arte aprovada da arqueira Lyn": "Approved artwork of the archer Lyn",
+  "Arte aprovada da duelista Fae": "Approved artwork of the duelist Fae",
+  "Resumo da validação": "Validation summary",
+  "Onze estados da flecha de Lyn, de zero a dez acúmulos de Harmonia": "Eleven states of Lyn's arrow, from zero to ten Harmony stacks",
+  "Indicador de Harmonia com dez marcas individuais": "Harmony indicator with ten individual marks",
+  "Nível das skills na comparação": "Skill levels in the comparison",
+  "Comparação visual do DPS da Lyn e da Fae": "Visual comparison of Lyn and Fae's DPS",
+  "Participação dos básicos, Harmonia, skills e veneno da Lyn": "Share of Lyn's damage from basic attacks, Harmony, skills, and poison",
+  "Básicos: 27,40%": "Basic attacks: 27.40%",
+  "Básicos: 24,88%": "Basic attacks: 24.88%"
 };
