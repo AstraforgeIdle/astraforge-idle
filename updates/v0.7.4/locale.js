@@ -167,7 +167,21 @@ const english={
   "Experimente o comando preciso de Vaelor, a proteção de Ceryndra e as novas opções de perfil. Cada composição encontra seu próprio caminho em Astra.": "Try Vaelor's precise command, Ceryndra's protection, and the new profile options. Every team finds its own path in Astra.",
   "Rever os novos heróis ↑": "Revisit the new heroes ↑",
   "Notas da atualização · 19 de outubro de 2026": "Release notes · October 19, 2026",
-  "Astraforge Idle · V0.7.4": "Astraforge Idle · V0.7.4"
+  "Astraforge Idle · V0.7.4": "Astraforge Idle · V0.7.4",
+  "Português do Brasil": "Brazilian Portuguese",
+  "Navegação da atualização": "Update navigation",
+  "Pausar animações decorativas": "Pause decorative animations",
+  "Retomar animações decorativas": "Resume decorative animations",
+  "Pausar animações": "Pause animations",
+  "Retomar animações": "Resume animations",
+  "Vaelor e suas lanças em órbita": "Vaelor with his orbiting spears",
+  "Lanças do Aprendiz": "Apprentice's Spears",
+  "Lanças do Regente": "Regent's Spears",
+  "Coroa das Lanças": "Spear Crown",
+  "Simular nível de Alma de Cristal": "Simulate Crystal Soul level",
+  "Coração Prismático": "Prismatic Heart",
+  "Coração da Neve Eterna": "Heart of Eternal Snow",
+  "Opções de limite de FPS": "FPS cap options"
 };
 const key='astraforge_site_language_v1';
 const textOriginal=new WeakMap();
@@ -210,6 +224,17 @@ for(const button of document.querySelectorAll('.patch-language-picker button')){
  button.addEventListener('click',()=>{
   lang=button.dataset.siteLang==='en'?'en':'pt-BR';
   try{localStorage.setItem(key,lang);}catch{}
+  translatePage();
+ });
+}
+// The original animation toggle updates labels dynamically in Portuguese.
+const motion=document.getElementById('motion');
+if(motion){
+ motion.addEventListener('click',()=>{
+  const attrs=attributeOriginal.get(motion)||{};
+  attrs['aria-label']=motion.getAttribute('aria-label');
+  attrs.title=motion.getAttribute('title');
+  attributeOriginal.set(motion,attrs);
   translatePage();
  });
 }
