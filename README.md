@@ -7,6 +7,12 @@ Site e distribuição pública da versão Android de **Astraforge Idle**, RPG id
 **Comunidade:** https://github.com/AstraforgeIdle/astraforge-idle/discussions  
 **Bugs:** https://github.com/AstraforgeIdle/astraforge-idle/issues
 
+## Idiomas do portal
+
+A página inicial, o índice de atualizações e a página de privacidade possuem alternância **🇧🇷 Português / 🇺🇸 English** no cabeçalho. O conteúdo em português permanece no HTML e as traduções editoriais ficam em `i18n.js`. A escolha do idioma é salva apenas no navegador (`localStorage`), sem alterar os links públicos do APK ou a preferência de Analytics.
+
+O menu, os filtros, as mensagens da consulta a GitHub Releases e a faixa de consentimento também acompanham o idioma escolhido. **As páginas detalhadas do arquivo de notas antigas continuam no idioma original (português)**; devem ser localizadas separadamente, sem sobrescrever o histórico.
+
 ## O que o visitante encontra
 
 - Página inicial com os cinco mundos, dez heróis jogáveis e sistemas de evolução.
