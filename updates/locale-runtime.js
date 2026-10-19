@@ -56,6 +56,11 @@ export function mountPatchLanguage(english) {
       apply();
     });
   }
+  // Level comparison buttons change explanatory text after initial render.
+  // The source node is recreated on every click; translate it immediately.
+  for(const button of document.querySelectorAll('#btn-max,#btn-one')){
+    button.addEventListener('click',apply);
+  }
   let pending=false;
   const dynamic=document.querySelector('#lightbox');
   if(dynamic){
