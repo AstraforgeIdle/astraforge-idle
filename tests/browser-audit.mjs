@@ -59,7 +59,7 @@ try {
     console.log('LAYOUT',width,JSON.stringify(layout));
     check(layout.pageWidth <= width+2,width+' has horizontal overflow: '+JSON.stringify(layout));
     const navButton=page.locator('.menu-toggle');
-    if(width<=920) {
+    if(width<=1120) {
       check(await navButton.isVisible(),width+' requires responsive menu');
       await navButton.click();
       check(await page.locator('#site-nav a[href="#mundos"]').isVisible(),width+' cannot open nav');
@@ -69,6 +69,18 @@ try {
     } else {
       check(await page.locator('#site-nav .nav-download').isVisible(),width+' desktop nav missing');
     }
+    const languageButtons=page.locator('[data-site-lang]');
+    check((await languageButtons.count())===2,width+' language picker missing');
+    const apkUrlBefore=await page.locator('[data-release-download]').getAttribute('href');
+    await page.locator('[data-site-lang="en"]').click();
+    check(await page.evaluate(()=>document.documentElement.lang)==='en',width+' English document language missing');
+    check((await page.locator('#site-nav a[href="#mundos"]').innerText())==='Worlds',width+' untranslated nav');
+    check((await page.locator('[data-release-download]').innerText()).includes('Download APK'),width+' untranslated download');
+    check((await page.locator('[data-release-download]').getAttribute('href'))===apkUrlBefore,width+' changed APK URL after language toggle');
+    check(await page.evaluate(()=>localStorage.getItem('astraforge_site_language_v1'))==='en',width+' language not persisted');
+    await page.locator('[data-site-lang="pt-BR"]').click();
+    check(await page.evaluate(()=>document.documentElement.lang)==='pt-BR',width+' Portuguese restore failed');
+    check((await page.locator('#site-nav a[href="#mundos"]').innerText())==='Mundos',width+' original navigation not restored');
     const damage=page.locator('[data-hero-role="dano"]');
     await damage.click();
     check((await page.locator('.character:visible').count())===5,width+' filtered heroes not 5');
