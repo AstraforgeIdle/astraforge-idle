@@ -231,8 +231,6 @@ function renderLanguage(){
   }
   const picker=document.querySelector('.patch-language-picker');
   if(picker)picker.setAttribute('aria-label',language==='en'?'Website language':'Idioma do site');
-  const back=document.querySelector('.patch-back');
-  if(back)back.textContent=translate('← Voltar às atualizações');
 }
 for(const button of document.querySelectorAll('.patch-language-picker button')){
   button.addEventListener('click',()=>{
