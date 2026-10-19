@@ -392,7 +392,30 @@ const english = {
   "Próxima →": "Next →",
   "capturas": "screenshots",
   "atualizações encontradas": "updates found",
-  "Nenhuma atualização encontrada": "No updates found"
+  "Nenhuma atualização encontrada": "No updates found",
+  "V0.5.3 Beta — Registro histórico | Astraforge Idle": "V0.5.3 Beta — Historical Record | Astraforge Idle",
+  "Registro documentado da preparação V0.5.3 Beta: Oficina, refino, atributos, origens de materiais e som. Publicação de APK não confirmada por este arquivo.": "Documented preparations for v0.5.3 Beta: Workshop, refinement, attributes, material sources, and audio. This archive does not confirm an APK release.",
+  "V0.5.3 Beta — Registro histórico": "V0.5.3 Beta — Historical Record",
+  "Ajustes de Oficina, refino, atributos e som documentados na preparação Android.": "Workshop, refinement, attributes, and audio adjustments documented during Android preparation.",
+  "Pular para o registro": "Skip to historical record",
+  "V0.5.3 Beta · Registro histórico": "V0.5.3 Beta · Historical record",
+  "Os documentos de preparação da versão registram melhorias no fluxo de equipamentos e na apresentação do jogo.": "The version's preparation documents record improvements to equipment management and the game's presentation.",
+  "Este é um resumo documental.": "This is a documentary summary.",
+  "O registro local descreve o projeto preparado como 0.5.3-beta, código 10, para exportação manual. Ele não comprova a publicação de uma Release ou APK e não fornece uma data confirmada de lançamento. “Oficina e refinamento” é a descrição deste arquivo, não um título oficial de atualização recuperado.": "The local record describes the project as prepared for manual export under version 0.5.3-beta, build 10. It does not establish that a release or APK was published, nor does it provide a confirmed release date. “Workshop and refinement” is this archive's description, not a recovered official update title.",
+  "Conteúdo documentado": "Documented content",
+  "Oficina e Materiais com salão, catálogo, fabricação e Grande Têmpera.": "Workshop and Materials, including the main hall, catalog, crafting, and Grand Tempering.",
+  "Refino com +11 pontos nos atributos base e +0,12 ponto percentual nos extras por nível; grade com os equipamentos refináveis.": "Refinement with +11 points to base attributes and +0.12 percentage points to bonus stats per level; a grid of eligible equipment.",
+  "Um ponto de atributo no nível 1, totalizando 75 no nível 75, preservando alocações existentes.": "One attribute point at level 1, totaling 75 at level 75, while preserving existing allocations.",
+  "Origem de materiais mostrando inimigo, fases, chance e quantidade, com textos mais diretos.": "Material sources showing enemies, stages, drop chances, and quantities, with clearer descriptions.",
+  "Fontes corrigindo a apresentação de acentos e ajuste de escala do Kharun.": "Font fixes for accented characters and a scale adjustment for Kharun.",
+  "Seletores da Oficina estáveis durante renda de combate e nomes próprios para os dezoito equipamentos de nível 60.": "Workshop selectors that remain stable as combat rewards accrue, plus distinct names for all eighteen level 60 items.",
+  "Temas dos mundos 1–3 e configurações de música com volume e mute.": "World 1–3 themes and music settings with volume and mute controls.",
+  "Como este arquivo foi preservado": "How this archive was preserved",
+  "O resumo foi extraído do guia de preparação Android e dos registros da Oficina, sem reconstruir notas completas que não foram fornecidas. As receitas e o balanceamento descritos pertencem àquele registro; os valores atuais e a nova redistribuição de materiais estão nas notas V0.6.0.": "This summary was drawn from the Android preparation guide and Workshop records without reconstructing full release notes that were not provided. The recipes and balancing described belong to that historical record; newer values and material redistribution are documented in the v0.6.0 notes.",
+  "Conhecer Picos Congelados": "Explore Frozen Peaks",
+  "Ver A Oficina Desperta": "View The Workshop Awakens",
+  "Astraforge Idle · Histórico de atualizações": "Astraforge Idle · Update history",
+  "Todas as versões": "All versions"
 };
 const storageKey = 'astraforge_site_language_v1';
 const textSource = new WeakMap();
