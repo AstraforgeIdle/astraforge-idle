@@ -388,6 +388,12 @@ try { language = localStorage.getItem(storageKey) === 'en' ? 'en' : 'pt-BR'; } c
 export function getLanguage() { return language; }
 export function translate(phrase, locale = 'pt-BR') { return locale === 'en' ? (english[phrase] || phrase) : phrase; }
 export function t(phrase) { return translate(phrase, language); }
+export function extendEnglishDictionary(extra) {
+  if (!extra || typeof extra !== 'object') return;
+  for (const [pt, en] of Object.entries(extra)) {
+    if (pt && typeof en === 'string' && en) english[pt] = en;
+  }
+}
 
 export function translateSubtree(root = document) {
   const elementRoot = root.nodeType === 9 ? root.documentElement : root;
@@ -457,7 +463,7 @@ function updatePicker() {
 
 export function mountLanguagePicker() {
   const header = document.querySelector('.site-header .header-inner');
-  if (header && !header.querySelector('[data-language-picker]')) {
+  if (header && !document.querySelector('[data-language-picker]')) {
     // Backwards-compatible fallback for archived pages that do not have the static picker.
     const picker = document.createElement('div');
     picker.className = 'language-picker';
