@@ -36,5 +36,8 @@ export default {
   "Ícone de Armadura da Obsidiana Imperial do jogo": "In-game icon for Imperial Obsidian Armor",
   "Ícone de Luvas da Obsidiana Imperial do jogo": "In-game icon for Imperial Obsidian Gloves",
   "Ícone de Botas da Obsidiana Imperial do jogo": "In-game icon for Imperial Obsidian Boots",
-  "Ícone de Talismã do Coração Vulcânico do jogo": "In-game icon for Volcanic Heart Talisman"
+  "Ícone de Talismã do Coração Vulcânico do jogo": "In-game icon for Volcanic Heart Talisman",
+  "Idioma do site": "Website language",
+  "Português do Brasil": "Brazilian Portuguese",
+  "O novo capítulo gelado de Astraforge. Material em preparação para revisão; lançamento ainda não aprovado.": "Astraforge's new frozen chapter. Content awaiting review; release not yet approved."
 };
