@@ -1,0 +1,18 @@
+/* Historic v0.5.3 bilingual selector: compatible with the original site header. */
+.language-picker{display:inline-flex;align-items:center;gap:3px;flex:0 0 auto;padding:4px;border:1px solid #e8bd7855;border-radius:10px;background:#08121fee}
+.language-picker button{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:36px;min-width:57px;padding:5px 8px;color:#d9e4f0;background:transparent;border:1px solid transparent;border-radius:7px;font:700 12px system-ui,sans-serif;cursor:pointer}
+.language-picker button:hover{background:#24374b;color:#fff}
+.language-picker button[aria-pressed="true"]{background:linear-gradient(110deg,#eac38a,#f5dfb4);color:#152131}
+.language-picker button:focus-visible{outline:2px solid #6dc9ef;outline-offset:2px}
+@media(max-width:760px){
+ .site-header .brand{order:1}
+ .site-header .language-picker{order:2;margin-left:auto}
+ .site-header .menu-toggle{order:3}
+ .site-header .nav-links{order:4;width:100%;margin-top:.3rem}
+}
+@media(max-width:390px){
+ .language-picker button{min-width:43px;padding:5px 4px}
+ .language-picker button span{font-size:10px}
+ .site-header .header-inner{gap:8px}
+}
+@media print{.language-picker{display:none!important}}
