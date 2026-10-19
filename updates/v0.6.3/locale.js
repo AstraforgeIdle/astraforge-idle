@@ -132,4 +132,15 @@ const current={
   "Notas da atualização · HTML independente com imagens incorporadas · Funciona offline": "Release notes · Standalone HTML with embedded images · Works offline"
 };
 const english={...earlier,...current};
+Object.assign(english, {
+  "Idioma do site": "Website language",
+  "Português do Brasil": "Brazilian Portuguese",
+  "Navegação principal": "Main navigation",
+  "Nerissa em pixel art, com cabelos vermelhos e seu instrumento": "Pixel-art Nerissa with red hair and her instrument",
+  "Destaques da atualização": "Update highlights",
+  "Atributos dos bosses; deslize a tabela em telas pequenas": "Boss stats; swipe the table on small screens",
+  "Exemplo ilustrativo de dano normal, crítico e escudo": "Illustrative example of normal damage, critical hits, and shields",
+  "Ilustração de uma tela escura no modo descanso": "Illustration of a dimmed screen in rest mode",
+  "Tempos disponíveis": "Available timers"
+});
 mountPatchLanguage(english);
