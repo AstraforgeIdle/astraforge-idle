@@ -130,4 +130,12 @@ const english={
   "Voltar ao topo ↑": "Back to top ↑",
   "← Voltar às atualizações": "← Back to updates"
 };
+Object.assign(english, {
+  "Idioma do site": "Website language",
+  "Português do Brasil": "Brazilian Portuguese",
+  "Destaques do patch": "Patch highlights",
+  "Seções do patch": "Patch sections",
+  "Malkor, Mestre da Forja": "Malkor, Master of the Forge",
+  "Exemplos de dano adicional no nível 1": "Examples of bonus damage at skill level 1"
+});
 mountPatchLanguage(english);
