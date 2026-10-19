@@ -2,13 +2,12 @@ import { getLanguage, setLanguage, translateSubtree, translate as translateBase 
 import { patchTranslations } from './patch-translations.js';
 const pathname = location.pathname;
 const version = (pathname.match(/\/updates\/(v[0-9.]+)\//) || [])[1] || '';
-const dictionary = patchTranslations[version] || {};
+const dictionary = { ...(patchTranslations.common || {}), ...(patchTranslations[version] || {}) };
 const originalNodes = new WeakMap();
 const originalAttrs = new WeakMap();
 const replaceText = (text, lang) => lang === 'en' ? (dictionary[text] ?? translateBase(text,'en')) : text;
 function syncPatchLanguage(){
  const lang = getLanguage(), english = lang === 'en';
- translateSubtree();
  const root = document.body;
  const walker = document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
  const nodes=[];
