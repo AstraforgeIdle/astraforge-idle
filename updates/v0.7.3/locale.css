@@ -1,0 +1,10 @@
+/* v0.7.3 language switcher: does not modify the original release-note layout. */
+.patch-language-bar{position:sticky;top:0;z-index:10000;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:5px clamp(12px,4vw,64px);background:#07111ff5;border-bottom:1px solid #bd986455;box-shadow:0 3px 18px #0006;font:600 12px/1.3 system-ui,"Segoe UI",sans-serif}
+.patch-language-bar .patch-back{color:#dce6f2;text-decoration:none;border-radius:6px;padding:8px 5px;white-space:nowrap}
+.patch-language-bar .patch-back:hover{text-decoration:underline;color:#f2d8ad}
+.patch-language-picker{display:inline-flex;align-items:center;gap:3px;border:1px solid #bd986477;padding:3px;background:#142235;border-radius:9px}
+.patch-language-picker button{border:1px solid transparent;border-radius:6px;background:transparent;color:#dae5f0;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;min-width:59px;padding:5px 9px;cursor:pointer;font:700 12px system-ui,"Segoe UI",sans-serif}
+.patch-language-picker button[aria-pressed="true"]{background:linear-gradient(115deg,#eac38a,#f5dfb4);color:#112033}
+.patch-language-picker button:hover{border-color:#eac38a}
+.patch-language-picker button:focus-visible,.patch-language-bar .patch-back:focus-visible{outline:2px solid #75d7fa;outline-offset:2px}
+@media(max-width:420px){.patch-language-bar{min-height:43px;padding:4px 10px}.patch-language-picker{flex-shrink:0}.patch-language-picker button{font-size:15px;min-height:32px;min-width:44px;padding:4px 6px}.patch-language-bar .patch-back{font-size:11px;white-space:normal}.patch-language-picker button span{font-size:11px}}
