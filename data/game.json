@@ -1,8 +1,8 @@
 {
   "locale": "pt-BR",
-  "generated_on": "2026-10-17",
-  "version": "0.7.2",
-  "release_status": "Beta pública — hotfix v0.7.2",
+  "generated_on": "2026-10-19",
+  "version": "0.7.4",
+  "release_status": "Beta pública — atualização v0.7.4",
   "captures_updated_at_utc": "20261012T024054Z",
   "heroes": [
     {
@@ -700,6 +700,140 @@
       "provenance": [
         "updates/v0.7.0/index.html (notas editoriais)",
         "IDs editorial_morvann_* não são identificadores internos do Godot"
+      ]
+    },
+    {
+      "id": "hero_vaelor",
+      "name": "Vaelor",
+      "class_id": "class_spear_regent",
+      "class_name": "Regente das Lanças",
+      "role_id": "role_dps_physical",
+      "role_name": "DPS / Lançador de lanças",
+      "damage_type": "physical",
+      "combat_style": "Dano físico · retaguarda · Marcas de Lança",
+      "description": "Controla lanças flutuantes para atingir alvos à distância, acumular até dez Marcas de Lança e consumi-las com Ruptura Espectral. A habilidade suprema amplia seu arsenal de três para sete lanças.",
+      "features": [
+        "Investida de Estilhaços",
+        "Ruptura Espectral",
+        "Trono das Mil Lanças"
+      ],
+      "skills": [
+        {
+          "id": "editorial_vaelor_1",
+          "name": "Investida de Estilhaços",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Três lanças atingem o alvo e aplicam Marcas de Lança. O terceiro golpe causa 20% mais dano se o alvo já tiver ao menos cinco marcas."
+        },
+        {
+          "id": "editorial_vaelor_2",
+          "name": "Ruptura Espectral",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Consome as marcas do alvo em uma perfuração poderosa, aumentando o dano principal por marca consumida."
+        },
+        {
+          "id": "editorial_vaelor_3",
+          "name": "Arsenal Suspenso",
+          "type": "passive",
+          "damage_type": "physical",
+          "description": "A cada quatro ataques básicos confirmados, prepara uma lança extra para o próximo disparo, que aplica uma marca sem ativar outro efeito de básico."
+        },
+        {
+          "id": "editorial_vaelor_4",
+          "name": "Círculo de Extermínio",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Três ondas atingem até quatro inimigos. Alvos secundários recebem 65% do dano e cada contato deixa uma marca."
+        },
+        {
+          "id": "editorial_vaelor_5",
+          "name": "Eco do Regente",
+          "type": "passive",
+          "damage_type": "physical",
+          "description": "Consumir oito ou mais marcas com Ruptura Espectral libera duas lanças de retorno que aplicam novas marcas."
+        },
+        {
+          "id": "editorial_vaelor_6",
+          "name": "Trono das Mil Lanças",
+          "type": "active",
+          "damage_type": "physical",
+          "description": "Por oito segundos, o arsenal cresce de três para sete lanças, dispara sete lanças especiais e acelera os ataques básicos."
+        }
+      ],
+      "image": "assets/characters/hero_vaelor.png",
+      "width": 164,
+      "height": 192,
+      "provenance": [
+        "updates/v0.7.4/index.html (notas editoriais e sprite oficial)",
+        "IDs editorial_vaelor_* não são identificadores internos do Godot"
+      ]
+    },
+    {
+      "id": "hero_ceryndra",
+      "name": "Ceryndra",
+      "class_id": "class_crystal_guardian",
+      "class_name": "Guardiã dos Cristais",
+      "role_id": "role_tank",
+      "role_name": "Tanque / Antimagia",
+      "damage_type": "magic",
+      "combat_style": "Linha de frente · proteção contra dano mágico · combate corpo a corpo",
+      "description": "Tanque de linha de frente que luta com os punhos, intercepta dano em área com cinco cristais sentinelas, concede escudos aos aliados e reduz dano mágico sofrido pela equipe.",
+      "features": [
+        "Julgamento de Safira",
+        "As Cinco Sentinelas",
+        "Coração da Tempestade"
+      ],
+      "skills": [
+        {
+          "id": "editorial_ceryndra_1",
+          "name": "Julgamento de Safira",
+          "type": "active",
+          "damage_type": "magic",
+          "description": "Cristal perfura o alvo e explode nos inimigos próximos, reduzindo seu ATQ mágico em 12% por seis segundos."
+        },
+        {
+          "id": "editorial_ceryndra_2",
+          "name": "Postura de Diamante",
+          "type": "active",
+          "damage_type": "magic",
+          "description": "Por quatro segundos, recebe 30% menos dano físico. O primeiro golpe físico recebido aciona um contra-ataque mágico."
+        },
+        {
+          "id": "editorial_ceryndra_3",
+          "name": "As Cinco Sentinelas",
+          "type": "passive",
+          "damage_type": "none",
+          "description": "Cinco prismas interceptam dano em área, reduzindo o dano mágico em 20% ou físico em 10%. Cada cristal recarrega individualmente em sete segundos."
+        },
+        {
+          "id": "editorial_ceryndra_4",
+          "name": "Bênção dos Fragmentos",
+          "type": "active",
+          "damage_type": "none",
+          "description": "Concede a cada aliado vivo um escudo de 7% do HP máximo por até seis segundos e +10% de DEF mágica enquanto o escudo durar."
+        },
+        {
+          "id": "editorial_ceryndra_5",
+          "name": "Alma de Cristal",
+          "type": "passive",
+          "damage_type": "heal",
+          "description": "Aumenta a DEF mágica em 18% e recupera o próprio HP a cada cinco segundos. Interceptar magia em área fortalece o próximo soco."
+        },
+        {
+          "id": "editorial_ceryndra_6",
+          "name": "Coração da Tempestade",
+          "type": "active",
+          "damage_type": "magic",
+          "description": "Por seis segundos, o time sofre 40% menos dano mágico em área. Parte da energia evitada é convertida em uma explosão final."
+        }
+      ],
+      "image": "assets/characters/hero_ceryndra.png",
+      "width": 163,
+      "height": 194,
+      "provenance": [
+        "updates/v0.7.4/index.html (notas editoriais e sprite oficial)",
+        "IDs editorial_ceryndra_* não são identificadores internos do Godot"
       ]
     }
   ],

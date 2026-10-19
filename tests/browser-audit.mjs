@@ -85,9 +85,9 @@ try {
     check((await page.locator('#site-nav a[href="#mundos"]').innerText())==='Mundos',width+' original navigation not restored');
     const damage=page.locator('[data-hero-role="dano"]');
     await damage.click();
-    check((await page.locator('.character:visible').count())===5,width+' filtered heroes not 5');
+    check((await page.locator('.character:visible').count())===6,width+' filtered heroes not 6');
     await page.locator('[data-hero-role="todos"]').click();
-    check((await page.locator('.character:visible').count())===10,width+' hero total not 10');
+    check((await page.locator('.character:visible').count())===12,width+' hero total not 12');
     await page.locator('[data-gallery-category="equipamento"]').click();
     check((await page.locator('.gallery [data-gallery]:visible').count())===1,width+' gallery equipment count');
     await page.locator('[data-gallery-category="todos"]').click();

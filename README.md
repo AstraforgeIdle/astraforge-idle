@@ -15,7 +15,7 @@ O menu, os filtros, as mensagens da consulta a GitHub Releases e a faixa de cons
 
 ## O que o visitante encontra
 
-- Página inicial com os cinco mundos, dez heróis jogáveis e sistemas de evolução.
+- Página inicial com os cinco mundos, doze heróis jogáveis e sistemas de evolução.
 - Capturas reais do runtime Godot, com galeria ampliável e filtros.
 - Busca por versão e assunto em [Atualizações](updates/index.html).
 - Consulta **sem autenticação** à API pública do GitHub Releases: o site só exibe download de APK publicado e válido; versões em rascunho não são ofertadas.
