@@ -128,6 +128,27 @@ try {
     await page.close();
   }
 
+  // v0.7.4 patch notes: source artwork, English, Portuguese and persisted language.
+  const patchPage=await browser.newPage({viewport:{width:390,height:844}});
+  const patchErrors=[];
+  patchPage.on('pageerror',error=>patchErrors.push(error.message));
+  await patchPage.addInitScript(()=>localStorage.setItem('astraforge_site_language_v1','en'));
+  await patchPage.goto(base+'updates/v0.7.4/',{waitUntil:'load',timeout:30000});
+  await patchPage.locator('.patch-language-picker button[data-site-lang="en"]').waitFor();
+  check((await patchPage.locator('.patch-language-picker button').count())===2,'v0.7.4 missing flags');
+  check(await patchPage.evaluate(()=>document.documentElement.lang==='en'),'v0.7.4 did not load English preference');
+  check(await patchPage.evaluate(()=>document.body.innerText.includes('Two forces.')),'v0.7.4 English translation missing');
+  check((await patchPage.locator('img[src^="data:image"]').count())>=20,'v0.7.4 original illustrations missing');
+  await patchPage.locator('[data-site-lang="pt-BR"]').click();
+  check(await patchPage.evaluate(()=>document.documentElement.lang==='pt-BR'),'v0.7.4 Portuguese selection failed');
+  check(await patchPage.evaluate(()=>document.body.innerText.includes('Duas forças.')),'v0.7.4 Portuguese source text not restored');
+  await patchPage.locator('[data-site-lang="en"]').click();
+  check(await patchPage.evaluate(()=>document.body.innerText.includes('Two forces.')),'v0.7.4 English re-selection failed');
+  check(await patchPage.evaluate(()=>localStorage.getItem('astraforge_site_language_v1')==='en'),'v0.7.4 locale preference not saved');
+  check(patchErrors.length===0,'v0.7.4 javascript errors: '+patchErrors.join('; '));
+  console.log('PASS PATCH v0.7.4: flags, PT/EN, artwork and persisted preference');
+  await patchPage.close();
+
   // Consent-enabled preview uses a test measurement ID without contacting Google.
   const analyticsPage=await browser.newPage({viewport:{width:390,height:900}});
   let googleLoads=0;
