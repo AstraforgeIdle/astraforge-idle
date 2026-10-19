@@ -1,6 +1,6 @@
 import { mountReleases } from './releases.js';
 import { mountAnalytics, trackEvent } from './analytics.js';
-import { mountLanguagePicker, t } from './i18n.js';
+import { mountLanguagePicker, t, translateSubtree } from './i18n.js';
 mountLanguagePicker();
 mountAnalytics();
 document.addEventListener('click', event => {
@@ -19,6 +19,7 @@ if (menu && nav) {
     menu.textContent = t(open ? 'Fechar ×' : 'Menu ☰');
   };
   setMenuState(false);
+  document.addEventListener('astraforge:languagechange', () => setMenuState(nav.classList.contains('open')));
   menu.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
   nav.addEventListener('click', event => { if (event.target.closest('a')) setMenuState(false); });
   document.addEventListener('pointerdown', event => {
@@ -38,17 +39,18 @@ if (galleryLinks.length && typeof HTMLDialogElement !== 'undefined') {
   dialog.className = 'lightbox';
   dialog.setAttribute('aria-label', t('Captura do jogo ampliada'));
   const close = document.createElement('button');
-  close.type = 'button'; close.textContent = t('Fechar ×');
+  close.type = 'button'; close.textContent = 'Fechar ×';
   const shot = document.createElement('img');
   const caption = document.createElement('p');
   const controls = document.createElement('div');
   controls.className = 'lightbox-controls';
   const previous = document.createElement('button');
-  previous.type = 'button'; previous.textContent = t('← Anterior');
+  previous.type = 'button'; previous.textContent = '← Anterior';
   const following = document.createElement('button');
-  following.type = 'button'; following.textContent = t('Próxima →');
+  following.type = 'button'; following.textContent = 'Próxima →';
   controls.append(previous, following);
   dialog.append(close, shot, caption, controls); document.body.append(dialog);
+  translateSubtree(dialog);
   const visibleShots = () => galleryLinks.filter(link => !link.hidden);
   const showShot = link => {
     if (!link) return;
@@ -57,6 +59,7 @@ if (galleryLinks.length && typeof HTMLDialogElement !== 'undefined') {
     caption.textContent = t(link.dataset.caption || shot.alt);
     controls.hidden = visibleShots().length < 2;
   };
+  document.addEventListener('astraforge:languagechange', () => { if (dialog.open && origin) showShot(origin); });
   const navigate = offset => {
     const options = visibleShots();
     const current = options.indexOf(origin);
