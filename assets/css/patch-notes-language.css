@@ -1,0 +1,37 @@
+/* Shared unobtrusive navigation for every historical Astraforge release. */
+.patch-locale-toolbar {
+  box-sizing:border-box;position:sticky;top:0;z-index:100000;
+  display:flex;align-items:center;justify-content:flex-end;gap:1rem;
+  width:100%;min-height:52px;padding:7px max(18px,calc((100vw - 1300px)/2));
+  margin:0;background:#081320f5;border-bottom:1px solid #e6c17e55;
+  color:#f6f0e6;font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:13px;line-height:1.4;backdrop-filter:blur(12px);
+}
+.patch-locale-toolbar,.patch-locale-toolbar * {box-sizing:border-box}
+.patch-locale-toolbar .patch-back{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:9px 13px;border:1px solid #e6c17e66;border-radius:7px;
+  color:#e7c58c;background:#162638;text-decoration:none;
+  white-space:nowrap;font-weight:700;min-height:37px;
+}
+.patch-locale-toolbar .patch-back:hover {background:#26384d;color:#ffdf9c}
+.patch-locale-toolbar .patch-lang-buttons{display:inline-flex;align-items:center;gap:4px;
+  padding:3px;border:1px solid #e6c17e55;background:#102236;border-radius:9px;}
+.patch-locale-toolbar .patch-lang-buttons button{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:33px;min-width:53px;padding:4px 7px;background:transparent;
+  border:1px solid transparent;border-radius:6px;color:#dce5ed;
+  font:700 12px system-ui,-apple-system,Segoe UI,sans-serif;cursor:pointer;
+}
+.patch-locale-toolbar .patch-lang-buttons button[aria-pressed="true"],
+.patch-locale-toolbar .patch-lang-buttons button.active {
+  background:linear-gradient(115deg,#edc98d,#f6dfb4);color:#142234;border-color:#f4e1ba;
+}
+.patch-locale-toolbar :is(button,a):focus-visible{outline:3px solid #6dc9ef;outline-offset:2px}
+@media(max-width:510px){
+  .patch-locale-toolbar{min-height:48px;padding:5px 10px;gap:8px}
+  .patch-locale-toolbar .patch-back{padding:8px;font-size:12px}
+  .patch-locale-toolbar .patch-lang-buttons button{min-width:40px;padding:3px 6px;font-size:17px}
+  .patch-locale-toolbar .patch-lang-buttons button span{display:none}
+}
+@media print{.patch-locale-toolbar{display:none!important}}
