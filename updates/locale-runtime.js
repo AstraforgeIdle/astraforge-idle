@@ -7,7 +7,7 @@ export function mountPatchLanguage(english) {
   try { language=localStorage.getItem(storageKey)==='en'?'en':'pt-BR'; } catch {}
   const translate=(value)=>{
     if(language!=='en')return value;
-    return english[value] ?? value.replace(/(\\d+ \\/ \\d+ · )Use as setas para navegar/, '$1Use the arrows to navigate');
+    return english[value] ?? value.replace('Use as setas para navegar','Use the arrows to navigate');
   };
   const title=document.title;
   const meta=[...document.querySelectorAll('meta[name="description"],meta[property="og:title"],meta[property="og:description"],meta[property="og:locale"]')];
