@@ -1,5 +1,45 @@
 // Curated English copy for the public website. The original Portuguese stays in HTML.
 const english = {
+  "Recursos do jogo": "Game features",
+  "Combate real de Astraforge Idle em pixel art": "Real pixel-art combat from Astraforge Idle",
+  "Captura real de batalha de Astraforge Idle com heróis enfrentando inimigos no Mundo 4": "Actual Astraforge Idle battle screenshot, with heroes fighting enemies in World 4",
+  "Explore Astraforge Idle": "Explore Astraforge Idle",
+  "Combate real em Bosque dos Brotos": "Actual gameplay in Sprout Grove",
+  "Combate real em Floresta Corrompida": "Actual gameplay in the Corrupted Forest",
+  "Combate real em Vulcão Infernal": "Actual gameplay in the Infernal Volcano",
+  "Combate real em Picos Congelados": "Actual gameplay in the Frozen Peaks",
+  "Combate real no Mundo 5, Abismo da Corrupção": "Actual gameplay in World 5, the Abyss of Corruption",
+  "Combate real no Abismo da Corrupção, quinto mundo de Astraforge Idle": "Actual gameplay in the Abyss of Corruption, Astraforge Idle's fifth world",
+  "Sprite oficial de Kael": "Official Kael sprite",
+  "Sprite oficial de Aelia": "Official Aelia sprite",
+  "Sprite oficial de Lyn": "Official Lyn sprite",
+  "Sprite oficial de Mira": "Official Mira sprite",
+  "Sprite oficial de Dorrik": "Official Dorrik sprite",
+  "Sprite oficial de Fae": "Official Fae sprite",
+  "Sprite oficial de Nerissa": "Official Nerissa sprite",
+  "Sprite oficial de Kharun": "Official Kharun sprite",
+  "Morvann, berserker físico de espada pesada": "Morvann, a physical-damage berserker wielding a greatsword",
+  "Sprite oficial de Nymeris": "Official Nymeris sprite",
+  "Batalha da campanha com barras de vida e controles de AUTO": "Campaign battle with health bars and AUTO controls",
+  "Tela real de seleção e evolução de heróis": "Actual hero selection and progression screen",
+  "Menu real da Oficina com fabricação, refino e evolução": "Actual Workshop screen with crafting, refining, and upgrades",
+  "Filtrar capturas": "Filter screenshots",
+  "Combate contra Fenrir": "Battle against Fenrir",
+  "Combate contra a Sacerdotisa de Cristal": "Battle against the Crystal Priestess",
+  "Combate contra o Rei do Inverno": "Battle against the Winter King",
+  "Encontro raro com Astarok": "Rare encounter with Astarok",
+  "Inventário e equipamento individual": "Inventory and individual equipment",
+  "Kharun — Roda das Mil Sombras": "Kharun — Wheel of a Thousand Shadows",
+  "Loja — Gemas": "Shop — Gems",
+  "Loja — Ouro": "Shop — Gold",
+  "Captura real do jogo: Combate contra Fenrir.": "Actual gameplay screenshot: Battle against Fenrir.",
+  "Captura real do jogo: Combate contra a Sacerdotisa de Cristal.": "Actual gameplay screenshot: Battle against the Crystal Priestess.",
+  "Captura real do jogo: Combate contra o Rei do Inverno.": "Actual gameplay screenshot: Battle against the Winter King.",
+  "Captura real do jogo: Encontro raro com Astarok.": "Actual gameplay screenshot: Rare encounter with Astarok.",
+  "Captura real do jogo: Inventário e equipamento individual.": "Actual gameplay screenshot: Inventory and individual equipment.",
+  "Captura real do jogo: Kharun — Roda das Mil Sombras.": "Actual gameplay screenshot: Kharun — Wheel of a Thousand Shadows.",
+  "Captura real do jogo: Loja — Gemas.": "Actual gameplay screenshot: Shop — Gems.",
+  "Captura real do jogo: Loja — Ouro.": "Actual gameplay screenshot: Shop — Gold.",
   "APK público disponível para Android.": "Public Android APK available.",
   "APK público disponível para Android · versão Beta.": "Public Android APK available · beta version.",
   "Tamanho aproximado: ": "Approximate size: ",
@@ -346,7 +386,8 @@ let language = 'pt-BR';
 try { language = localStorage.getItem(storageKey) === 'en' ? 'en' : 'pt-BR'; } catch { /* storage optional */ }
 
 export function getLanguage() { return language; }
-export function t(phrase) { return language === 'en' ? (english[phrase] || phrase) : phrase; }
+export function translate(phrase, locale = 'pt-BR') { return locale === 'en' ? (english[phrase] || phrase) : phrase; }
+export function t(phrase) { return translate(phrase, language); }
 
 export function translateSubtree(root = document) {
   const elementRoot = root.nodeType === 9 ? root.documentElement : root;
