@@ -1,6 +1,7 @@
 // GA4 is loaded only after an explicit choice. No ID = no analytics requests.
 // The measurement ID is public (G-...), never store credentials or API secrets here.
 import { siteConfig } from './config.js';
+import { translateSubtree } from './i18n.js';
 
 export const CONSENT_KEY = 'astra_forge_analytics_consent_v1';
 export function validMeasurementId(value) {
@@ -99,6 +100,7 @@ function showPanel(doc, win, id) {
   panel.querySelector('[data-analytics-accept]').addEventListener('click', () => decide('accepted'));
   panel.querySelector('[data-analytics-decline]').addEventListener('click', () => decide('declined'));
   doc.body.append(panel);
+  translateSubtree(panel);
   consentPanel = panel;
 }
 

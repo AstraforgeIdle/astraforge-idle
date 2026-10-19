@@ -1,5 +1,6 @@
 import { siteConfig } from './config.js';
 import { trackEvent } from './analytics.js';
+import { t } from './i18n.js';
 
 const moduleRoot = new URL('./', import.meta.url);
 const messages = Object.freeze({
@@ -153,11 +154,11 @@ export function renderReleaseState(root, state, options = {}) {
   if (download) {
     notes = matchesPreview(release.tagName || '', config) ? localNotesUrl(config) : repositoryUrl(release.notesUrl, config, 'notes');
   }
-  text(root, 'status', download ? `APK público disponível para Android${release.prerelease ? ' · versão Beta' : ''}.` : messages[status] || messages.error);
-  text(root, 'version', download ? release.tagName : 'Disponibilidade futura');
-  text(root, 'name', download ? release.name : 'Acompanhe as versões públicas do Astraforge Idle');
-  text(root, 'size', download && Number.isFinite(release.assetSizeBytes) ? 'Tamanho aproximado: ' + (release.assetSizeBytes / (1024 * 1024)).toFixed(0) + ' MB · arquivo hospedado no GitHub' : '');
-  link(root, 'download', download, `Baixar APK · ${release?.tagName || ''}`);
+  text(root, 'status', t(download ? `APK público disponível para Android${release.prerelease ? ' · versão Beta' : ''}.` : messages[status] || messages.error));
+  text(root, 'version', download ? release.tagName : t('Disponibilidade futura'));
+  text(root, 'name', download ? release.name : t('Acompanhe as versões públicas do Astraforge Idle'));
+  text(root, 'size', download && Number.isFinite(release.assetSizeBytes) ? t('Tamanho aproximado: ') + (release.assetSizeBytes / (1024 * 1024)).toFixed(0) + t(' MB · arquivo hospedado no GitHub') : '');
+  link(root, 'download', download, t('Baixar APK') + ` · ${release?.tagName || ''}`);
   for (const node of nodes(root, 'download')) {
     if (download) {
       node.setAttribute('data-release-tag', release.tagName);
@@ -167,7 +168,7 @@ export function renderReleaseState(root, state, options = {}) {
       node.removeAttribute('data-release-size-mb');
     }
   }
-  link(root, 'notes', notes, 'Notas desta versão');
+  link(root, 'notes', notes, t('Notas desta versão'));
   for (const node of nodes(root, 'status')) {
     node.setAttribute('aria-live', 'polite');
     node.setAttribute('role', 'status');
@@ -175,7 +176,7 @@ export function renderReleaseState(root, state, options = {}) {
   for (const node of nodes(root, 'action')) {
     node.hidden = false;
     node.disabled = status === 'loading';
-    node.textContent = status === 'loading' ? 'Consultando…' : 'Verificar novamente';
+    node.textContent = t(status === 'loading' ? 'Consultando…' : 'Verificar novamente');
   }
 }
 
@@ -183,10 +184,14 @@ export function renderReleaseState(root, state, options = {}) {
 export function mountReleases(root = document, options = {}) {
   if (!nodes(root, 'status').length) return { ready: Promise.resolve(), retry: async () => {} };
   let pending;
+  let lastState = { status: 'loading' };
+  root.addEventListener?.('astraforge:languagechange', () => renderReleaseState(root, lastState, options.config));
   const retry = () => {
     if (pending) return pending;
-    renderReleaseState(root, { status: 'loading' }, options.config);
+    lastState = { status: 'loading' };
+    renderReleaseState(root, lastState, options.config);
     pending = fetchPublicApkRelease(options).then(state => {
+      lastState = state;
       renderReleaseState(root, state, options.config);
       return state;
     }).finally(() => { pending = null; });

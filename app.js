@@ -1,5 +1,7 @@
 import { mountReleases } from './releases.js';
 import { mountAnalytics, trackEvent } from './analytics.js';
+import { mountLanguagePicker, t, translateSubtree } from './i18n.js';
+mountLanguagePicker();
 mountAnalytics();
 document.addEventListener('click', event => {
   const element = event.target.closest?.('a[data-track-event]');
@@ -13,10 +15,11 @@ if (menu && nav) {
   const setMenuState = open => {
     nav.classList.toggle('open', open);
     menu.setAttribute('aria-expanded', String(open));
-    menu.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
-    menu.textContent = open ? 'Fechar ×' : 'Menu ☰';
+    menu.setAttribute('aria-label', t(open ? 'Fechar menu de navegação' : 'Abrir menu de navegação'));
+    menu.textContent = t(open ? 'Fechar ×' : 'Menu ☰');
   };
   setMenuState(false);
+  document.addEventListener('astraforge:languagechange', () => setMenuState(nav.classList.contains('open')));
   menu.addEventListener('click', () => setMenuState(!nav.classList.contains('open')));
   nav.addEventListener('click', event => { if (event.target.closest('a')) setMenuState(false); });
   document.addEventListener('pointerdown', event => {
@@ -25,7 +28,7 @@ if (menu && nav) {
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && nav.classList.contains('open')) { setMenuState(false); menu.focus(); }
   });
-  window.matchMedia('(min-width: 921px)').addEventListener('change', event => {
+  window.matchMedia('(min-width: 1121px)').addEventListener('change', event => {
     if (event.matches) setMenuState(false);
   });
 }
@@ -34,7 +37,7 @@ const galleryLinks = [...document.querySelectorAll('[data-gallery]')];
 if (galleryLinks.length && typeof HTMLDialogElement !== 'undefined') {
   const dialog = document.createElement('dialog');
   dialog.className = 'lightbox';
-  dialog.setAttribute('aria-label', 'Captura do jogo ampliada');
+  dialog.setAttribute('aria-label', t('Captura do jogo ampliada'));
   const close = document.createElement('button');
   close.type = 'button'; close.textContent = 'Fechar ×';
   const shot = document.createElement('img');
@@ -47,14 +50,16 @@ if (galleryLinks.length && typeof HTMLDialogElement !== 'undefined') {
   following.type = 'button'; following.textContent = 'Próxima →';
   controls.append(previous, following);
   dialog.append(close, shot, caption, controls); document.body.append(dialog);
+  translateSubtree(dialog);
   const visibleShots = () => galleryLinks.filter(link => !link.hidden);
   const showShot = link => {
     if (!link) return;
     origin = link;
     shot.src = link.href; shot.alt = link.querySelector('img')?.alt || '';
-    caption.textContent = link.dataset.caption || shot.alt;
+    caption.textContent = t(link.dataset.caption || shot.alt);
     controls.hidden = visibleShots().length < 2;
   };
+  document.addEventListener('astraforge:languagechange', () => { if (dialog.open && origin) showShot(origin); });
   const navigate = offset => {
     const options = visibleShots();
     const current = options.indexOf(origin);
@@ -104,7 +109,7 @@ if (document.querySelector('[data-release-status]')) {
     const title = highlight.querySelector('[data-latest-release-title]');
     const notes = highlight.querySelector('[data-latest-release-notes]');
     const published = state.release;
-    if (title) title.textContent = 'Última Release Android: ' + published.tagName;
+    if (title) title.textContent = t('Última Release Android') + ': ' + published.tagName;
     const url = published.notesUrl || published.releaseUrl;
     if (notes && url) { notes.href = url; notes.hidden = false; }
     highlight.hidden = false;
@@ -128,10 +133,11 @@ function mountCardFilter(groupSelector, buttonAttribute, itemSelector, itemAttri
       if (visible) shown++;
     }
     for (const button of buttons) button.setAttribute('aria-pressed', String(button.getAttribute(buttonAttribute) === value));
-    if (count) count.textContent = shown + ' ' + label;
+    if (count) count.textContent = shown + ' ' + t(label);
   };
   for (const button of buttons) button.addEventListener('click', () => update(button.getAttribute(buttonAttribute)));
   update('todos');
+  document.addEventListener('astraforge:languagechange', () => update(group.querySelector('button[aria-pressed="true"]')?.getAttribute(buttonAttribute) || 'todos'));
 }
 mountCardFilter('[data-hero-filter]', 'data-hero-role', '.character[data-hero-category]', 'data-hero-category', '[data-hero-count]', 'heróis');
 mountCardFilter('[data-gallery-filter]', 'data-gallery-category', '.gallery [data-gallery-type]', 'data-gallery-type', '[data-gallery-count]', 'capturas');
@@ -150,8 +156,9 @@ if (updateSearch) {
       card.hidden = !matches;
       if (matches) visible++;
     }
-    if (message) message.textContent = visible ? visible + ' atualizações encontradas' : 'Nenhuma atualização encontrada';
+    if (message) message.textContent = visible ? visible + ' ' + t('atualizações encontradas') : t('Nenhuma atualização encontrada');
   };
   updateSearch.addEventListener('input', search);
   search();
+  document.addEventListener('astraforge:languagechange', search);
 }
