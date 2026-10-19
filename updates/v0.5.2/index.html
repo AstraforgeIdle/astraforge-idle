@@ -87,8 +87,12 @@
 </style>
 <link rel="stylesheet" href="../../assets/css/analytics-consent.css">
 <script type="module" src="../../privacy.js"></script>
+<link rel="stylesheet" href="../locale.css?v=2">
+<style>.patch-language-bar~.header{top:48px}@media(max-width:420px){.patch-language-bar~.header{top:43px}}</style>
 </head>
 <body>
+<div class="patch-language-bar"><a class="patch-back" href="../index.html">← Voltar às atualizações</a><div class="patch-language-picker" role="group" aria-label="Idioma do site"><button type="button" data-site-lang="pt-BR" aria-pressed="true" title="Português do Brasil">🇧🇷 <span>PT</span></button><button type="button" data-site-lang="en" aria-pressed="false" title="English">🇺🇸 <span>EN</span></button></div></div>
+
 <a class="history-skip" href="#history-content">Pular para as notas históricas</a>
 <nav class="history-portal" aria-label="Portal e arquivo histórico"><div class="history-portal-inner">
 <a href="../../index.html">← Portal oficial</a><a href="../index.html">Todas as atualizações</a>
@@ -368,5 +372,6 @@
   if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);if(!visible.length)return;const id=visible[0].target.id;navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));},{rootMargin:'-20% 0px -55% 0px',threshold:[0,.15,.35,.6]});sections.forEach(s=>observer.observe(s));}
 })();
 </script>
+<script type="module" src="locale.js?v=1"></script>
 </body>
 </html>
