@@ -7,7 +7,9 @@ export function mountPatchLanguage(english) {
   try { language=localStorage.getItem(storageKey)==='en'?'en':'pt-BR'; } catch {}
   const translate=(value)=>{
     if(language!=='en')return value;
-    return english[value] ?? value.replace('Use as setas para navegar','Use the arrows to navigate');
+    const fallback={ 'Português do Brasil':'Brazilian Portuguese', 'Português':'Portuguese',
+      'Idioma do site':'Website language', '← Voltar às atualizações':'← Back to updates' };
+    return english[value] ?? fallback[value] ?? value.replace('Use as setas para navegar','Use the arrows to navigate');
   };
   const title=document.title;
   const meta=[...document.querySelectorAll('meta[name="description"],meta[property="og:title"],meta[property="og:description"],meta[property="og:locale"]')];
