@@ -416,7 +416,9 @@ const english = {
   "Ver A Oficina Desperta": "View The Workshop Awakens",
   "Astraforge Idle · Histórico de atualizações": "Astraforge Idle · Update history",
   "Todas as versões": "All versions",
-  "← Todas as atualizações": "← All updates"
+  "← Todas as atualizações": "← All updates",
+  "Português do Brasil": "Brazilian Portuguese",
+  "Português": "Portuguese"
 };
 const storageKey = 'astraforge_site_language_v1';
 const textSource = new WeakMap();
