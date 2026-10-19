@@ -200,7 +200,6 @@ const english = {
   "Dano": "Damage",
   "Suporte": "Support",
   "Controle": "Control",
-  "12 heróis": "12 heroes",
   "Guerreiro": "Warrior",
   "Tanque / Defesa": "Tank / Defense",
   "Conheça as habilidades": "Discover the abilities",
