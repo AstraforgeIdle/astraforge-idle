@@ -120,5 +120,7 @@ export default {
   "Comparação visual do DPS da Lyn e da Fae": "Visual comparison of Lyn and Fae's DPS",
   "Participação dos básicos, Harmonia, skills e veneno da Lyn": "Share of Lyn's damage from basic attacks, Harmony, skills, and poison",
   "Básicos: 27,40%": "Basic attacks: 27.40%",
-  "Básicos: 24,88%": "Basic attacks: 24.88%"
+  "Básicos: 24,88%": "Basic attacks: 24.88%",
+  "Skills: 21,25%": "Skills: 21.25%",
+  "Skills: 27,10%": "Skills: 27.10%"
 };
