@@ -415,7 +415,8 @@ const english = {
   "Conhecer Picos Congelados": "Explore Frozen Peaks",
   "Ver A Oficina Desperta": "View The Workshop Awakens",
   "Astraforge Idle · Histórico de atualizações": "Astraforge Idle · Update history",
-  "Todas as versões": "All versions"
+  "Todas as versões": "All versions",
+  "← Todas as atualizações": "← All updates"
 };
 const storageKey = 'astraforge_site_language_v1';
 const textSource = new WeakMap();
