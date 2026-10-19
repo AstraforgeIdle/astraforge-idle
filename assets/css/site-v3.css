@@ -273,3 +273,10 @@ a,button { touch-action:manipulation; }
   .language-picker button span{display:none}
   .js .site-header .menu-toggle{padding:.42rem .57rem;font-size:.82rem}
 }
+
+/* Static locale selector remains visible while JS loads. */
+.site-header .language-picker{display:inline-flex;visibility:visible;opacity:1;position:relative;z-index:2;white-space:nowrap;align-self:center}
+.site-header .nav-links{margin-left:auto}
+@media(min-width:1121px){.site-header .header-inner{gap:clamp(.5rem,1.1vw,1rem)}.site-header .nav-links{gap:clamp(.45rem,.8vw,1rem)}.site-header .language-picker{margin-left:.1rem}}
+@media(max-width:1120px){.site-header .nav-links{margin-left:0}.site-header .language-picker{order:2;margin-left:auto}.site-header .menu-toggle{order:3}.site-header .nav-links{order:4}}
+@media(max-width:430px){.site-header .language-picker button{font-size:20px;min-width:38px}.site-header .language-picker{margin-left:auto}}

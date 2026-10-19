@@ -69,6 +69,8 @@ try {
     } else {
       check(await page.locator('#site-nav .nav-download').isVisible(),width+' desktop nav missing');
     }
+    // The picker is HTML, not an asynchronously injected DOM element.
+    check((readFileSync(resolve(root, 'index.html'),'utf8').match(/data-site-lang=/g)||[]).length===2,'Language flags must be included in source HTML');
     const languageButtons=page.locator('[data-site-lang]');
     check((await languageButtons.count())===2,width+' language picker missing');
     const apkUrlBefore=await page.locator('[data-release-download]').getAttribute('href');
@@ -115,6 +117,7 @@ try {
       await page.screenshot({path:resolve(screenshots,'home-'+width+'.png'),fullPage:true,animations:'disabled'});
     }
     await page.goto(base+'updates/',{waitUntil:'networkidle'});
+    check((await page.locator('[data-site-lang]').count())===2,width+' updates picker missing');
     await page.locator('#update-search').fill('Morvann');
     check((await page.locator('.update-card:visible').count())>=1,width+' update search missing Morvann');
     await page.locator('#update-search').fill('xxnenhuma-entrada-do-astroxx');
@@ -143,6 +146,7 @@ try {
   check((await analyticsPage.locator('.analytics-consent').count())===0,'Refusal not persisted');
   check(googleLoads===0,'Google tag requested despite saved refusal');
   await analyticsPage.goto(base+'privacidade.html',{waitUntil:'networkidle'});
+  check((await analyticsPage.locator('[data-site-lang]').count())===2,'Privacy language picker missing');
   await analyticsPage.locator('[data-privacy-settings]').click();
   await analyticsPage.locator('[data-analytics-accept]').click();
   check(googleLoads===1,'Google tag not loaded exactly once on acceptance');

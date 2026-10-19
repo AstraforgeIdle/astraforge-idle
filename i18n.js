@@ -450,22 +450,26 @@ function updatePicker() {
     button.setAttribute('aria-pressed', String(chosen));
     button.classList.toggle('active', chosen);
   }
-  const group = document.querySelector('[data-language-picker]');
-  if (group) group.setAttribute('aria-label', language === 'en' ? 'Website language' : 'Idioma do site');
+  for (const group of document.querySelectorAll('[data-language-picker]')) {
+    group.setAttribute('aria-label', language === 'en' ? 'Website language' : 'Idioma do site');
+  }
 }
 
 export function mountLanguagePicker() {
-  if (!document.querySelector('[data-language-picker]')) {
-    const header = document.querySelector('.site-header .header-inner');
-    if (header) {
-      const picker = document.createElement('div');
-      picker.className = 'language-picker';
-      picker.setAttribute('role', 'group');
-      picker.dataset.languagePicker = '';
-      picker.innerHTML = '<button type="button" data-site-lang="pt-BR" aria-label="Português do Brasil" title="Português">🇧🇷 <span>PT</span></button><button type="button" data-site-lang="en" aria-label="English" title="English">🇺🇸 <span>EN</span></button>';
-      header.append(picker);
-      for (const button of picker.querySelectorAll('button')) button.addEventListener('click', () => setLanguage(button.dataset.siteLang));
-    }
+  const header = document.querySelector('.site-header .header-inner');
+  if (header && !header.querySelector('[data-language-picker]')) {
+    // Backwards-compatible fallback for archived pages that do not have the static picker.
+    const picker = document.createElement('div');
+    picker.className = 'language-picker';
+    picker.setAttribute('role', 'group');
+    picker.dataset.languagePicker = '';
+    picker.innerHTML = '<button type="button" data-site-lang="pt-BR" aria-label="Português do Brasil" title="Português" aria-pressed="true">🇧🇷 <span>PT</span></button><button type="button" data-site-lang="en" aria-label="English" title="English" aria-pressed="false">🇺🇸 <span>EN</span></button>';
+    header.append(picker);
+  }
+  for (const button of document.querySelectorAll('[data-site-lang]')) {
+    if (button.dataset.langBound === 'true') continue;
+    button.dataset.langBound = 'true';
+    button.addEventListener('click', () => setLanguage(button.dataset.siteLang));
   }
   translateSubtree();
   updatePicker();
