@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09131f">
+  <meta name="description" content="Notas da atualização 0.7.5 de Astraforge Idle: balanceamento, habilidades, novas animações e melhorias de desempenho.">
+  <title>Astraforge Idle · Atualização 0.7.5</title>
+  <style>
+    :root{color-scheme:dark;--bg:#09131f;--panel:#101f2e;--line:#293a48;--text:#e5eaf0;--muted:#adbdcb;--gold:#e8bd72;--cyan:#88d6df;--violet:#c3a2ef}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}a:focus-visible{outline:2px solid var(--gold);outline-offset:5px}::selection{background:#69522e;color:#fff}
+    .wrap{width:min(1080px,calc(100% - 48px));margin-inline:auto}.masthead{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:25px 0;border-bottom:1px solid var(--line)}.brand{text-decoration:none;font:700 15px/1.3 ui-monospace,Consolas,monospace;letter-spacing:.13em;color:var(--gold)}.edition{color:var(--muted);font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+    .hero{position:relative;overflow:hidden;padding:76px 0 58px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 90% 20%,#51357630,transparent 55%),radial-gradient(ellipse at 0 100%,#205b6230,transparent 55%)}.hero-content{position:relative;z-index:1;max-width:760px}.eyebrow{margin:0 0 18px;color:var(--gold);font:600 12px/1.6 ui-monospace,Consolas,monospace;letter-spacing:.18em;text-transform:uppercase}.version{display:inline-block;padding:4px 12px;border:1px solid #80643e;background:#211e1a;color:var(--gold);font:600 13px/1.6 ui-monospace,Consolas,monospace}.hero h1{font:400 clamp(40px,6.7vw,72px)/1.08 Georgia,"Times New Roman",serif;letter-spacing:-.035em;margin:22px 0}.hero h1 span{color:var(--gold)}.intro{max-width:610px;margin:0;color:var(--muted);font-size:18px;line-height:1.75}.sigil{position:absolute;right:-56px;top:15px;width:365px;height:365px;color:var(--gold);opacity:.12;pointer-events:none}
+    nav{display:flex;gap:10px;flex-wrap:wrap;padding-top:28px}nav a{text-decoration:none;border:1px solid #344350;padding:7px 13px;font-size:13px;border-radius:3px;background:#0b152180}nav a:hover{border-color:var(--gold);color:var(--gold)}.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0 12px}.highlight{background:var(--panel);padding:24px}.highlight strong{display:block;color:var(--gold);font:400 27px/1.3 Georgia,serif;margin-bottom:7px}.highlight p{font-size:14px;color:var(--muted);margin:0}
+    main{padding-bottom:52px}section{padding-top:56px;scroll-margin-top:20px}.section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}.number{color:#8498ac;font:12px ui-monospace,Consolas,monospace}.section-head h2{font:400 clamp(27px,4vw,35px)/1.2 Georgia,serif;letter-spacing:-.02em;margin:0}.section-intro{color:var(--muted);max-width:760px;margin:-5px 0 24px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{border:1px solid var(--line);background:var(--panel);padding:26px;min-width:0}.card h3{margin:0 0 12px;font-size:19px;font-weight:650;line-height:1.35}.card p{margin:0 0 14px;color:var(--muted)}.card p:last-child{margin-bottom:0}.tag{display:block;color:var(--cyan);font:11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}.arcane .tag{color:var(--violet)}ul{margin:0;padding-left:20px}li{padding-left:3px;color:var(--muted)}li+li{margin-top:10px}li strong,p strong{color:var(--text);font-weight:600}.wide{grid-column:1/-1}.feature{border-top:2px solid var(--gold)}.feature h3{color:var(--gold)}.arcane{border-top:2px solid var(--violet)}.arcane h3{color:#d4bcf5}.callout{margin-top:20px;border-left:2px solid var(--gold);padding:15px 20px;background:#e8bd7208;color:var(--muted);font-size:14px}.callout p{margin:0}.sequence{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 8px;font:600 24px/1.4 ui-monospace,Consolas,monospace;color:var(--violet)}.sequence span{font-size:16px;color:#8292a3}.small{font-size:13px;color:var(--muted)}.footer{border-top:1px solid var(--line);padding:27px 0 34px;display:flex;justify-content:space-between;align-items:center;gap:18px;color:var(--muted);font-size:12px}.footer a{text-decoration:none;color:var(--gold)}
+    @media(max-width:680px){.wrap{width:calc(100% - 32px)}.masthead{padding:20px 0}.brand{font-size:12px;letter-spacing:.09em}.edition{font-size:10px;letter-spacing:.05em}.hero{padding:44px 0 34px}.hero h1{font-size:44px}.intro{font-size:16px}.sigil{right:-160px;top:10px;opacity:.08}.highlights{grid-template-columns:1fr;margin-top:24px}.highlight{padding:18px 20px}.highlight strong{font-size:24px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.card{padding:22px}section{padding-top:38px}.section-head{gap:12px}.footer{align-items:flex-start;flex-direction:column}nav{gap:8px}nav a{font-size:12px;padding:6px 10px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{html{scroll-behavior:auto}body{background:white;color:#172334;font-size:11pt}.wrap{width:100%}.hero{padding:25px 0;background:none}.sigil,nav,.footer a{display:none}.hero h1{font-size:36pt}.brand,.hero h1 span,.eyebrow,.version,.highlight strong,.feature h3,.arcane h3{color:#674715}.card,.highlight{background:white}.card p,li,.intro,.section-intro,.small,.footer,.highlight p{color:#344354}.card,.highlights{border-color:#bbb}.card{break-inside:avoid;padding:16px}.highlights{background:#bbb}.tag,.arcane .tag,.sequence{color:#614479}section{padding-top:25px}.callout{background:none}.hero-content{max-width:100%}}
+  </style>
+  <link rel="canonical" href="https://astraforgeidle.github.io/astraforge-idle/updates/v0.7.5/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Astraforge Idle">
+  <meta property="og:title" content="Astraforge Idle · Atualização 0.7.5">
+  <meta property="og:description" content="Notas da atualização 0.7.5 de Astraforge Idle: balanceamento, habilidades, novas animações e melhorias de desempenho.">
+  <meta property="og:url" content="https://astraforgeidle.github.io/astraforge-idle/updates/v0.7.5/">
+  <meta property="og:image" content="https://astraforgeidle.github.io/astraforge-idle/assets/screenshots/world4.webp">
+  <link rel="icon" href="../../assets/branding/emblem.webp" type="image/webp">
+  <link rel="stylesheet" href="../locale.css">
+</head>
+<body id="topo">
+  <div class="patch-language-bar">
+    <a class="patch-back" href="../index.html">← Voltar às atualizações</a>
+    <div class="patch-language-picker" role="group" aria-label="Idioma do site">
+      <button type="button" data-site-lang="pt-BR" aria-label="Português do Brasil" title="Português" aria-pressed="true">🇧🇷 <span>PT</span></button>
+      <button type="button" data-site-lang="en" aria-label="English" title="English" aria-pressed="false">🇺🇸 <span>EN</span></button>
+    </div>
+  </div>
+
+  <header class="wrap masthead">
+    <a class="brand" href="#topo" aria-label="Astraforge Idle, início">✦ ASTRAFORGE IDLE</a>
+    <span class="edition">Notas da atualização</span>
+  </header>
+
+  <div class="hero">
+    <svg class="sigil" viewBox="0 0 400 400" fill="none" aria-hidden="true"><path d="M200 20 380 200 200 380 20 200Z" stroke="currentColor"/><path d="M200 65 335 200 200 335 65 200Z" stroke="currentColor"/><path d="M200 20V380M20 200H380M73 73 327 327M327 73 73 327" stroke="currentColor"/><path d="m200 95 25 80 80 25-80 25-25 80-25-80-80-25 80-25Z" fill="currentColor"/></svg>
+    <div class="wrap">
+      <div class="hero-content">
+        <p class="eyebrow">Campanha · Heróis · Experiência</p>
+        <span class="version">ATUALIZAÇÃO 0.7.5</span>
+        <h1>Mais fluidez.<br>Mais força. <span>Mais magia.</span></h1>
+        <p class="intro">Uma jornada mais equilibrada, habilidades com mais presença e telas que acompanham o seu ritmo — enquanto a aventura continua.</p>
+      </div>
+      <nav aria-label="Seções das notas">
+        <a href="#desempenho">Desempenho</a><a href="#combate">Balanceamento</a><a href="#mira">Mira</a><a href="#animacoes">Animações</a><a href="#qualidade">Oficina e descanso</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="highlights" aria-label="Destaques da versão">
+      <div class="highlight"><strong>Leitura contínua</strong><p>O AUTO avança. Sua tela permanece no lugar.</p></div>
+      <div class="highlight"><strong>Kits ajustados</strong><p>Mais dano para Lyn, Morvann e Nymeris.</p></div>
+      <div class="highlight"><strong>Magia em movimento</strong><p>Novos efeitos de Mira, Kael, Aelia e Fae.</p></div>
+    </div>
+
+    <section id="desempenho" aria-labelledby="titulo-desempenho">
+      <div class="section-head"><span class="number">01 /</span><h2 id="titulo-desempenho">A aventura continua. A leitura também.</h2></div>
+      <p class="section-intro">Melhorias de desempenho nas abas e menos reconstruções durante a progressão da campanha.</p>
+      <div class="grid">
+        <article class="card"><span class="tag">Interface</span><h3>Sem perder o que você estava fazendo</h3><ul><li>Inventário, Heróis, Correio, Perfil e demais telas preservam seleção e posição de leitura durante as trocas de fase.</li><li>Habilidades e Atributos conservam os pontos preparados na prévia. Eles só são gastos ao confirmar.</li><li>Clicar novamente na aba atual mantém a tela aberta.</li></ul></article>
+        <article class="card"><span class="tag">Desempenho</span><h3>Menos trabalho a cada atualização</h3><ul><li>Abas atualizam os dados relevantes sem recalcular listas e atributos inteiros a cada aviso da campanha.</li><li>Novos drops entram no Inventário reaproveitando os cartões existentes e preservando filtros, foco e rolagem.</li><li>O combate e o AUTO continuam durante a leitura dos painéis.</li></ul></article>
+        <article class="card wide"><span class="tag">Pacote Android</span><h3>Menos conteúdo duplicado, mesma arte</h3><p>Sprites redundantes passam a compartilhar os atlas existentes. Recursos antigos comprovadamente sem uso saíram do projeto ativo, mantendo a qualidade visual.</p><p class="small">Estimativa do APK: cerca de <strong>767 MB</strong>, contra 909 MB da 0.7.4 — aproximadamente 15,6% menor. O tamanho definitivo depende da exportação e assinatura. Os ganhos de tempo foram medidos no computador de desenvolvimento; o FPS deve ser conferido no aparelho.</p></article>
+      </div>
+    </section>
+
+    <section id="combate" aria-labelledby="titulo-combate">
+      <div class="section-head"><span class="number">02 /</span><h2 id="titulo-combate">Progressão e heróis em equilíbrio</h2></div>
+      <div class="grid">
+        <article class="card wide feature"><span class="tag">Campanha</span><h3>Uma curva mais suave entre mundos</h3><p>Inimigos comuns tiveram a progressão ajustada, incluindo as entradas das fases <strong>401 e 701</strong> e o início da <strong>Ascensão 1</strong>. Os bônus sobrepostos dos mobs foram consolidados, e o M5 foi recalibrado para a progressão até o nível 100.</p><p>Recompensas, AUTO-PROGRESSO e AUTO-FARM mantêm suas regras.</p></article>
+        <article class="card"><span class="tag">Lyn</span><h3>Mais presença ofensiva</h3><p>Disparo Preciso, Chuva de Flechas e Harmonia recebem mais dano, distribuindo o ganho pelo kit.</p></article>
+        <article class="card"><span class="tag">Morvann</span><h3>Combos mais fortes</h3><p>Mais dano nas quatro habilidades ativas, na ruptura de marcas e no dano real condicional do Abismo.</p></article>
+        <article class="card"><span class="tag">Nymeris</span><h3>Pragas e Veredito aprimorados</h3><p>Mais contribuição de dano, preservando as condições de almas, os servos e sua identidade defensiva.</p></article>
+        <article class="card"><span class="tag">Vaelor</span><h3>Especialista em enfrentar bosses</h3><ul><li>Círculo disponível no AUTO contra boss único.</li><li>Ruptura causa <strong>15% mais dano contra bosses</strong>.</li><li>Consumir oito ou mais marcas abre Exposição por cinco segundos: Vaelor considera <strong>20% menos DEF física</strong> daquele alvo durante o efeito.</li></ul></article>
+        <article class="card wide"><span class="tag">Boss extra do M4 · Astarok</span><h3>Ataque reduzido em 51%</h3><p>Ajuste no poder ofensivo excessivo de Astarok. HP, defesas, mecânicas, aparição e recompensas permanecem preservados.</p></article>
+      </div>
+      <aside class="callout"><p>O resultado de cada kit depende de nível, itens, defesa do alvo, sobrevivência e composição da equipe. Os ajustes não representam um ganho fixo universal de DPS.</p></aside>
+    </section>
+
+    <section id="mira" aria-labelledby="titulo-mira">
+      <div class="section-head"><span class="number">03 /</span><h2 id="titulo-mira">Mira: o céu ganha uma nova dimensão</h2></div>
+      <div class="grid">
+        <article class="card arcane"><span class="tag">Projétil Arcano</span><h3>Um crítico pode trazer outro disparo</h3><p>Ao causar dano crítico efetivo no HP, Projétil Arcano tem <strong>25% de chance</strong> de lançar um novo disparo que causa <strong>50% do dano causado pelo golpe original</strong>.</p><p>O disparo adicional tem voo e impacto próprios, não encadeia outro disparo, não gasta nova recarga e não concede Sobrecarga adicional.</p></article>
+        <article class="card arcane"><span class="tag">Cometas</span><h3>Mais usos. Mais cometas.</h3><p>A chuva acompanha visualmente o crescimento da habilidade contra a mesma presa: o aumento de dano também ganha presença na quantidade de cometas.</p><div class="sequence" aria-label="Quatro, seis, oito cometas e assim por diante">4 <span>→</span> 6 <span>→</span> 8 <span>→ …</span></div><p class="small">A animação acompanha a contagem real da habilidade.</p></article>
+        <article class="card arcane"><span class="tag">Efeitos visuais</span><h3>Fenda astral, meteoros e Véu</h3><ul><li>Ruptura com identidade de uma abertura astral no espaço.</li><li>Meteoros com corpo, rastro e queda mais legíveis no campo.</li><li>Projétil com preparação, trajetória e contato; Véu Arcano mais visível.</li></ul></article>
+        <article class="card arcane"><span class="tag">Regras e clareza</span><h3>Críticos, passivas e queimadura</h3><ul><li>Aplicação das recargas dos personagens nas skills conferida.</li><li>Impactos diretos podem critar e ativar Ressonância; cada conjuração gera Sobrecarga, com as passivas desbloqueadas.</li><li>A queimadura pode critar por tick, mas não ativa Ressonância nem Sobrecarga.</li><li>Dano base e limite por ATQ mágico da queimadura reduzidos em <strong>15%</strong>.</li><li>Descrições dos ativos simplificadas; as fichas identificam a <strong>Recarga base</strong>.</li></ul></article>
+      </div>
+    </section>
+
+    <section id="animacoes" aria-labelledby="titulo-animacoes">
+      <div class="section-head"><span class="number">04 /</span><h2 id="titulo-animacoes">Habilidades com mais presença</h2></div>
+      <div class="grid">
+        <article class="card"><span class="tag">Kael</span><h3>Uma identidade visual consistente</h3><p>Quatro sequências corporais alinhadas ao visual atual, corrigindo a alternância com os frames antigos ao atacar e usar habilidades.</p><p>Novos efeitos solares de escudo, Leão, guarda e Muralha.</p></article>
+        <article class="card"><span class="tag">Aelia</span><h3>Asas para trazer um aliado de volta</h3><p>Ao ressuscitar um aliado derrotado, Aelia se eleva e abre <strong>asas angelicais animadas</strong>. Quando a mesma habilidade é usada apenas como cura, o efeito é diferente e permanece no chão.</p><p>Cura, espinhos e Santuário também recebem novos efeitos.</p></article>
+        <article class="card"><span class="tag">Fae</span><h3>Mais fluidez em cada golpe</h3><p>Novos cortes, pétalas, finalizações, rastros e efeitos de Graça, Ritmo e Duelo, preservando a identidade azul, ciano e prata.</p></article>
+        <article class="card"><span class="tag">Sincronização</span><h3>O efeito acompanha o combate</h3><p>Animações alinhadas aos contatos reais das skills, com reconstrução ao voltar à Home e limpeza dos efeitos pendentes em cancelamento ou KO.</p></article>
+      </div>
+    </section>
+
+    <section id="qualidade" aria-labelledby="titulo-qualidade">
+      <div class="section-head"><span class="number">05 /</span><h2 id="titulo-qualidade">Pequenos ajustes que fazem diferença</h2></div>
+      <div class="grid">
+        <article class="card feature"><span class="tag">Oficina</span><h3>Luvas com extras físicos e mágicos</h3><p><strong>ATQ Físico e ATQ Mágico</strong> disponíveis nas opções de extras das luvas dos níveis 50–90.</p><p>Os ataques usam pontos fixos e recebem +11 por refino. Custos, bases, dois slots e escolhas anteriores continuam disponíveis.</p></article>
+        <article class="card feature"><span class="tag">Descanso</span><h3>Uma confirmação contra toques acidentais</h3><p>O primeiro toque abre a pergunta de retorno. <strong>Continuar descanso</strong> mantém a proteção; um gesto posterior em <strong>Voltar ao jogo</strong> restaura a tela.</p><p>O combate e o AUTO seguem ativos durante a confirmação.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer"><span>ASTRAFORGE IDLE · 0.7.5<br>Mudanças em relação à versão 0.7.4.</span><a href="#topo">Voltar ao início ↑</a></footer>
+  <script type="module" src="locale.js"></script>
+</body>
+</html>
