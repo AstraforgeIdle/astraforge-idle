@@ -1,5 +1,15 @@
 // Curated English copy for the public website. The original Portuguese stays in HTML.
 const english = {
+  "NOTAS EM DESTAQUE · V0.7.5": "FEATURED RELEASE NOTES · V0.7.5",
+  "Equilíbrio, desempenho e mais magia": "Balance, performance, and more magic",
+  "Descubra os ajustes na progressão e nos heróis, novos efeitos para Mira, Kael, Aelia e Fae, e melhorias de desempenho no Android.": "Discover progression and hero balance changes, new effects for Mira, Kael, Aelia, and Fae, and Android performance improvements.",
+  "Novas notas · V0.7.5": "New release notes · V0.7.5",
+  "V0.7.5 · 21/10/2026": "V0.7.5 · Oct 21, 2026",
+  "Mais fluidez. Mais força. Mais magia.": "Smoother gameplay. More power. More magic.",
+  "Balanceamento de Lyn, Morvann, Nymeris, Vaelor e Mira; novas animações de heróis, otimizações de interface e ajustes no Android e na Oficina.": "Balance updates for Lyn, Morvann, Nymeris, Vaelor, and Mira; new hero animations, interface optimizations, and Android and Workshop improvements.",
+  "Ler notas V0.7.5": "Read v0.7.5 notes",
+  "Descubra os mundos, heróis e sistemas de Astraforge Idle. Conheça a atualização V0.7.5: balanceamento, novas animações e melhorias de desempenho.": "Discover Astraforge Idle's worlds, heroes, and systems. Explore v0.7.5: balance changes, new animations, and performance improvements.",
+  "Atualizações de Astraforge Idle: V0.7.5 traz balanceamento, novas animações, melhor desempenho e ajustes na Oficina.": "Astraforge Idle updates: v0.7.5 brings balance changes, new animations, performance improvements, and Workshop adjustments.",
   "12 heróis": "12 heroes",
   "Sprite oficial de Vaelor": "Official Vaelor sprite",
   "Sprite oficial de Ceryndra": "Official Ceryndra sprite",
