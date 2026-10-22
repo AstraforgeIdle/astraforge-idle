@@ -3,6 +3,32 @@
   "locale": "pt-BR",
   "updates": [
     {
+      "version": "0.7.6",
+      "slug": "v0.7.6",
+      "title": "O Abismo ganha forma. Sua jornada, mais escolhas.",
+      "title_origin": "Notas oficiais fornecidas em HTML",
+      "summary": "Dois idiomas, cenários aprimorados, efeitos visuais de Dorrik, 21 equipamentos nível 100, quatro efeitos lendários e Catalisador de refino.",
+      "status": "notes_published",
+      "status_label": "Notas publicadas",
+      "release_confirmed": false,
+      "published_at": null,
+      "document_date": "2026-10-22",
+      "path": "updates/v0.7.6/index.html"
+    },
+    {
+      "version": "0.7.5",
+      "slug": "v0.7.5",
+      "title": "Mais fluidez. Mais força. Mais magia.",
+      "title_origin": "Notas oficiais fornecidas em HTML",
+      "summary": "Balanceamento de heróis, novas animações, otimizações de interface e ajustes no Android e na Oficina.",
+      "status": "notes_published",
+      "status_label": "Notas publicadas",
+      "release_confirmed": false,
+      "published_at": null,
+      "document_date": "2026-10-21",
+      "path": "updates/v0.7.5/index.html"
+    },
+    {
       "version": "0.7.4",
       "slug": "v0.7.4",
       "title": "Duas forças. Uma nova formação.",
