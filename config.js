@@ -6,10 +6,10 @@ export const siteConfig = Object.freeze({
   siteUrl: 'https://astraforgeidle.github.io/astraforge-idle/',
   // Public GA4 measurement ID. Events are sent only after visitors opt in.
   ga4MeasurementId: 'G-SZHF2LMYG0',
-  previewVersion: '0.7.5',
-  previewStatus: 'published',
+  previewVersion: '0.7.6',
+  previewStatus: 'notes_published',
   // Resolved against this module directory, so deep pages work in GitHub Pages.
   // The local notes path is used when the published APK matches previewVersion.
-  notesPath: 'updates/v0.7.5/index.html',
+  notesPath: 'updates/v0.7.6/index.html',
   requestTimeoutMs: 8000,
 });
