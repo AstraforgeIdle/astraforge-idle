@@ -1,5 +1,14 @@
 // Curated English copy for the public website. The original Portuguese stays in HTML.
 const english = {
+  "NOTAS EM DESTAQUE · V0.7.6": "FEATURED RELEASE NOTES · V0.7.6",
+  "O Abismo ganha forma. Sua jornada, mais escolhas.": "The Abyss takes shape. More choices for your journey.",
+  "Conheça os dois idiomas, os novos cenários, os efeitos de Dorrik, a coleção nível 100 e as melhorias nos equipamentos lendários e no Catalisador.": "Explore both languages, new environments, Dorrik's effects, the level 100 gear collection, and improvements to legendary equipment and the Catalyst.",
+  "Novas notas · V0.7.6": "New release notes · V0.7.6",
+  "V0.7.6 · 22/10/2026": "V0.7.6 · Oct 22, 2026",
+  "Português e inglês, novos cenários, efeitos visuais de Dorrik, 21 equipamentos nível 100, quatro efeitos lendários e melhorias no Catalisador.": "Portuguese and English, new environments, Dorrik's visual effects, 21 level 100 gear pieces, four legendary effects, and Catalyst improvements.",
+  "Ler notas V0.7.6": "Read v0.7.6 notes",
+  "Descubra os mundos, heróis e sistemas de Astraforge Idle. Conheça as notas V0.7.6: idiomas, cenários, Dorrik e equipamentos nível 100.": "Discover Astraforge Idle's worlds, heroes, and systems. Explore v0.7.6 notes: languages, environments, Dorrik, and level 100 gear.",
+  "Atualizações de Astraforge Idle: V0.7.6 traz dois idiomas, novos cenários, visuais de Dorrik e equipamentos nível 100.": "Astraforge Idle updates: v0.7.6 adds two languages, new environments, Dorrik visuals, and level 100 gear.",
   "NOTAS EM DESTAQUE · V0.7.5": "FEATURED RELEASE NOTES · V0.7.5",
   "Equilíbrio, desempenho e mais magia": "Balance, performance, and more magic",
   "Descubra os ajustes na progressão e nos heróis, novos efeitos para Mira, Kael, Aelia e Fae, e melhorias de desempenho no Android.": "Discover progression and hero balance changes, new effects for Mira, Kael, Aelia, and Fae, and Android performance improvements.",
