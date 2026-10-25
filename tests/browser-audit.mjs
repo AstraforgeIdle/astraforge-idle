@@ -28,9 +28,9 @@ const base = 'http://127.0.0.1:' + server.address().port + '/';
 const release = {
   tag_name:'v0.7.2',name:'Astraforge Idle v0.7.2',draft:false,prerelease:true,
   published_at:'2026-10-17T19:54:34Z',
-  html_url:'https://github.com/AstraforgeIdle/astraforge-idle/releases/tag/v0.7.2',
+  html_url:'https://github.com/AstraryxIdle/astraryxidle.github.io/releases/tag/v0.7.2',
   assets:[{name:'Astraforge-Idle-v0.7.2.apk',size:868380318,state:'uploaded',
-    browser_download_url:'https://github.com/AstraforgeIdle/astraforge-idle/releases/download/v0.7.2/Astraforge-Idle-v0.7.2.apk'}]
+    browser_download_url:'https://github.com/AstraryxIdle/astraryxidle.github.io/releases/download/v0.7.2/Astraforge-Idle-v0.7.2.apk'}]
 };
 const screenshots = resolve(root, 'site-audit');
 mkdirSync(screenshots,{recursive:true});

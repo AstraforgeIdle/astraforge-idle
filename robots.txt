@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://astraforgeidle.github.io/astraforge-idle/sitemap.xml
+Sitemap: https://astraryxidle.github.io/sitemap.xml
