@@ -43,7 +43,7 @@ try {
     // Baseline UX checks run with a saved refusal to keep consent unobtrusive.
     await page.addInitScript(() => localStorage.setItem('astra_forge_analytics_consent_v1','declined'));
     page.on('pageerror',e=>errors.push(width+': '+e.message));
-    await page.route(/https:\/\/api\.github\.com\/repos\/AstraforgeIdle\/astraforge-idle\/releases/, route =>
+    await page.route(/https:\/\/api\.github\.com\/repos\/AstraryxIdle\/astraryxidle\.github\.io\/releases/, route =>
       route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([release])}));
     await page.goto(base,{waitUntil:'networkidle',timeout:30000});
     await page.locator('[data-release-download]:visible').waitFor({timeout:15000});
@@ -156,7 +156,7 @@ try {
     googleLoads++;
     return route.fulfill({status:200,contentType:'text/javascript',body:'/* mock Google tag */'});
   });
-  await analyticsPage.route(/https:\/\/api\.github\.com\/repos\/AstraforgeIdle\/astraforge-idle\/releases/, route =>
+  await analyticsPage.route(/https:\/\/api\.github\.com\/repos\/AstraryxIdle\/astraryxidle\.github\.io\/releases/, route =>
     route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([release])}));
   await analyticsPage.goto(base,{waitUntil:'networkidle'});
   check(await analyticsPage.locator('.analytics-consent').isVisible(),'Consent banner missing');
