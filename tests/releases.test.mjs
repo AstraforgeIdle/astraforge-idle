@@ -10,8 +10,8 @@ function exported(name) {
   return releaseModule[name];
 }
 
-const repository = 'https://github.com/AstraforgeIdle/astraforge-idle';
-const api = 'https://api.github.com/repos/AstraforgeIdle/astraforge-idle/releases?per_page=100';
+const repository = 'https://github.com/AstraryxIdle/astraryxidle.github.io';
+const api = 'https://api.github.com/repos/AstraryxIdle/astraryxidle.github.io/releases?per_page=100';
 function release(overrides = {}) {
   return {
     id: 52, tag_name: 'v0.5.2', name: 'A Oficina Desperta', draft: false,
@@ -93,8 +93,8 @@ test('rejects unsafe or unrelated download URLs', () => {
     'https://evil.test/Astraforge.apk', 'https://github.com/Someone/astraforge-idle/releases/download/v0.5.2/Astraforge.apk',
     'https://github.com/AstraforgeIdle/another-game/releases/download/v0.5.2/Astraforge.apk',
     'https://user:secret@github.com/AstraforgeIdle/astraforge-idle/releases/download/v0.5.2/Astraforge.apk',
-    'https://github.com/AstraforgeIdle/astraforge-idle/blob/main/Astraforge.apk',
-    'https://github.com/AstraforgeIdle/astraforge-idle/releases/download/v0.5.2/Astraforge.exe',
+    'https://github.com/AstraryxIdle/astraryxidle.github.io/blob/main/Astraforge.apk',
+    'https://github.com/AstraryxIdle/astraryxidle.github.io/releases/download/v0.5.2/Astraforge.exe',
   ];
   for (const url of unsafe) assert.equal(select([release({ assets: [asset({ browser_download_url: url })] })]), null, url);
 });

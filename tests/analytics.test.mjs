@@ -48,9 +48,9 @@ test('SEO sitemap matches existing pages and its URLs are canonical',()=>{
   assert.ok(urls.length>=12);
   for(const url of urls){
     const u=new URL(url);
-    assert.equal(u.origin,'https://astraforgeidle.github.io');
-    assert.ok(u.pathname.startsWith('/astraforge-idle/'));
-    let path=u.pathname.slice('/astraforge-idle/'.length);
+    assert.equal(u.origin,'https://astraryxidle.github.io');
+    assert.ok(u.pathname.startsWith('/'));
+    let path=u.pathname.slice(1);
     if(!path || path.endsWith('/')) path+='index.html';
     assert.ok(file(path).includes('<html'),path+' missing HTML');
   }

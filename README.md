@@ -4,10 +4,10 @@ Site e distribuição pública da versão Android de **Astraryx Idle**, RPG idle
 
 **Nome atual:** Astraryx Idle (anteriormente Astraforge Idle). Os endereços do GitHub e as notas históricas permanecem inalterados para preservar links e downloads.
 
-**Site:** https://astraforgeidle.github.io/astraforge-idle/  
-**Downloads:** https://github.com/AstraforgeIdle/astraforge-idle/releases  
-**Comunidade:** https://github.com/AstraforgeIdle/astraforge-idle/discussions  
-**Bugs:** https://github.com/AstraforgeIdle/astraforge-idle/issues
+**Site:** https://astraryxidle.github.io/  
+**Downloads:** https://github.com/AstraryxIdle/astraryxidle.github.io/releases  
+**Comunidade:** https://github.com/AstraryxIdle/astraryxidle.github.io/discussions  
+**Bugs:** https://github.com/AstraryxIdle/astraryxidle.github.io/issues
 
 ## Idiomas do portal
 
@@ -79,6 +79,8 @@ Além dos testes automatizados, confira menu, download, filtros, ampliação de 
 4. Sincronize `data/updates.json` e os textos editoriais da homepage, sem presumir funcionalidades ainda não lançadas.
 5. Valide links e testes. A publicação da branch `main` alimenta o GitHub Pages conforme as configurações do repositório.
 
+**Migração de endereço:** a conta GitHub e o repositório devem ser renomeados administrativamente antes de mesclar a branch de migração para `https://astraryxidle.github.io/`.
+
 O site **não** contém APK e não altera o código da Godot. A consulta às Releases não utiliza tokens, cookies ou armazenamento de contas; eventos opcionais de Analytics, quando autorizados pelo visitante, são tratados separadamente.
 
 Mais informações: [Guia de manutenção](docs/site-maintenance.md).
@@ -95,7 +97,7 @@ O módulo `analytics.js` prepara a medição de visitas, cliques de chamada para
 **Estado atual:** GA4 configurado com ID público `G-SZHF2LMYG0` (propriedade Astraryx Idle), ativo **somente após o consentimento do visitante**. Nenhuma chave secreta foi incluída.
 
 **Para manter ou alterar a propriedade:**
-1. Crie ou selecione uma propriedade GA4 e um fluxo **Web** para `https://astraforgeidle.github.io/astraforge-idle/`.
+1. Crie ou selecione uma propriedade GA4 e um fluxo **Web** para `https://astraryxidle.github.io/`.
 2. Copie o **ID de medição** (formato `G-XXXXXXXXXX`) e defina-o em `config.js`, propriedade pública `ga4MeasurementId`.
 3. Publique o ajuste. Para desativar o GA4 no futuro, defina `ga4MeasurementId: ''`. Não coloque tokens, segredos ou credenciais neste arquivo.
 4. Acesse o site, aceite as estatísticas na faixa de consentimento e acompanhe o Realtime/DebugView da propriedade.
@@ -105,7 +107,7 @@ O script do Google só é carregado **após aceite explícito**. Recusa é lembr
 
 ## Busca, comunidade e novas Releases
 
-- `sitemap.xml` relaciona homepage, histórico, privacidade e notas arquivadas. Envie `https://astraforgeidle.github.io/astraforge-idle/sitemap.xml` ao Google Search Console caso deseje indexação monitorada.
+- `sitemap.xml` relaciona homepage, histórico, privacidade e notas arquivadas. Envie `https://astraryxidle.github.io/sitemap.xml` ao Google Search Console caso deseje indexação monitorada.
 - `robots.txt` fica no diretório do **projeto GitHub Pages**: robôs aplicam o arquivo do **raiz do domínio**, não necessariamente `/astraforge-idle/robots.txt`. Não é uma regra global de rastreamento do domínio. O sitemap pode ser submetido diretamente.
 - A homepage usa a API pública de GitHub Releases para destacar a última versão que possua APK público, sem promover rascunhos. Os cartões históricos e suas páginas continuam editoriais e não são reescritos automaticamente.
 - `.github/ISSUE_TEMPLATE/` contém formulários para bugs e sugestões. Para publicá-los o jogador precisa entrar em sua conta GitHub.

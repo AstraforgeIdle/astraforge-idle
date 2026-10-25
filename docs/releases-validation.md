@@ -1,6 +1,6 @@
 # Download Android — integração pública
 
-O portal consulta `https://api.github.com/repos/AstraforgeIdle/astraforge-idle/releases?per_page=100` por HTTPS, sem token, cookies, autenticação ou backend. A lista pública inclui versões Beta publicadas; o endpoint `releases/latest` não é usado porque exclui prereleases. Referência: [API de Releases do GitHub](https://docs.github.com/en/rest/releases/releases#list-releases).
+O portal consulta `https://api.github.com/repos/AstraryxIdle/astraryxidle.github.io/releases?per_page=100` por HTTPS, sem token, cookies, autenticação ou backend. A lista pública inclui versões Beta publicadas; o endpoint `releases/latest` não é usado porque exclui prereleases. Referência: [API de Releases do GitHub](https://docs.github.com/en/rest/releases/releases#list-releases).
 
 ## Seleção e segurança
 
@@ -27,7 +27,7 @@ A apresentação da V0.6.0 Beta em preparação permanece separada da versão de
 | `[data-release-notes]` | Notas correspondentes à versão confirmada; começa oculto |
 | `[data-release-action]` | Botão opcional para verificar novamente |
 
-Mantenha no HTML um link estável para [GitHub Releases](https://github.com/AstraforgeIdle/astraforge-idle/releases), inclusive para usuários sem JavaScript. Os estados de falha convidam a utilizá-lo.
+Mantenha no HTML um link estável para [GitHub Releases](https://github.com/AstraryxIdle/astraryxidle.github.io/releases), inclusive para usuários sem JavaScript. Os estados de falha convidam a utilizá-lo.
 
 `config.js` contém apenas configuração pública. `notesPath` é resolvido a partir da pasta do módulo, usando `import.meta.url`; não depende da profundidade da página nem de `/` na raiz do domínio. No portal, o valor é `updates/v0.6.0/index.html`. No pacote independente com as notas na raiz, configure `index.html`. Para conferir módulos no navegador local, sirva o pacote por HTTP; a abertura direta por `file://` pode bloquear módulos ES.
 
