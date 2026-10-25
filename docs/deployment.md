@@ -15,7 +15,7 @@ Preserve outras páginas, assets e notas históricas já existentes. O pacote co
 
 ## Configuração pública
 
-`config.js` define `owner`, `repo`, `siteUrl`, `locale`, `previewVersion`, `previewStatus` e `notesPath`. Os valores atuais são o endereço oficial fornecido: `https://astraforgeidle.github.io/astraforge-idle/`. Os links internos usam caminhos relativos, incluindo a pasta de projeto de GitHub Pages. Se o domínio ou caminho mudar, atualize também `canonical`, `og:url` e `og:image` nos HTMLs.
+`config.js` define `owner`, `repo`, `siteUrl`, `locale`, `previewVersion`, `previewStatus` e `notesPath`. Os valores atuais são o endereço oficial fornecido: `https://astraryxidle.github.io/`. Os links internos usam caminhos relativos, incluindo a pasta de projeto de GitHub Pages. Se o domínio ou caminho mudar, atualize também `canonical`, `og:url` e `og:image` nos HTMLs.
 
 Não insira credenciais. A leitura de Releases funciona sem autenticação; o link estático ao histórico permanece disponível quando a API falha ou está limitada. O botão APK só recebe um endereço real retornado por Release pública com `.apk`. Depois de aprovar uma versão futura, revise o texto de preparação e adicione a nova página às atualizações; não renomeie nem apague páginas antigas.
 
