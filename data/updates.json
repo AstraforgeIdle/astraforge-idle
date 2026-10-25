@@ -3,6 +3,19 @@
   "locale": "pt-BR",
   "updates": [
     {
+      "version": "0.7.7",
+      "slug": "v0.7.7",
+      "title": "Sua jornada. Um time mais forte.",
+      "title_origin": "Notas oficiais fornecidas em HTML",
+      "summary": "Bônus do nível de perfil e de conquistas equipadas para o time, progressão de conta revisada, reinício único da campanha e presente no Correio.",
+      "status": "notes_published",
+      "status_label": "Notas publicadas",
+      "release_confirmed": false,
+      "published_at": null,
+      "document_date": "2026-10-25",
+      "path": "updates/v0.7.7/index.html"
+    },
+    {
       "version": "0.7.6",
       "slug": "v0.7.6",
       "title": "O Abismo ganha forma. Sua jornada, mais escolhas.",
