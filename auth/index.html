@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#08111e">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src https://qcwaezahwqrpxcyiuhrh.supabase.co; base-uri 'none'; form-action 'none';">
-  <title>Ativar conta · Astraryx Idle</title>
+  <title>Confirmação de conta · Astraryx Idle</title>
   <link rel="icon" type="image/png" href="/assets/branding/favicon.png?v=20261025-astraryx-icon">
   <style>
     :root {color-scheme:dark; font-family:system-ui,-apple-system,Segoe UI,sans-serif;}
@@ -25,7 +25,7 @@
     button{margin-top:23px;width:100%;background:#e9c78b;color:#101b2a;border:0;border-radius:9px;padding:14px;font-size:1rem;font-weight:750;cursor:pointer}
     button:disabled{opacity:.65;cursor:wait}
     #message{padding:12px 14px;border-radius:8px;line-height:1.5;background:#152f3c;border:1px solid #43667a}
-    #message[hidden],#activation-form[hidden],#success[hidden]{display:none}
+    #message[hidden],#password-form[hidden],#success[hidden]{display:none}
     #message[data-level="error"]{background:#3b1c25;border-color:#ae5360}
     #message[data-level="ok"],#success{background:#14392e;border:1px solid #44856a}
     #success{padding:16px;border-radius:10px;line-height:1.6}
@@ -39,25 +39,23 @@
   <main>
     <a class="brand" href="/"><img src="/assets/branding/emblem.webp?v=20261025-astraryx-icon" width="48" height="48" alt=""><span>Astraryx Idle</span></a>
     <p class="eyebrow">v0.8.0 · Online Beta</p>
-    <h1>Ativar sua conta</h1>
-    <p class="lead">Confirme seu convite e escolha os dados de acesso à futura versão online do jogo.</p>
+    <h1>Confirmação de conta</h1>
+    <p class="lead">O cadastro e o login acontecem dentro do jogo Astraryx Idle para Android. Esta página apenas conclui confirmações de e-mail ou redefinições de senha.</p>
     <p id="message" role="status" aria-live="polite">Validando seu convite…</p>
-    <form id="activation-form" hidden novalidate>
-      <label for="nickname">Apelido do jogador</label>
-      <input id="nickname" name="nickname" autocomplete="nickname" minlength="3" maxlength="20" required placeholder="3 a 20 caracteres">
+    <form id="password-form" hidden novalidate>
       <label for="password">Nova senha</label>
       <input id="password" name="new-password" type="password" minlength="10" autocomplete="new-password" required>
-      <label for="confirm">Confirmar senha</label>
+      <label for="confirm">Confirmar nova senha</label>
       <input id="confirm" name="confirm-password" type="password" minlength="10" autocomplete="new-password" required>
-      <p class="helper">Use pelo menos 10 caracteres. Não reutilize sua senha do GitHub ou e-mail.</p>
-      <button id="submit" type="submit">Ativar conta</button>
+      <p class="helper">Escolha uma senha com pelo menos 10 caracteres.</p>
+      <button id="submit" type="submit">Salvar nova senha</button>
     </form>
     <section id="success" hidden role="status" aria-live="polite">
-      <strong>Conta ativada!</strong>
-      <p>Seu apelido foi registrado. O login dentro do APK será disponibilizado na v0.8.0.</p>
-      <a href="/">Voltar ao site oficial</a>
+      <strong id="success-title">E-mail confirmado!</strong>
+      <p id="success-detail">Abra o APK do Astraryx Idle para continuar.</p>
+      <a href="/">Voltar ao site público</a>
     </section>
-    <footer>Esta página só recebe convites enviados pelo Astraryx Idle. Se o link expirar, solicite um novo convite.</footer>
+    <footer>Site oficial: acesso livre. Para criar uma conta ou jogar, abra o aplicativo Android. Nunca compartilhe links de confirmação.</footer>
   </main>
 </body>
 </html>
