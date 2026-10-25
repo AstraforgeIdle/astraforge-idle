@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#08111e">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src https://qcwaezahwqrpxcyiuhrh.supabase.co; base-uri 'none'; form-action 'none';">
+  <title>Ativar conta · Astraryx Idle</title>
+  <link rel="icon" type="image/png" href="/assets/branding/favicon.png?v=20261025-astraryx-icon">
+  <style>
+    :root {color-scheme:dark; font-family:system-ui,-apple-system,Segoe UI,sans-serif;}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:radial-gradient(circle at 70% 8%,#1b3b54 0,#08111e 45%,#050b15 100%);color:#edf3f7;display:grid;place-items:center;padding:24px}
+    main{width:min(100%,490px);padding:clamp(22px,5vw,38px);background:rgba(12,25,41,.96);border:1px solid rgba(234,198,133,.32);border-radius:16px;box-shadow:0 20px 65px #0006}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#f3d19a;font-weight:750;letter-spacing:.02em}
+    .brand img{border-radius:10px;width:48px;height:48px}
+    .eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.16em;color:#eacb9d;text-transform:uppercase;margin:34px 0 12px}
+    h1{font-size:clamp(1.6rem,4vw,2.15rem);line-height:1.2;margin:0 0 10px}
+    .lead{color:#b9cbd6;line-height:1.55;margin-bottom:20px}
+    label{display:block;font-weight:650;font-size:.9rem;margin:17px 0 7px}
+    input{width:100%;padding:13px 14px;background:#071421;color:#fff;border:1px solid #557185;border-radius:9px;font:inherit}
+    input:focus{outline:2px solid #d6aa58;outline-offset:2px}
+    button{margin-top:23px;width:100%;background:#e9c78b;color:#101b2a;border:0;border-radius:9px;padding:14px;font-size:1rem;font-weight:750;cursor:pointer}
+    button:disabled{opacity:.65;cursor:wait}
+    #message{padding:12px 14px;border-radius:8px;line-height:1.5;background:#152f3c;border:1px solid #43667a}
+    #message[hidden],#activation-form[hidden],#success[hidden]{display:none}
+    #message[data-level="error"]{background:#3b1c25;border-color:#ae5360}
+    #message[data-level="ok"],#success{background:#14392e;border:1px solid #44856a}
+    #success{padding:16px;border-radius:10px;line-height:1.6}
+    .helper{font-size:.8rem;color:#9ab0bd}
+    a{color:#efcb8c}
+    footer{margin-top:22px;color:#9db1c0;font-size:.83rem}
+  </style>
+  <script type="module" src="/auth/auth.js"></script>
+</head>
+<body>
+  <main>
+    <a class="brand" href="/"><img src="/assets/branding/emblem.webp?v=20261025-astraryx-icon" width="48" height="48" alt=""><span>Astraryx Idle</span></a>
+    <p class="eyebrow">v0.8.0 · Online Beta</p>
+    <h1>Ativar sua conta</h1>
+    <p class="lead">Confirme seu convite e escolha os dados de acesso à futura versão online do jogo.</p>
+    <p id="message" role="status" aria-live="polite">Validando seu convite…</p>
+    <form id="activation-form" hidden novalidate>
+      <label for="nickname">Apelido do jogador</label>
+      <input id="nickname" name="nickname" autocomplete="nickname" minlength="3" maxlength="20" required placeholder="3 a 20 caracteres">
+      <label for="password">Nova senha</label>
+      <input id="password" name="new-password" type="password" minlength="10" autocomplete="new-password" required>
+      <label for="confirm">Confirmar senha</label>
+      <input id="confirm" name="confirm-password" type="password" minlength="10" autocomplete="new-password" required>
+      <p class="helper">Use pelo menos 10 caracteres. Não reutilize sua senha do GitHub ou e-mail.</p>
+      <button id="submit" type="submit">Ativar conta</button>
+    </form>
+    <section id="success" hidden role="status" aria-live="polite">
+      <strong>Conta ativada!</strong>
+      <p>Seu apelido foi registrado. O login dentro do APK será disponibilizado na v0.8.0.</p>
+      <a href="/">Voltar ao site oficial</a>
+    </section>
+    <footer>Esta página só recebe convites enviados pelo Astraryx Idle. Se o link expirar, solicite um novo convite.</footer>
+  </main>
+</body>
+</html>
