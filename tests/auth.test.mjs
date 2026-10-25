@@ -11,9 +11,15 @@ test('invite URL hash is routed from the homepage before site scripts',()=>{
 });
 test('auth page is not indexed and processes token only on the client',()=>{
   assert.match(auth,/noindex,nofollow/);
-  assert.match(auth,/id="activation-form"/);
+  assert.match(auth,/id="password-form"/);
+  assert.doesNotMatch(auth,/id="nickname"/);
   assert.match(script,/history\.replaceState\(null, '', '\/auth\/'\)/);
   assert.match(script,/\/auth\/v1\/user/);
-  assert.match(script,/\/rest\/v1\/player_profiles/);
+  assert.doesNotMatch(script,/\/rest\/v1\/player_profiles/);
+  assert.match(script,/case 'signup'/);
+  assert.match(script,/case 'recovery'/);
+  assert.match(script,/case 'invite'/);
+  assert.match(script,/O site é público/);
+  assert.match(script,/\/auth\/v1\/user/);
   assert.doesNotMatch(script,/service_role|sb_secret_|xsmtpsib-/i);
 });
