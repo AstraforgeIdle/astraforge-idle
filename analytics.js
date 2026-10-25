@@ -84,7 +84,7 @@ function showPanel(doc, win, id) {
   panel.setAttribute('aria-label', 'Preferências de estatísticas');
   panel.innerHTML = `<div class="analytics-consent-text">
     <strong>Estatísticas opcionais</strong>
-    <p>Podemos usar o Google Analytics para entender visitas e cliques no download do Astraforge Idle. Nenhuma ferramenta de estatísticas do Google é carregada antes da sua autorização.</p>
+    <p>Podemos usar o Google Analytics para entender visitas e cliques no download do Astraryx Idle. Nenhuma ferramenta de estatísticas do Google é carregada antes da sua autorização.</p>
     <a href="${new URL('privacidade.html', import.meta.url).href}">Como seus dados são utilizados</a>
   </div>
   <div class="analytics-consent-actions">

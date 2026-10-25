@@ -156,7 +156,7 @@ export function renderReleaseState(root, state, options = {}) {
   }
   text(root, 'status', t(download ? `APK público disponível para Android${release.prerelease ? ' · versão Beta' : ''}.` : messages[status] || messages.error));
   text(root, 'version', download ? release.tagName : t('Disponibilidade futura'));
-  text(root, 'name', download ? release.name : t('Acompanhe as versões públicas do Astraforge Idle'));
+  text(root, 'name', download ? release.name : t('Acompanhe as versões públicas do Astraryx Idle'));
   text(root, 'size', download && Number.isFinite(release.assetSizeBytes) ? t('Tamanho aproximado: ') + (release.assetSizeBytes / (1024 * 1024)).toFixed(0) + t(' MB · arquivo hospedado no GitHub') : '');
   link(root, 'download', download, t('Baixar APK') + ` · ${release?.tagName || ''}`);
   for (const node of nodes(root, 'download')) {

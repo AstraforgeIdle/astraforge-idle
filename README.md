@@ -1,6 +1,8 @@
-# Astraforge Idle — Site oficial
+# Astraryx Idle — Site oficial
 
-Site e distribuição pública da versão Android de **Astraforge Idle**, RPG idle 2D em pixel art desenvolvido na Godot.
+Site e distribuição pública da versão Android de **Astraryx Idle**, RPG idle 2D em pixel art desenvolvido na Godot.
+
+**Nome atual:** Astraryx Idle (anteriormente Astraforge Idle). Os endereços do GitHub e as notas históricas permanecem inalterados para preservar links e downloads.
 
 **Site:** https://astraforgeidle.github.io/astraforge-idle/  
 **Downloads:** https://github.com/AstraforgeIdle/astraforge-idle/releases  
@@ -90,7 +92,7 @@ As imagens exibidas vêm do projeto e as notas mais antigas continuam arquivadas
 
 O módulo `analytics.js` prepara a medição de visitas, cliques de chamada para download e cliques reais no APK, preservando a página no ar mesmo sem Analytics.
 
-**Estado atual:** GA4 configurado com ID público `G-SZHF2LMYG0` (propriedade Astraforge Idle), ativo **somente após o consentimento do visitante**. Nenhuma chave secreta foi incluída.
+**Estado atual:** GA4 configurado com ID público `G-SZHF2LMYG0` (propriedade Astraryx Idle), ativo **somente após o consentimento do visitante**. Nenhuma chave secreta foi incluída.
 
 **Para manter ou alterar a propriedade:**
 1. Crie ou selecione uma propriedade GA4 e um fluxo **Web** para `https://astraforgeidle.github.io/astraforge-idle/`.

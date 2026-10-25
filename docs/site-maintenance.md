@@ -1,4 +1,4 @@
-# Manutenção do site Astraforge Idle
+# Manutenção do site Astraryx Idle
 
 ## Princípios da V3
 
