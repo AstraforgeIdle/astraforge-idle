@@ -27,11 +27,11 @@ test('visitor can reach APK early without losing release validation', () => {
   assert.match(read('releases.js'),/selectPublicApkRelease/);
 });
 
-test('v0.7.7 has a visible and accessible notes highlight next to the APK', () => {
+test('v0.8.0 has a visible and accessible notes highlight next to the APK', () => {
   assert.ok(home.includes('class="release-notes-feature"'));
   assert.ok(home.includes('aria-labelledby="release-notes-feature-title"'));
-  assert.ok(home.includes('href="updates/v0.7.7/index.html">Explorar todas as novidades'));
-  assert.ok(home.includes('Sua jornada. Um time mais forte.'));
+  assert.ok(home.includes('href="updates/v0.8.0/index.html">Explorar todas as novidades'));
+  assert.ok(home.includes('Astraryx agora está online.'));
   const css = read('assets/css/site-v3.css');
   assert.ok(css.includes('.release-notes-feature {'));
   assert.ok(css.includes('@media (max-width:510px)'));
@@ -83,11 +83,11 @@ test('public editorial update metadata is current, unique, and has notes pages',
     paths.add(update.path);
     assert.ok(existsSync(resolve(root,update.path)), 'Missing notes '+update.path);
   }
-  assert.equal(content.updates[0].slug,'v0.7.7');
+  assert.equal(content.updates[0].slug,'v0.8.1');
   assert.equal(content.updates[0].release_confirmed,false);
-  assert.equal(content.updates[1].slug,'v0.7.6');
-  assert.equal(content.updates[1].release_confirmed,false);
-  assert.equal(content.updates[2].slug,'v0.7.5');
+  assert.equal(content.updates[1].slug,'v0.8.0');
+  assert.equal(content.updates[1].release_confirmed,true);
+  assert.equal(content.updates[2].slug,'v0.7.7');
   assert.equal(content.updates[2].release_confirmed,true);
   const currentNotes = read('updates/v0.7.6/index.html');
   for (const marker of ['Dorrik','Convergência do Abismo','Catalisador','Português'])
@@ -100,4 +100,16 @@ test('public editorial update metadata is current, unique, and has notes pages',
   assert.ok(game.heroes.some(hero => hero.name === 'Morvann'));
   for (const name of ['Vaelor','Ceryndra']) assert.ok(game.heroes.some(hero => hero.name === name));
   assert.ok(game.worlds.some(world => world.name === 'Abismo da Corrupção'));
+});
+
+
+test('online beta notes, development preview and cinematic news are linked', () => {
+  assert.ok(home.includes('class="portal-news"'));
+  assert.ok(home.includes('href="updates/v0.8.0/index.html"'));
+  assert.ok(home.includes('href="updates/v0.8.1/index.html"'));
+  assert.ok(history.includes('Em desenvolvimento · V0.8.1'));
+  assert.ok(existsSync(resolve(root,'updates/v0.8.0/index.html')));
+  assert.ok(existsSync(resolve(root,'updates/v0.8.1/index.html')));
+  assert.ok(read('updates/v0.8.1/index.html').includes('Ainda não há APK público'));
+  assert.ok(read('assets/css/editorial-2026.css').includes('.portal-news-grid'));
 });
