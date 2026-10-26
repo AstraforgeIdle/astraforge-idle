@@ -10,7 +10,7 @@ body{background:#080e19;color:var(--portal-white)}
 .header-inner{min-height:80px}
 .brand{font:700 1.28rem Georgia,serif;letter-spacing:.06em}
 .brand img{width:48px;height:48px;filter:drop-shadow(0 1px 10px #d6ae736e)}
-.nav-links a{font-weight:750;letter-spacing:.025em;text-transform:uppercase;font-size:.72rem}
+.nav-links a{font-weight:750;letter-spacing:.025em;font-variant-caps:all-small-caps;font-size:.84rem}
 .nav-links .nav-download{border-radius:2px!important;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)}
 .home-hero{isolation:isolate;background:#07111e;min-height:610px}
 .home-hero:before{opacity:.36!important;background:linear-gradient(90deg,#06101cf5 7%,#06101ce8 43%,#06101c6b 78%),url('../../assets/screenshots/world4.webp') center 35%/cover!important;filter:saturate(.95) contrast(1.1)}
