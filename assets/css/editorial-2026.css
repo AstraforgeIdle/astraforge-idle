@@ -102,7 +102,7 @@ body{background:#080e19;color:var(--portal-white)}
 body.patch-page{min-height:100vh;background:linear-gradient(155deg,#0d1e30,#080e19 52%);color:#f5f0e7}
 .patch-page .site-header{position:sticky}
 .patch-hero{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:end;background:linear-gradient(90deg,#07111ff4 3%,#091a2ed1 57%,#081626a6),url('../../assets/screenshots/world4.webp') center 36%/cover;border-bottom:1px solid #e0bd7970}
-.patch-hero.patch-hero--future{background:linear-gradient(95deg,#0b1224fa 2%,#211d38db 64%,#0e2130b9),url('../../assets/screenshots/world5.webp') center 44%/cover}
+.patch-hero.patch-hero--future{background:linear-gradient(95deg,#0b1224fa 2%,#211d38db 64%,#0e2130b9),url('../../updates/v0.7.0/assets/screens/world5-battle.webp') center 44%/cover}
 .patch-hero-inner{padding-block:5rem 4.2rem}
 .patch-kicker{color:#e7c68d;font-weight:750;letter-spacing:.21em;text-transform:uppercase;font-size:.76rem}
 .patch-hero h1{font:500 clamp(3.3rem,6.8vw,6.8rem)/.99 Georgia,serif;max-width:850px;letter-spacing:-.05em;margin:.9rem 0 1.3rem}

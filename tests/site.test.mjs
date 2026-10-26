@@ -23,7 +23,7 @@ test('visitor can reach APK early without losing release validation', () => {
   for (const hook of ['data-release-version','data-release-status','data-release-download','data-release-notes','data-release-action','data-release-size'])
     assert.ok(home.includes(hook), 'Missing release hook: ' + hook);
   assert.match(home,/releases\.js|app\.js/);
-  assert.match(read('config.js'),/previewVersion: '0\.7\.5'/);
+  assert.match(read('config.js'),/previewVersion: '0\.8\.0'/);
   assert.match(read('releases.js'),/selectPublicApkRelease/);
 });
 
