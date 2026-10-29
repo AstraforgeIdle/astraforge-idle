@@ -3,6 +3,19 @@
   "locale": "pt-BR",
   "updates": [
     {
+      "version": "0.8.2",
+      "slug": "v0.8.2",
+      "title": "A Arena ganha vida.",
+      "title_origin": "Notas oficiais da atualização beta",
+      "summary": "Arena PvP 5×5, resultados calculados no servidor, matchmaking, medalhas, rankings e melhorias de fluidez.",
+      "status": "notes_published",
+      "status_label": "Notas publicadas; APK verificado no portal",
+      "release_confirmed": false,
+      "published_at": null,
+      "document_date": "2026-10-29",
+      "path": "updates/v0.8.2/index.html"
+    },
+    {
       "version": "0.8.1",
       "slug": "v0.8.1",
       "title": "Hall da Fama. Um mundo mais conectado.",
