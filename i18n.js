@@ -1,5 +1,17 @@
 // Curated English copy for the public website. The original Portuguese stays in HTML.
 const english = {
+  "29 OUT 2026 · V0.8.2 · ARENA PVP": "OCT 29, 2026 · V0.8.2 · PVP ARENA",
+  "PvP 5×5 com resultados calculados no servidor e melhorias de fluidez. Consulte o APK público mais recente na seção de downloads.": "5v5 PvP with server-computed results and responsiveness improvements. Check the latest public APK in the downloads section.",
+  "Com a fase online iniciada na v0.8.0, a v0.8.2 amplia a aventura com Arena PvP 5×5 e melhorias de desempenho.": "With the online era launched in v0.8.0, v0.8.2 expands the adventure with 5v5 PvP Arena and performance improvements.",
+  "ATUALIZAÇÃO EM DESTAQUE · V0.8.2": "FEATURED UPDATE · V0.8.2",
+  "A v0.8.2 apresenta o PvP 5×5, partidas validadas no servidor, rankings e melhorias de fluidez. O quadro ao lado confirma automaticamente o APK Android disponível no GitHub.": "Version 0.8.2 introduces 5v5 PvP, server-validated matches, rankings, and improved responsiveness. The panel beside this text automatically verifies the available Android APK on GitHub.",
+  "Após o início da fase online, a v0.8.2 reúne combate PvP 5×5, validação no Supabase e melhorias de fluidez. A disponibilidade do APK Android é confirmada automaticamente no quadro de download do site.": "Following the online launch, v0.8.2 brings 5v5 PvP, Supabase validation, and responsiveness improvements. Android APK availability is automatically verified in the site's download section.",
+  "Notas v0.8.2 · Arena PvP": "v0.8.2 notes · PvP Arena",
+  "Arena PvP 5×5, resolução de partidas no Supabase, rankings, medalhas e melhorias de desempenho. Notas da Arena e da atualização beta; consulte a versão Android confirmada no portal de downloads.": "5v5 PvP Arena, Supabase match resolution, rankings, medals, and performance improvements. See the Arena and beta update notes, and check the verified Android version in the download section.",
+  "Versão beta · Consulte o download Android": "Beta version · Check Android download",
+  "O download do APK é apresentado pelo portal apenas quando a Release pública contém um arquivo Android válido. Use o quadro de download para conferir a versão disponível.": "The website displays an APK download only when a public GitHub Release contains a valid Android file. Check the download panel for the available version.",
+  "A seção de downloads consulta as Releases públicas e disponibiliza somente APKs Android válidos, sem precisar atualizar manualmente o link a cada nova versão.": "The downloads section checks public Releases and offers only valid Android APKs, without manually updating the link for each version.",
+  "As notas da v0.8.2 descrevem as funcionalidades testadas. Para instalar ou atualizar, utilize apenas o APK confirmado no quadro de downloads. Não desinstale o aplicativo atual antes de garantir que seu progresso está salvo.": "These v0.8.2 notes describe the tested features. To install or update, use only the APK confirmed in the download section. Do not uninstall the current app before making sure your progress is backed up.",
   "29 OUT 2026 · V0.8.2 · NOTAS PUBLICADAS": "OCT 29, 2026 · V0.8.2 · NOTES PUBLISHED",
   "A Arena ganha vida.": "The Arena comes to life.",
   "PvP 5×5 com resultados calculados no servidor e melhorias de fluidez. APK Android v0.8.2 ainda pendente.": "5v5 PvP with server-computed results and responsiveness improvements. The v0.8.2 Android APK is still pending.",
