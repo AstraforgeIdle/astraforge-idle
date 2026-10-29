@@ -84,7 +84,7 @@ test('public editorial update metadata is current, unique, and has notes pages',
     assert.ok(existsSync(resolve(root,update.path)), 'Missing notes '+update.path);
   }
   assert.equal(content.updates[0].slug,'v0.8.2');
-  assert.equal(content.updates[0].release_confirmed,false);
+  assert.equal(content.updates[0].release_confirmed,true);
   assert.equal(content.updates[1].slug,'v0.8.1');
   assert.equal(content.updates[1].release_confirmed,false);
   assert.equal(content.updates[2].slug,'v0.8.0');
