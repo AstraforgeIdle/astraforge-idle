@@ -107,7 +107,7 @@ test('online beta notes, development preview and cinematic news are linked', () 
   assert.ok(home.includes('class="portal-news"'));
   assert.ok(home.includes('href="updates/v0.8.0/index.html"'));
   assert.ok(home.includes('href="updates/v0.8.1/index.html"'));
-  assert.ok(history.includes('Em desenvolvimento · V0.8.1'));
+  assert.ok(history.includes('Prévia anterior · V0.8.1'));
   assert.ok(existsSync(resolve(root,'updates/v0.8.0/index.html')));
   assert.ok(existsSync(resolve(root,'updates/v0.8.1/index.html')));
   assert.ok(read('updates/v0.8.1/index.html').includes('Ainda não há APK público'));
