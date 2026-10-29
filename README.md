@@ -5,7 +5,8 @@ Site e distribuição pública da versão Android de **Astraryx Idle**, RPG idle
 **Nome atual:** Astraryx Idle (anteriormente Astraforge Idle). Os endereços do GitHub e as notas históricas permanecem inalterados para preservar links e downloads.
 
 **Site:** https://astraryxidle.github.io/  
-**Downloads:** https://github.com/AstraryxIdle/astraryxidle.github.io/releases  
+**Downloads (atuais):** https://github.com/AstraryxIdle/astraryx-releases/releases  
+**Arquivo legado:** https://github.com/AstraryxIdle/astraryxidle.github.io/releases  
 **Comunidade:** https://github.com/AstraryxIdle/astraryxidle.github.io/discussions  
 **Bugs:** https://github.com/AstraryxIdle/astraryxidle.github.io/issues
 
@@ -20,7 +21,7 @@ O menu, os filtros, as mensagens da consulta a GitHub Releases e a faixa de cons
 - Página inicial com os cinco mundos, doze heróis jogáveis e sistemas de evolução.
 - Capturas reais do runtime Godot, com galeria ampliável e filtros.
 - Busca por versão e assunto em [Atualizações](updates/index.html).
-- Consulta **sem autenticação** à API pública do GitHub Releases: o site só exibe download de APK publicado e válido; versões em rascunho não são ofertadas.
+- Consulta **sem autenticação** à API pública do GitHub Releases: primeiro em `astraryx-releases`, com fallback ao repositório antigo; o site só exibe APK publicado, carregado e válido. Releases Beta públicas também são aceitas; rascunhos não são ofertados.
 - Instruções de instalação e atualização do APK Android.
 - Acesso a Discussions e Issues para feedback e suporte.
 
@@ -35,7 +36,7 @@ O menu, os filtros, as mensagens da consulta a GitHub Releases e a faixa de cons
 | `assets/css/site-v3.css` | Refinamentos de layout, navegação e filtros do portal |
 | `app.js` | Menu, galeria, filtros e busca local |
 | `releases.js` | Consulta, seleção e renderização segura dos APKs publicados |
-| `config.js` | Repositório, versão e rota das notas locais |
+| `config.js` | Repositório principal `astraryx-releases`, fallback legado e rota das notas locais |
 | `assets/` | Identidade visual, sprites e capturas de tela |
 | `data/` | Dados editoriais e metadados públicos |
 | `tests/` | Validação automatizada, sem dependências de frontend |
@@ -73,7 +74,7 @@ Além dos testes automatizados, confira menu, download, filtros, ampliação de 
 
 ## Atualizações e publicação
 
-1. Publique a nova APK em uma Release pública do GitHub e confirme a existência do asset `.apk` carregado.
+1. Publique a nova APK em uma Release pública de `AstraryxIdle/astraryx-releases` e confirme que o arquivo `.apk` está anexado. O site prioriza esse repositório e usa o antigo só quando não há APK público válido no principal.
 2. Crie a página de notas em `updates/vX.Y.Z/index.html` e adicione ao índice.
 3. Se a nova versão tiver notas locais no portal, atualize `previewVersion` e `notesPath` em `config.js`.
 4. Sincronize `data/updates.json` e os textos editoriais da homepage, sem presumir funcionalidades ainda não lançadas.
@@ -109,6 +110,6 @@ O script do Google só é carregado **após aceite explícito**. Recusa é lembr
 
 - `sitemap.xml` relaciona homepage, histórico, privacidade e notas arquivadas. Envie `https://astraryxidle.github.io/sitemap.xml` ao Google Search Console caso deseje indexação monitorada.
 - `robots.txt` fica no diretório do **projeto GitHub Pages**: robôs aplicam o arquivo do **raiz do domínio**, não necessariamente `/astraforge-idle/robots.txt`. Não é uma regra global de rastreamento do domínio. O sitemap pode ser submetido diretamente.
-- A homepage usa a API pública de GitHub Releases para destacar a última versão que possua APK público, sem promover rascunhos. Os cartões históricos e suas páginas continuam editoriais e não são reescritos automaticamente.
+- A homepage usa a API pública de `AstraryxIdle/astraryx-releases` para destacar uma Release pública com APK válido, inclusive Beta. Se ainda não houver APK válido nesse repositório, consulta o arquivo de releases antigo; nunca promove rascunhos. Os cartões históricos e suas páginas continuam editoriais e não são reescritos automaticamente.
 - `.github/ISSUE_TEMPLATE/` contém formulários para bugs e sugestões. Para publicá-los o jogador precisa entrar em sua conta GitHub.
 - Sobre o tamanho do APK e assinatura Android, veja `docs/android-apk-checklist.md`.
