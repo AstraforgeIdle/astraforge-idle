@@ -1,5 +1,7 @@
 // Curated English copy for the public website. The original Portuguese stays in HTML.
 const english = {
+  "29/10/2026 · BETA PÚBLICA": "OCT 29, 2026 · PUBLIC BETA",
+  "Combate PvP 5×5, Supabase, medalhas e melhorias de fluidez. Implementação testada; APK Android distribuído via GitHub Releases.": "5v5 PvP combat, Supabase, medals, and improved responsiveness. Tested features; Android APK distributed through GitHub Releases.",
   "29 OUT 2026 · V0.8.2 · ARENA PVP": "OCT 29, 2026 · V0.8.2 · PVP ARENA",
   "PvP 5×5 com resultados calculados no servidor e melhorias de fluidez. Consulte o APK público mais recente na seção de downloads.": "5v5 PvP with server-computed results and responsiveness improvements. Check the latest public APK in the downloads section.",
   "Com a fase online iniciada na v0.8.0, a v0.8.2 amplia a aventura com Arena PvP 5×5 e melhorias de desempenho.": "With the online era launched in v0.8.0, v0.8.2 expands the adventure with 5v5 PvP Arena and performance improvements.",
