@@ -20,7 +20,8 @@ function repositoryUrl(value, config, kind) {
     const url = new URL(value);
     if (url.protocol !== 'https:' || url.origin !== 'https://github.com' || url.username || url.password) return null;
     const parts = url.pathname.split('/').slice(1);
-    if (parts[0]?.toLowerCase() !== config.owner.toLowerCase() || parts[1]?.toLowerCase() !== config.repo.toLowerCase() || parts[2] !== 'releases') return null;
+    const permittedRepos = [config.repo, config.legacyRepo].filter(Boolean);
+    if (parts[0]?.toLowerCase() !== config.owner.toLowerCase() || !permittedRepos.some(repo => parts[1]?.toLowerCase() === repo.toLowerCase()) || parts[2] !== 'releases') return null;
     if (kind === 'apk') {
       if (parts[3] !== 'download' || !parts[4] || parts.length < 6 || !/\.apk$/i.test(decodeURIComponent(parts.at(-1)))) return null;
     } else if (parts[3] !== 'tag' || !parts[4]) return null;
@@ -93,7 +94,7 @@ function nextPageUrl(linkHeader, apiUrl, visited) {
 export async function fetchPublicApkRelease({ fetchImpl = globalThis.fetch, config: options = {}, timeoutMs } = {}) {
   const config = configuration(options);
   if (typeof fetchImpl !== 'function') return { status: 'error' };
-  const apiUrl = `https://api.github.com/repos/${encodeURIComponent(config.owner)}/${encodeURIComponent(config.repo)}/releases?per_page=100`;
+  const configRepos = [config.repo, config.legacyRepo].filter((repo, i, repos) => repo && repos.indexOf(repo) === i);
   const controller = new AbortController();
   let timeoutReached = false;
   let timer;
@@ -105,23 +106,35 @@ export async function fetchPublicApkRelease({ fetchImpl = globalThis.fetch, conf
     }, timeoutMs ?? config.requestTimeoutMs);
   });
   const request = async () => {
-    const releases = [];
-    const visited = new Set();
-    let url = apiUrl;
-    while (url) {
-      visited.add(url);
-      const response = await fetchImpl(url, { method: 'GET', credentials: 'omit',
-        headers: { Accept: 'application/vnd.github+json' }, signal: controller.signal });
-      if (response.status === 403 || response.status === 429) return { status: 'rate_limited' };
-      if (response.status === 404) return { status: 'not_found' };
-      if (!response.ok) return { status: 'error' };
-      const list = await response.json();
-      if (!Array.isArray(list)) return { status: 'error' };
-      releases.push(...list);
-      url = nextPageUrl(response.headers?.get('link'), apiUrl, visited);
+    let failure = 'unavailable';
+    // The dedicated release repository is canonical. Older APKs are a fallback
+    // only when no verified, public Android APK is available there.
+    for (const repo of configRepos) {
+      const apiUrl = `https://api.github.com/repos/${encodeURIComponent(config.owner)}/${encodeURIComponent(repo)}/releases?per_page=100`;
+      const releases = [];
+      const visited = new Set();
+      let url = apiUrl;
+      let repoFailure = null;
+      while (url) {
+        visited.add(url);
+        const response = await fetchImpl(url, { method: 'GET', credentials: 'omit',
+          headers: { Accept: 'application/vnd.github+json' }, signal: controller.signal });
+        if (response.status === 403 || response.status === 429) { repoFailure = 'rate_limited'; break; }
+        if (response.status === 404) { repoFailure = 'not_found'; break; }
+        if (!response.ok) { repoFailure = 'error'; break; }
+        const list = await response.json();
+        if (!Array.isArray(list)) { repoFailure = 'error'; break; }
+        releases.push(...list);
+        url = nextPageUrl(response.headers?.get('link'), apiUrl, visited);
+      }
+      if (repoFailure) {
+        if (failure === 'unavailable') failure = repoFailure;
+        continue;
+      }
+      const release = selectPublicApkRelease(releases, config);
+      if (release) return { status: 'available', release };
     }
-    const release = selectPublicApkRelease(releases, config);
-    return release ? { status: 'available', release } : { status: 'unavailable' };
+    return { status: failure };
   };
   try { return await Promise.race([request(), deadline]); }
   catch { return { status: timeoutReached ? 'timeout' : 'error' }; }
