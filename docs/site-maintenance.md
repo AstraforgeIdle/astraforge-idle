@@ -3,7 +3,7 @@
 ## Princípios da V3
 
 - Prioridade de navegação: **entender o jogo → ver capturas → baixar APK → acompanhar atualizações**.
-- Um CTA principal: download Android. A versão exibida é consultada nas Releases públicas do próprio repositório.
+- Um CTA principal: download Android. A versão exibida é consultada primeiro nas Releases públicas de `AstraryxIdle/astraryx-releases`, com fallback ao arquivo histórico de `AstraryxIdle/astraryxidle.github.io`.
 - Não substituir screenshots reais do Godot por ilustrações genéricas, sprites esticados ou mockups anunciados como captura real.
 - Dar informações objetivas: mundo, faixa de fases, papel dos heróis e instruções de instalação.
 - Separar novidades editoriais (homepage) do histórico detalhado (páginas em `updates/`).
@@ -12,7 +12,7 @@
 
 ## Checklist de nova versão
 
-1. Conferir Release e APK públicos (não rascunho).
+1. Conferir Release e APK públicos anexados em `AstraryxIdle/astraryx-releases` (não rascunho, Betas públicas aceitas).
 2. Registrar notas em `updates/vX.Y.Z/index.html`; manter URLs anteriores funcionando.
 3. Atualizar `updates/index.html`, `data/updates.json` e os cards de destaque do `index.html`.
 4. Ajustar `config.js` para a versão mais recente com notas locais.
