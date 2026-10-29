@@ -23,15 +23,15 @@ test('visitor can reach APK early without losing release validation', () => {
   for (const hook of ['data-release-version','data-release-status','data-release-download','data-release-notes','data-release-action','data-release-size'])
     assert.ok(home.includes(hook), 'Missing release hook: ' + hook);
   assert.match(home,/releases\.js|app\.js/);
-  assert.match(read('config.js'),/previewVersion: '0\.8\.0'/);
+  assert.match(read('config.js'),/previewVersion: '0\.8\.2'/);
   assert.match(read('releases.js'),/selectPublicApkRelease/);
 });
 
-test('v0.8.0 has a visible and accessible notes highlight next to the APK', () => {
+test('v0.8.2 has a visible and accessible notes highlight next to the APK', () => {
   assert.ok(home.includes('class="release-notes-feature"'));
   assert.ok(home.includes('aria-labelledby="release-notes-feature-title"'));
-  assert.ok(home.includes('href="updates/v0.8.0/index.html">Explorar todas as novidades'));
-  assert.ok(home.includes('Astraryx agora está online.'));
+  assert.ok(home.includes('href="updates/v0.8.2/index.html">Explorar todas as novidades'));
+  assert.ok(home.includes('A Arena ganha vida.'));
   const css = read('assets/css/site-v3.css');
   assert.ok(css.includes('.release-notes-feature {'));
   assert.ok(css.includes('@media (max-width:510px)'));
@@ -83,11 +83,11 @@ test('public editorial update metadata is current, unique, and has notes pages',
     paths.add(update.path);
     assert.ok(existsSync(resolve(root,update.path)), 'Missing notes '+update.path);
   }
-  assert.equal(content.updates[0].slug,'v0.8.1');
+  assert.equal(content.updates[0].slug,'v0.8.2');
   assert.equal(content.updates[0].release_confirmed,false);
-  assert.equal(content.updates[1].slug,'v0.8.0');
-  assert.equal(content.updates[1].release_confirmed,true);
-  assert.equal(content.updates[2].slug,'v0.7.7');
+  assert.equal(content.updates[1].slug,'v0.8.1');
+  assert.equal(content.updates[1].release_confirmed,false);
+  assert.equal(content.updates[2].slug,'v0.8.0');
   assert.equal(content.updates[2].release_confirmed,true);
   const currentNotes = read('updates/v0.7.6/index.html');
   for (const marker of ['Dorrik','Convergência do Abismo','Catalisador','Português'])
