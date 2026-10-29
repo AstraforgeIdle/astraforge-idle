@@ -1,6 +1,6 @@
 import { mountReleases } from './releases.js?v=20261029-v082';
 import { mountAnalytics, trackEvent } from './analytics.js';
-import { mountLanguagePicker, t, translateSubtree } from './i18n.js';
+import { mountLanguagePicker, t, translateSubtree } from './i18n.js?v=20261029-v082';
 mountLanguagePicker();
 mountAnalytics();
 document.addEventListener('click', event => {
